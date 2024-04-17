@@ -7,5 +7,5 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'a5f882d89ab791a139cd2d37e50cdd80' => $vendorDir . '/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php',
-    '45a16669595eb3c0a9e2994e57fc3188' => $vendorDir . '/yahnis-elsts/plugin-update-checker/load-v5p3.php',
+    'd05ecc14ff93fd612a81ec7e8ab4c2c9' => $vendorDir . '/yahnis-elsts/plugin-update-checker/load-v5p4.php',
 );
