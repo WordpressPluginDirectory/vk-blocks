@@ -2,9 +2,9 @@
 Contributors: vektor-inc,kurudrive,naoki0h,nc30,una9,kaorock72,rickaddison7634,mimitips,mthaichi,shimotomoki,sysbird,chiakikouno,doshimaf,mtdkei
 Donate link:
 Tags: Gutenberg,FAQ,alert
-Requires at least: 6.2
+Requires at least: 6.3
 Tested up to: 6.5
-Stable tag: 1.73.0.1
+Stable tag: 1.76.0.1
 Requires PHP: 7.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -43,6 +43,7 @@ This is a plugin that extends Gutenberg's blocks.
 * Category Badge [ Pro ]
 * Child page list [ Pro ]
 * Dynamic Text ( Post Type name / Ancestor Page name ) [ Pro ]
+* Fixed Display [ Pro ]
 * Icon Card [ Pro ] (not recommended)
 * Post list [ Pro ]
 * New Badge [ Pro ]
@@ -63,6 +64,7 @@ This is a plugin that extends Gutenberg's blocks.
 * Margin extension
 * Nowrap
 * Responsive BR
+* Columns direction
 * Custom CSS [ Pro ]
 
 [ Settings ]
@@ -103,11 +105,35 @@ e.g.
 
 == Changelog ==
 
+= 1.76.0 =
+[ Add function ] Add Setting for the position of VK Blocks on all block inserter. 
+[ Add function ][ Border Box ] Add title tag setting.
+[ Add function ][ Slider ] Add url interface to block toolbar for slider item.
+[ Specification Change ][ Post List (Pro) ] Displayed taxonomies now only show for selected post types.
+[ Specification Change ][ Responsive Spacer ] Added CSS to remove margins from the default theme.
+[ Bug fix ][ Tab ] Fix background color of tab disappearing when clicking active tab.
+[ Other ] Add toolbar link to components.
+
+= 1.75.1 =
+[ Specification Change ][ Fixed Display (Pro) ] Do not fix the edit screen as it makes editing difficult.
+[ Bug fix ] Fixed an issue where the Pro version could not be activated in an environment where the Free version is active.
+
+= 1.75.0 =
+[ Add Block ][ Fixed Display block (Pro) ] Add Fixed display block.
+[ Bug fix ][ Tab ] Fix the default line style to show the top of the border.
+[ Specification Change ] Delete unnecessary css value  ( We abolished the --vk-size-text and changed it to 1rem. ).
+
+= 1.74.0 =
+[ Specification Change ] Fix block categories order
+[ Specification Change ][ VK Button ] Add unit "percent" for border radius.
+[ Bug fix ][ VK Button ] Fixed button URL being output in editor.
+[ Bug fix ][ Tab (Pro) ] Fix innactive tab color setting.
+
 = 1.73.0 =
 [ Add Block ] Add Tab Block
 [ Add function ][ Columns ] Add direction reverse option.
-[ Add function ][ Button ] Add border radius setting.
-[ Add Function ][ Spacer ][ Common margin ] Add size option XXL/XXS.
+[ Add function ][ VK Button ] Add border radius setting.
+[ Add Function ][ Spacer / Common margin ] Add size option XXL/XXS.
 [ Add function ][ Grid Column Card (Pro) ] Add border width setting to grid column card block.
 [ Add Function ][ Outer (Pro) ] Added option to min height setting.
 [ Specification Change ][ Custom CSS (Pro) ] Changed the custom CSS text area to be wider
