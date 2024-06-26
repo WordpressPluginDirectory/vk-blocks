@@ -70,27 +70,28 @@
         },
         {
             "name": "vektor-inc/font-awesome-versions",
-            "version": "0.5.0",
-            "version_normalized": "0.5.0.0",
+            "version": "0.6.2",
+            "version_normalized": "0.6.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/vektor-inc/font-awesome-versions.git",
-                "reference": "5cf8705fd59082b78cea65ab26f9e8bcd8bde57b"
+                "reference": "b5f198c4d4f4127e8565f83c54b8e16fb6e731cc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/vektor-inc/font-awesome-versions/zipball/5cf8705fd59082b78cea65ab26f9e8bcd8bde57b",
-                "reference": "5cf8705fd59082b78cea65ab26f9e8bcd8bde57b",
+                "url": "https://api.github.com/repos/vektor-inc/font-awesome-versions/zipball/b5f198c4d4f4127e8565f83c54b8e16fb6e731cc",
+                "reference": "b5f198c4d4f4127e8565f83c54b8e16fb6e731cc",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.6.0"
             },
             "require-dev": {
+                "doctrine/instantiator": "^1.5",
                 "wp-phpunit/wp-phpunit": "^5.4",
                 "yoast/phpunit-polyfills": "^1.0"
             },
-            "time": "2023-09-11T07:47:45+00:00",
+            "time": "2024-06-25T07:26:08+00:00",
             "type": "library",
             "installation-source": "dist",
             "autoload": {
@@ -111,7 +112,7 @@
             "description": "Font Awesome",
             "support": {
                 "issues": "https://github.com/vektor-inc/font-awesome-versions/issues",
-                "source": "https://github.com/vektor-inc/font-awesome-versions/tree/0.5.0"
+                "source": "https://github.com/vektor-inc/font-awesome-versions/tree/0.6.2"
             },
             "install-path": "../vektor-inc/font-awesome-versions"
         },
