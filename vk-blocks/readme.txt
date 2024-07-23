@@ -3,8 +3,8 @@ Contributors: vektor-inc,kurudrive,naoki0h,nc30,una9,kaorock72,rickaddison7634,m
 Donate link:
 Tags: Gutenberg,FAQ,alert
 Requires at least: 6.3
-Tested up to: 6.5
-Stable tag: 1.76.2.1
+Tested up to: 6.6
+Stable tag: 1.80.1.2
 Requires PHP: 7.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -66,6 +66,7 @@ This is a plugin that extends Gutenberg's blocks.
 * Responsive BR
 * Columns direction
 * Custom CSS [ Pro ]
+* Link toolber
 
 [ Settings ]
 * Balloon
@@ -105,6 +106,44 @@ e.g.
 
 == Changelog ==
 
+
+= 1.80.1 =
+[ Bug Fix ] Fixed in WordPress 6.4.x / 6.5.x so that blocks can be used.
+[ Design Bug Fix ][ Fixed Display (Pro) ] Add max-width for position top and bottom.
+
+= 1.80.0 =
+[ Add function ][ Outer (Pro) ] Add serrated and large triangle in divider style.
+[ Bug Fix ][ Outer (Pro) ] Add vertical padding variables.
+[ Bug Fix ][ Grid Colum (Pro) ] Fix error
+
+= 1.79.1 =
+[ Bug Fix (Free) ] Fixed an issue where blocks couldn't be used in WordPress 6.6.
+
+= 1.79.0 =
+[ Add function ][ Tab (Pro) ] Add settings for when there are many labels or the screen width is narrow.
+[ Add function ][ Core Group ] Add toolbar link for components by item.
+[ Add function ][ Grid Column (Pro) ] Add toolbar link for components by item.
+[ Add function ][ Slider ] Add 'Wide' to width.
+[ Specification Change ] Hide license key when license key is valid.
+[ Specification Change ][ Category Badge (Pro) ] Enabled taxonomy specification regardless of post type.
+[ Specification Change ][ Slider ] Change padding style to core system from original.
+[ Bug fix ] Fixed an error in the component link toolbar in WordPress version 6.6.
+[ Bug fix ][ Tab (Pro) ] Fixed extra space being added to tabs depending on theme.
+[ Bug fix ][ Fixed Display (Pro) ] Fixed an issue with redundant JavaScript loading in the WordPress 6.5 environment. 
+[ Other ][ Table of Contents (Pro) ] Improved pseudo elements for frontend page accessibility.
+[ Other ][ Outer ] Refactored CSS of width treatment to prevent layout corruption on the edit screen.
+
+= 1.78.0 =
+[ Other ] Attend to WordPress 6.6
+
+= 1.77.0 =
+[ Add function ][ Outer (Pro) ] Add toolbar link for components.
+[ Add function ][ Accordion ] Added initial display state setting.
+[ Specification Change ][ Tab (Pro) ] Accessibility support
+[ Bug fix ][ Table of Contents (Pro) ] Fix "OBJ" characters appeared in the Table of Contents on Windows.
+[ Bug fix ] Delete unnecessary development files included in 1.76.2.
+[ Fix ][ FAQ / FAQ2 ] add aria-label for accessibility
+
 = 1.76.2 =
 [ Specification Change ] Change Font Awesome Version to 6.5.2
 [ Bug fix ] Fix load font awesome files
@@ -122,6 +161,7 @@ e.g.
 [ Specification Change ][ Post List (Pro) ] Displayed taxonomies now only show for selected post types.
 [ Specification Change ][ Responsive Spacer ] Added CSS to remove margins from the default theme.
 [ Bug fix ][ Tab ] Fix background color of tab disappearing when clicking active tab.
+[ Add function ][ Slider Item ] Add toolbar link for components.
 [ Other ] Add toolbar link to components.
 
 = 1.75.1 =
@@ -130,7 +170,7 @@ e.g.
 
 = 1.75.0 =
 [ Add Block ][ Fixed Display block (Pro) ] Add Fixed display block.
-[ Bug fix ][ Tab ] Fix the default line style to show the top of the border.
+[ Bug fix ][ Tab (Pro) ] Fix the default line style to show the top of the border.
 [ Specification Change ] Delete unnecessary css value  ( We abolished the --vk-size-text and changed it to 1rem. ).
 
 
