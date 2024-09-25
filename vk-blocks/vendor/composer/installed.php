@@ -1,9 +1,9 @@
 <?php return array(
     'root' => array(
         'name' => 'vektor/vk-blocks-pro',
-        'pretty_version' => '1.84.0.1',
-        'version' => '1.84.0.1',
-        'reference' => 'a614b697d2645018654aa80b13d600d7d48cd972',
+        'pretty_version' => '1.85.0.3',
+        'version' => '1.85.0.3',
+        'reference' => '5fb418328ea9c1597e1e683ad7fe6d1b0c91044f',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -58,9 +58,9 @@
             'dev_requirement' => false,
         ),
         'vektor-inc/vk-css-optimize' => array(
-            'pretty_version' => '0.2.2',
-            'version' => '0.2.2.0',
-            'reference' => 'a7b2d30b9b54db80e0706c15f9a8005786e35335',
+            'pretty_version' => '0.2.3',
+            'version' => '0.2.3.0',
+            'reference' => '97107832e07dd7c3156fbace05c39ba11b26ba17',
             'type' => 'library',
             'install_path' => __DIR__ . '/../vektor-inc/vk-css-optimize',
             'aliases' => array(),
@@ -94,9 +94,9 @@
             'dev_requirement' => false,
         ),
         'vektor/vk-blocks-pro' => array(
-            'pretty_version' => '1.84.0.1',
-            'version' => '1.84.0.1',
-            'reference' => 'a614b697d2645018654aa80b13d600d7d48cd972',
+            'pretty_version' => '1.85.0.3',
+            'version' => '1.85.0.3',
+            'reference' => '5fb418328ea9c1597e1e683ad7fe6d1b0c91044f',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
