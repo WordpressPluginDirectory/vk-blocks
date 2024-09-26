@@ -5,7 +5,7 @@
  * @package vektor-inc/vk-css-optimize
  * @license GPL-2.0+
  *
- * @version 0.2.3
+ * @version 0.2.5
  */
 
 namespace VektorInc\VK_CSS_Optimize;
@@ -309,6 +309,12 @@ class VkCssOptimize {
 			update_option( 'vk_css_optimize_options', $vk_css_optimize_options );
 		}
 
+		// 0.2.5
+		// VK Blocks 1.85 からテーブルのスクロールヒントのCSSが TreeShaking で正しく処理できず、
+		// その影響で非表示クラスが効かなくなるなどの不具合が発生するため、
+		// 見た目の不具合回避のために応急処置として強制的に TreeShaking を無効化
+		$vk_css_optimize_options['tree_shaking'] = '';
+
 		return $vk_css_optimize_options;
 	}
 
@@ -322,7 +328,7 @@ class VkCssOptimize {
 		// template_redirect が呼ばれる前でのみ実行する .
 		if ( $is_use_themes && did_action( 'template_redirect' ) === 0 ) {
 			// バッファ開始.
-			ob_start( 'self::css_tree_shaking_buffer' );
+			ob_start( array( __CLASS__, 'css_tree_shaking_buffer' ) );
 		}
 		return $is_use_themes;
 	}
