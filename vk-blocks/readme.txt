@@ -4,7 +4,7 @@ Donate link:
 Tags: Gutenberg,FAQ,alert
 Requires at least: 6.3
 Tested up to: 6.6
-Stable tag: 1.88.0.2
+Stable tag: 1.90.0.1
 Requires PHP: 7.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -105,6 +105,18 @@ e.g.
 1. VK Blocks examples.
 
 == Changelog ==
+
+= 1.90.0 =
+[ Add function ][ Outer (Pro) ] Add book and pyramid in divider style.
+[ Bug fix ] The split loading option is now supported for core/heading, core/image, and core/table styles for block editor.
+[ Bug fix ][ Cover ] Fixed an issue where, after setting a link in the Cover block and adding two unstyled headings inside it, the content positioning would not apply upon returning to the editing screen (editing screen only).
+[ Bug fix ][ Slider ] Add alert message.
+
+= 1.89.0 =
+[ Add function ][ Outer (Pro) ] Added support for core text color settings.
+[ Specification Change ][ Accordion (Pro) ] Added the ability to toggle the Accordion block open and close in the editing screen.
+[ Bug fix ][ Grid Column Card (Pro) ] Fixed slider overflow in Grid Column Card Item Body.
+[ Bug fix ][ core/roup ] Fixed an issue where unwanted classes were assigned when links were present in the group block.
 
 = 1.88.0 =
 [ Specification change ][ Grid Column Card (Pro) ] Changed the default settings of headerDisplay and footerDisplay from "Delete" to "Display".
