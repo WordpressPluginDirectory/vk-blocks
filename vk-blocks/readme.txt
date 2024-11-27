@@ -2,9 +2,9 @@
 Contributors: vektor-inc,kurudrive,naoki0h,nc30,una9,kaorock72,rickaddison7634,mimitips,mthaichi,shimotomoki,sysbird,chiakikouno,doshimaf,mtdkei
 Donate link:
 Tags: Gutenberg,FAQ,alert
-Requires at least: 6.3
-Tested up to: 6.6
-Stable tag: 1.90.0.1
+Requires at least: 6.4
+Tested up to: 6.7
+Stable tag: 1.92.0.1
 Requires PHP: 7.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -106,11 +106,31 @@ e.g.
 
 == Changelog ==
 
+= 1.92.0 =
+[ Add Block ] Add Post list Slider block.
+[ Add function ][ Fixed Display (Pro) ] Added a timer feature to control block appearance/disappearance and a "Do not show again for returning visitors" option. Session Storage is used, and no personal data is collected or tracked. Since Session Storage is used, the block may reappear after the browser is closed or in private browsing mode.
+[ Bug Fix ][ Grid Column Card (Pro) ] Fixed only dots being displayed as separators.
+[ Bug fix ][ Post List (Pro) ] Since WordPress 6.7.1 started outputting contain-intrinsic-size: 3000px 1500px, add a reset for this in .card.
+[ Other ][ Slider ] Refactoring editor script.
+
+= 1.91.2 =
+[ Bug fix ] Fix checkbox misalignment in the admin panel.
+
+= 1.91.1 =
+[ Bug fix ] Avoiding translation errors in WordPress 6.7
+
+= 1.91.0 =
+[ Specification change ] Adjusted translation file loading to comply with changes in WordPress 6.7.
+[ Bug fix ][ Table of Contents (Pro) ] Fixed "CLOSE" label not appearing after clicking the "OPEN" button when the initial state is set to "CLOSE".
+
+= 1.90.1 =
+[ Bug fix ][ Cover ] Fixed inline styles not being retained when adding a link.
+
 = 1.90.0 =
 [ Add function ][ Outer (Pro) ] Add book and pyramid in divider style.
 [ Bug fix ] The split loading option is now supported for core/heading, core/image, and core/table styles for block editor.
 [ Bug fix ][ Cover ] Fixed an issue where, after setting a link in the Cover block and adding two unstyled headings inside it, the content positioning would not apply upon returning to the editing screen (editing screen only).
-[ Bug fix ][ Slider ] Add alert message.
+[ Other ][ Slider ] Add alert message.
 
 = 1.89.0 =
 [ Add function ][ Outer (Pro) ] Added support for core text color settings.
