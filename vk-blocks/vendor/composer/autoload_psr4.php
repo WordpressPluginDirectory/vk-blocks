@@ -10,6 +10,7 @@ return array(
     'VektorInc\\VK_Swiper\\' => array($vendorDir . '/vektor-inc/vk-swiper/src'),
     'VektorInc\\VK_Helpers\\' => array($vendorDir . '/vektor-inc/vk-helpers/src'),
     'VektorInc\\VK_Font_Awesome_Versions\\' => array($vendorDir . '/vektor-inc/font-awesome-versions/src'),
+    'VektorInc\\VK_Component\\' => array($vendorDir . '/vektor-inc/vk-component/src'),
     'VektorInc\\VK_Color_Palette_Manager\\' => array($vendorDir . '/vektor-inc/vk-color-palette-manager/src'),
     'VektorInc\\VK_CSS_Optimize\\' => array($vendorDir . '/vektor-inc/vk-css-optimize/src'),
     'VektorInc\\VK_Breadcrumb\\' => array($vendorDir . '/vektor-inc/vk-breadcrumb/src'),

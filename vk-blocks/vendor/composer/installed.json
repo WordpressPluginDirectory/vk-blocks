@@ -255,6 +255,53 @@
             "install-path": "../vektor-inc/vk-color-palette-manager"
         },
         {
+            "name": "vektor-inc/vk-component",
+            "version": "1.6.5",
+            "version_normalized": "1.6.5.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/vektor-inc/vk-components.git",
+                "reference": "a40838c62957501db9bf250ca9b67a021c4b33d5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/vektor-inc/vk-components/zipball/a40838c62957501db9bf250ca9b67a021c4b33d5",
+                "reference": "a40838c62957501db9bf250ca9b67a021c4b33d5",
+                "shasum": ""
+            },
+            "require": {
+                "vektor-inc/vk-term-color": "^0.7.1"
+            },
+            "require-dev": {
+                "wp-phpunit/wp-phpunit": "^6.7",
+                "yoast/phpunit-polyfills": "^3.0"
+            },
+            "time": "2025-01-01T02:17:35+00:00",
+            "type": "library",
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "VektorInc\\VK_Component\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Vektor,Inc.",
+                    "email": "kurudrive@gmail.com"
+                }
+            ],
+            "description": "Vektor Component",
+            "support": {
+                "issues": "https://github.com/vektor-inc/vk-components/issues",
+                "source": "https://github.com/vektor-inc/vk-components/tree/1.6.5"
+            },
+            "install-path": "../vektor-inc/vk-component"
+        },
+        {
             "name": "vektor-inc/vk-css-optimize",
             "version": "0.2.5",
             "version_normalized": "0.2.5.0",
@@ -429,29 +476,29 @@
         },
         {
             "name": "yahnis-elsts/plugin-update-checker",
-            "version": "v5.4",
-            "version_normalized": "5.4.0.0",
+            "version": "v5.5",
+            "version_normalized": "5.5.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/YahnisElsts/plugin-update-checker.git",
-                "reference": "e8e53e6d98e37fa7c895c93417f52e3775494715"
+                "reference": "845d65da93bcff31649ede00d9d73b1beadbb7f0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/YahnisElsts/plugin-update-checker/zipball/e8e53e6d98e37fa7c895c93417f52e3775494715",
-                "reference": "e8e53e6d98e37fa7c895c93417f52e3775494715",
+                "url": "https://api.github.com/repos/YahnisElsts/plugin-update-checker/zipball/845d65da93bcff31649ede00d9d73b1beadbb7f0",
+                "reference": "845d65da93bcff31649ede00d9d73b1beadbb7f0",
                 "shasum": ""
             },
             "require": {
                 "ext-json": "*",
                 "php": ">=5.6.20"
             },
-            "time": "2024-02-24T09:56:49+00:00",
+            "time": "2024-10-16T14:25:00+00:00",
             "type": "library",
             "installation-source": "dist",
             "autoload": {
                 "files": [
-                    "load-v5p4.php"
+                    "load-v5p5.php"
                 ]
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -476,7 +523,7 @@
             ],
             "support": {
                 "issues": "https://github.com/YahnisElsts/plugin-update-checker/issues",
-                "source": "https://github.com/YahnisElsts/plugin-update-checker/tree/v5.4"
+                "source": "https://github.com/YahnisElsts/plugin-update-checker/tree/v5.5"
             },
             "install-path": "../yahnis-elsts/plugin-update-checker"
         }
