@@ -4,7 +4,7 @@ Donate link:
 Tags: Gutenberg,FAQ,alert
 Requires at least: 6.4
 Tested up to: 6.7
-Stable tag: 1.94.0.1
+Stable tag: 1.97.0.2
 Requires PHP: 7.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -108,10 +108,50 @@ e.g.
 
 == Changelog ==
 
+= 1.97.0 =
+[ Add function ][ Animation (Pro) ] Added the "Slide Down" effect to the Animation effect options.
+[ Add function ][ Post List (Pro) / Post List Slider (Pro) ] Added the ability to set sticky posts to display.
+[ Add function ][ Outer (Pro) / Slider ] Added a replace button to allow changing the background image without deleting it.
+[ Add function ][ Button ] Added support for typography settings.
+[ Specification change ] [ Visual Embed ] Added aligncenter when iframeWidth is set to a value other than "100%".
+[ Design Bug Fix ][ Table ] Fixed overlapping borders when using vertical cells, and ensured the border color follows the theme settings.
+[ Editor Design Bug Fix ][ Animation (Pro) / Fixed Display (Pro) / New Badge (Pro) / Category Badge (Pro) ] Fixed elements not becoming semi-transparent when set to be hidden in the editing screen.
+[ Editor Design Bug Fix ][ Ballon ] Fixed a layout distortion issue when enabling the vk_hidden setting in the editor.
+[ Bug fix ][ Ancestor Page List ] Fixed a warning message that appeared on the console when placing blocks.
+
+= 1.96.2 =
+[ Bug fix ][ Post list (Pro) / Post list slider (Pro) / Tab (Pro) / Slider ] Fixed errors occurring regardless of whether the editing screen environment is in an iframe and improved the stability of feature performance.
+[ Bug fix ][ Post list (Pro) / Post list slider (Pro) ] Fixed the text displayed when no posts are available by removing the 's' notation and standardizing the first letter to lowercase.
+[ Other ] Rollback 1.96.0
+
+= 1.96.1 =
+[ Other ] Rollback 1.95.0.3
+
+= 1.96.0 =
+[ Add function ][ Slider / group / Icon / Grid Column Card (Pro) ] Added noreferrer, nofollow, and link description options to the link feature.
+[ Specification change ][ Animation (Pro) / Fixed Display (Pro) / Outer (Pro) ] Added support for layout.allowJustification: false, allowing full-width/wide alignment in block themes where wrapped blocks previously did not appear as full-width or wide in the editor.
+[ Specification change ] Fixed the zoom-out toggle not always displaying in the editor toolbar (updated blocks.json API version from 2 to 3).
+[ Editor Design Bug Fix ][ Tab (Pro) ] Fixed the issue where the block inserter button (block-list-appender) inside the tab block (.vk_tab) was affecting other block inserter buttons.
+[ Editor Design Bug Fix ] [ Grid Column (Pro) ] Fixed an issue where the 'is-vertical' layout of grid column items was not displayed vertically.
+[ Bug fix ][ Icon ] Fixed an unwanted bottom margin appearing.
+
+= 1.95.0 =
+[ Add function ][ Icon / Slider ] Added noreferrer, nofollow, and link description options to the link feature.
+[ Add function ][ Core Table ] Add table cell vertical setting.
+[ Specification Change ][ Page Content ] Modify the specification so that the display is shown only when the referenced page is public.
+[ Editor Design Bug Fix ] [ Grid Column (Pro) ] Fixed an issue where the 'is-vertical' layout of grid column items was not displayed vertically.
+
+= 1.94.2 =
+[ Bug fix / Specification Change ][ Visual Embed ] Strengthened validation for XSS protection and restricted the range of allowed URLs.
+
+= 1.94.1 =
+[ Specification change ][ Visual Embed ] Add margin:0; to iframe tag
+[ Add function ][ Outer (Pro) ] Added the ability to set a focal point for background images.
+
 = 1.94.0 =
 [ Add Block ][ Visual Embed ] Add Visual Embed block.
 [ Add function ][ Grid Column (Pro) ] Added noreferrer, nofollow, and link description options to the link feature.
-[ Add function ][ Fixed Display (Pro) ][ Outer (Pro) ] Added transforms settings to wrap and unwrap for util.
+[ Add function ][ Fixed Display (Pro) / Outer (Pro) ] Added transforms settings to wrap and unwrap for util.
 [ Specification change ][ Animation (Pro) ] Fixed transforms settings to wrap and unwrap for util.
 [ Bug fix ][ Fixed Display (Pro) ] When the number of seconds until display is zero, it will not be displayed again until the browser is closed, but this has been fixed.
 [ Bug fix ][ Fixed Display (Pro) ] Fixed a problem with enabling "Display on Scroll" under certain conditions that caused a recovery error.
@@ -119,7 +159,7 @@ e.g.
 [ Design Bug fix ][ Slider ][ Post List Slider (Pro) ] Fix an issue where full width alignment does not work in tt4 and tt5.
 [ Design Bug Fix ][ Post List Slider (Pro) ] Added bottom margin when the display type is set to "Media" to create spacing between the pagination and the block.
 [ Editor Design Bug Fix ] [ Grid Column Card (Pro) ]Fixed an issue where buttons in vk_gridcolcard_item_footer were not expanding their width when wrapped in an Outer block.
-[ Other ] Load VK Componemts from Composer.
+[ Specification Change ] Load VK Componemts from Composer.
 
 = 1.93.2 =
 [ Bug fix ][ Post List Slider (Pro) ] Fixed sliding behavior when multiple post-list-slider blocks are present.

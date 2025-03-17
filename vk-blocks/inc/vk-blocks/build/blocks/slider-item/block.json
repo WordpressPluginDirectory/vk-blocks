@@ -1,5 +1,5 @@
 {
-  "apiVersion": 2,
+  "apiVersion": 3,
   "name": "vk-blocks/slider-item",
   "title": "Slider Item",
   "description": "This is one item in the slider.",
@@ -48,6 +48,14 @@
       "type": "string"
     },
     "linkTarget": {
+      "type": "string",
+      "default": ""
+    },
+    "relAttribute": {
+      "type": "string",
+      "default": ""
+    },
+    "linkDescription": {
       "type": "string",
       "default": ""
     },
