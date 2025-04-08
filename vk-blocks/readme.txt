@@ -2,9 +2,9 @@
 Contributors: vektor-inc,kurudrive,naoki0h,nc30,una9,kaorock72,rickaddison7634,mimitips,mthaichi,shimotomoki,sysbird,chiakikouno,doshimaf,mtdkei
 Donate link:
 Tags: Gutenberg,FAQ,alert
-Requires at least: 6.4
+Requires at least: 6.5
 Tested up to: 6.7
-Stable tag: 1.97.0.2
+Stable tag: 1.100.0.1
 Requires PHP: 7.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -107,6 +107,24 @@ e.g.
 1. VK Blocks examples.
 
 == Changelog ==
+
+= 1.100.0 =
+[ Add function ][ Dynamic Text (Pro) ] When you set a link URL in the custom field display, you can now specify the link text.
+[ Specification change ][ Dynamic Text (Pro) ] Disable link on edit screen.
+[ Other ][ Table of Contents New ] Improve performance and reliability.
+[ Other ][ Some Block ] Compatible for WordPress 6.8
+[ Bug Fix ][ Flow ] Fix selection state not visible when block is selected (change arrow from CSS to HTML in editor)
+
+= 1.99.0 =
+[ Add function ][ Dynamic Text (Pro) ] Add "Post Slug" as a display element
+[ Add function ][ Column / Cover ] Added noreferrer, nofollow, and link description options to the link feature.
+[ Specification change ][ Some Block ] Change the editor component from Button Group to Toggle Group Control.
+[ Bug Fix ][ Blog Card (Pro) ] Fix PHP 8.x warning caused by missing 'clearCache' key.
+[ Bug Fix ][ Flow ] Fixed image overflow on the frontend and arrow misalignment in the editor.
+[ Bug Fix ][ Core Group ] Fixed blank editor issue when layout is undefined or invalid in some themes.
+
+= 1.98.0 =
+[ Specification change ][ Slider ] Changed slider height minimum from 40px to 24px.
 
 = 1.97.0 =
 [ Add function ][ Animation (Pro) ] Added the "Slide Down" effect to the Animation effect options.
