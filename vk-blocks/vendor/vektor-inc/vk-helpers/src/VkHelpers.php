@@ -5,12 +5,28 @@
  * @package vektor-inc/vk-helpers
  * @license GPL-2.0+
  *
- * @version 0.0.3
+ * @version 0.2.1
  */
 
 namespace VektorInc\VK_Helpers;
 
+/**
+ * VK_Helpers
+ */
 class VkHelpers {
+
+	/**
+	 * Constructor
+	 */
+	private function __construct() {
+		// Composer版じゃない古い VK_Helpers が既にある場合はエイリアスを作成しない.
+		if ( class_exists( 'VK_Helpers' ) ) {
+			return;
+		}
+
+		// Composer版じゃない古い VK_Helpers が使用されている場所でも動作するようにエイリアスを作成.
+		class_alias( '\VektorInc\VK_Helpers\VkHelpers', '\VK_Helpers' );
+	}
 
 	/*
 	get_post_top_info
@@ -40,6 +56,15 @@ class VkHelpers {
 	// }
 	// }
 
+	/**
+	 * Get post top page info
+	 *
+	 * @return array{
+	 *   id: string | int,
+	 *   use: bool,
+	 *   name: string
+	 * } $post_top_info
+	 */
 	public static function get_post_top_info() {
 
 		$post_top_info = array();
@@ -78,9 +103,15 @@ class VkHelpers {
 		// When WooCommerce taxonomy archive page , get_post_type() is does not work properly.
 
 		global $wp_query;
+		global $post;
+
+		// ブロックエディタで投稿タイプを取得するために最初に global $post->post_type から取得
+		// これによりループ内でも該当の投稿の投稿タイプを取得するようになった
+		if ( ! empty( $post->post_type ) ) {
+			$post_type_info['slug'] = $post->post_type;
 		// is_page() は編集画面で正しく動作しない（まぁ正しく動作しなくてもいいんですけど...）のと、
 		// 固定ページはタクソノミーアーカイブなども基本存在しないので get_post_type() を使用する.
-		if ( 'page' === get_post_type() ) {
+		} else if ( 'page' === get_post_type() ) {
 			$post_type_info['slug'] = 'page';
 		} elseif ( ! empty( $wp_query->query_vars['post_type'] ) ) {
 
@@ -106,9 +137,9 @@ class VkHelpers {
 				'span' => array( 'class' => array() ),
 				'b'    => array(),
 			);
-			if ( $post_top_info['use'] && $post_type_info['slug'] == 'post' ) {
+			if ( $post_top_info['use'] && 'post' === $post_type_info['slug'] ) {
 				$post_type_info['name'] = wp_kses( get_the_title( $post_top_info['id'] ), $allowed_html );
-			} elseif ( $woocommerce_shop_page_id && $post_type_info['slug'] == 'product' ) {
+			} elseif ( $woocommerce_shop_page_id && 'product' === $post_type_info['slug'] ) {
 				$post_type_info['name'] = wp_kses( get_the_title( $woocommerce_shop_page_id ), $allowed_html );
 			} else {
 				$post_type_info['name'] = esc_html( $post_type_object->labels->name );
@@ -117,9 +148,9 @@ class VkHelpers {
 
 		// Get custom post type archive url.
 		/*-------------------------------------------*/
-		if ( $post_top_info['use'] && $post_type_info['slug'] == 'post' ) {
+		if ( $post_top_info['use'] && 'post' === $post_type_info['slug'] ) {
 			$post_type_info['url'] = esc_url( get_the_permalink( $post_top_info['id'] ) );
-		} elseif ( $woocommerce_shop_page_id && $post_type_info['slug'] == 'product' ) {
+		} elseif ( $woocommerce_shop_page_id && 'product' === $post_type_info['slug'] ) {
 			$post_type_info['url'] = esc_url( get_the_permalink( $woocommerce_shop_page_id ) );
 		} else {
 			$post_type_info['url'] = esc_url( get_post_type_archive_link( $post_type_info['slug'] ) );
@@ -129,6 +160,13 @@ class VkHelpers {
 		return $post_type_info;
 	}
 
+	/**
+	 * Get Post Taxonomies
+	 *
+	 * @param int   $post_id : post id.
+	 * @param array $args : tax onomies args.
+	 * @return array $taxonomies
+	 */
 	public static function get_display_taxonomies( $post_id = null, $args = null ) {
 		if ( ! $post_id ) {
 			global $post;
@@ -136,7 +174,7 @@ class VkHelpers {
 		}
 		$taxonomies = get_the_taxonomies( $post_id, $args );
 
-		// 非公開のタクソノミーを自動的に除外
+		// 非公開のタクソノミーを自動的に除外.
 		foreach ( $taxonomies as $taxonomy => $value ) {
 			$taxonomy_info = get_taxonomy( $taxonomy );
 			if ( empty( $taxonomy_info->public ) ) {
@@ -245,7 +283,8 @@ class VkHelpers {
 	}
 
 	/**
-	 * 色を比率で明るくしたり暗くする
+	 * [ 非推奨 ] 色を比率で明るくしたり暗くする
+	 * 既にCSSのfilterなどでなどで同じような事ができるため非推奨
 	 *
 	 * @param  string  $color       #あり16進数.
 	 * @param  integer $change_rate 1 が 100%.
@@ -262,36 +301,45 @@ class VkHelpers {
 		$g = hexdec( substr( $color, 2, 2 ) );
 		$b = hexdec( substr( $color, 4, 2 ) );
 
-		// 10進数の状態で変更レートを掛けて dechex で 16進数に戻す.
-		$color_array      = array();
-		$color_array['r'] = dechex( self::color_adjust_under_ff( $r * $change_rate ) );
-		$color_array['g'] = dechex( self::color_adjust_under_ff( $g * $change_rate ) );
-		$color_array['b'] = dechex( self::color_adjust_under_ff( $b * $change_rate ) );
+		$color_array = array();
+		// 10進数の状態で変更レートを掛けて16進数で受け取る.
+		$color_array['r'] = self::color_auto_modifi_single( $r, $change_rate );
+		$color_array['g'] = self::color_auto_modifi_single( $g, $change_rate );
+		$color_array['b'] = self::color_auto_modifi_single( $b, $change_rate );
 
 		$new_color = '#';
 
 		foreach ( $color_array as $key => $value ) {
-			/*
-			桁数が１桁の場合2桁にする（ 16進数を sprintf( "%02x",$value ） しても 00 にされるため文字数が1文字のものに対して0を追加している
-			 */
-			if ( mb_strlen( $value ) < 2 ) {
-				$color_array[ $key ] = '0' . $value;
-			}
 			$new_color .= $color_array[ $key ];
 		}
 		return $new_color;
 	}
 
 	/**
-	 * 色の自動変更で255を越えてしまった時に255に強制的に抑える
+	 * [ 非推奨 ] RGBの個別の色をレートで変換して16進数で返す
+	 * color_auto_modifi でのみ使用されている
 	 *
-	 * @param  [type] $num RGBの10進数の数値.
+	 * @param  string  $color_num : RGBの単色の10進数の数値.
+	 * @param  integer $change_rate : 1 が 100%.
+	 * @return string $color : RGBの単色の16進数の数値.
 	 */
-	public static function color_adjust_under_ff( $num ) {
-		if ( $num > 256 ) {
-			$num = 255;
+	public static function color_auto_modifi_single( $color_num, $change_rate = 1 ) {
+
+		$color_num = $color_num * $change_rate;
+		if ( $color_num >= 255 ) {
+			$color_num = 255;
 		}
-		return $num;
+
+		// レートをかけて四捨五入.
+		$rounded = round( $color_num );
+
+		// 結果を16進数に変換.
+		$hex = dechex( $rounded );
+
+		// 結果がもし1桁なら2桁になるように0で埋める.
+		$color = str_pad( $hex, 2, '0', STR_PAD_LEFT );
+
+		return $color;
 	}
 
 	/**
