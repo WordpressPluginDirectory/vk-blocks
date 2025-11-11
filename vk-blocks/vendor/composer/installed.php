@@ -1,9 +1,9 @@
 <?php return array(
     'root' => array(
         'name' => 'vektor/vk-blocks-pro',
-        'pretty_version' => '1.110.0.1',
-        'version' => '1.110.0.1',
-        'reference' => 'ad074aacd5c7f0b04cb600f41182df99775b90e1',
+        'pretty_version' => '1.114.2.1',
+        'version' => '1.114.2.1',
+        'reference' => '6a6455eea35e774daea4026845cfdaff9a618606',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -22,9 +22,9 @@
             'dev_requirement' => false,
         ),
         'vektor-inc/font-awesome-versions' => array(
-            'pretty_version' => '0.6.2',
-            'version' => '0.6.2.0',
-            'reference' => 'b5f198c4d4f4127e8565f83c54b8e16fb6e731cc',
+            'pretty_version' => '0.6.3',
+            'version' => '0.6.3.0',
+            'reference' => '2f839c995c88d9f862841547450d500565b80212',
             'type' => 'library',
             'install_path' => __DIR__ . '/../vektor-inc/font-awesome-versions',
             'aliases' => array(),
@@ -103,9 +103,9 @@
             'dev_requirement' => false,
         ),
         'vektor/vk-blocks-pro' => array(
-            'pretty_version' => '1.110.0.1',
-            'version' => '1.110.0.1',
-            'reference' => 'ad074aacd5c7f0b04cb600f41182df99775b90e1',
+            'pretty_version' => '1.114.2.1',
+            'version' => '1.114.2.1',
+            'reference' => '6a6455eea35e774daea4026845cfdaff9a618606',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

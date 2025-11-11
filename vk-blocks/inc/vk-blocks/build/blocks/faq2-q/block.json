@@ -12,6 +12,7 @@
     "html": false,
     "anchor": true,
     "className": true,
-    "reusable": false
+    "reusable": false,
+    "lock": false
   }
 }

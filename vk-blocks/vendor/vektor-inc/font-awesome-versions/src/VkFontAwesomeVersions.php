@@ -5,7 +5,7 @@
  * @package vektor-inc/font-awesome-versions
  * @license GPL-2.0+
  *
- * @version 0.5.0
+ * @version 0.6.3
  */
 
 namespace VektorInc\VK_Font_Awesome_Versions;
@@ -164,7 +164,7 @@ class VkFontAwesomeVersions {
 		$versions = array(
 			'6_SVG_JS'       => array(
 				'label'   => '6 SVG with JS ( ' . __( 'Not recommended', 'font-awesome-versions' ) . ' )',
-				'version' => '6.4.2',
+				'version' => '6.6.0',
 				'type'    => 'svg-with-js',
 				/* [ Notice ] use editor css*/
 				'url_css' => $font_awesome_directory_uri . 'versions/6/css/all.min.css',
@@ -172,7 +172,7 @@ class VkFontAwesomeVersions {
 			),
 			'6_WebFonts_CSS' => array(
 				'label'   => '6 Web Fonts with CSS',
-				'version' => '6.4.2',
+				'version' => '6.6.0',
 				'type'    => 'web-fonts-with-css',
 				'url_css' => $font_awesome_directory_uri . 'versions/6/css/all.min.css',
 				'url_js'  => '',
@@ -235,7 +235,7 @@ class VkFontAwesomeVersions {
 		$current_option = self::get_option_fa();
 		if ( '6_WebFonts_CSS' === $current_option || '6_SVG_JS' === $current_option ) {
 			$version = '6';
-			$link    = 'https://fontawesome.com/icons?d=gallery&m=free';
+			$link    = 'https://fontawesome.com/search?ic=free&o=r';
 			if ( ! empty( $example_class_array ['v6'] ) ) {
 				$icon_class = esc_attr( $example_class_array['v6'] );
 			} else {

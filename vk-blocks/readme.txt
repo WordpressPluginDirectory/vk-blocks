@@ -4,7 +4,7 @@ Donate link:
 Tags: Gutenberg,FAQ,alert
 Requires at least: 6.5
 Tested up to: 6.8
-Stable tag: 1.110.0.1
+Stable tag: 1.114.2.1
 Requires PHP: 7.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -107,6 +107,48 @@ e.g.
 1. VK Blocks examples.
 
 == Changelog ==
+
+= 1.114.2 =
+[ Bug fix ][ Grid Column Card (Pro) ] Automatically restore missing header, body, or footer inner blocks when editing with the visual editor.
+[ Bug fix ][ New Badge (Pro) ] Fixed editor display issue where the block was hidden for non-post post types.
+[ Bug fix ][ Core List ] Fixed an issue where line-height settings in the admin screen were not applied when using non-default list styles.
+[ Bug fix ][ Slider ] Fixed slider item order not being preserved when switching editor modes.
+
+= 1.114.1 =
+[ Other ] Add translation
+
+= 1.114.0 =
+[ Add function ][ Fixed Display (Pro) ] Add option to hide the block when the hamburger menu is clicked.
+[ Specification change ][ Accordion (Pro) / New FAQ ] Disabled delete and move buttons for child blocks to prevent users from accidentally operating them.
+[ Bug fix ][ Grid Column Card (Pro) ] Fixed background color palette missing theme and default colors.
+[ Bug fix ] Fixed infinite loop error when template parts containing VK blocks are reused across multiple templates.
+[ Bug fix ] Prevented wp_kses filters from stripping essential input attributes, fixing Bogo language selector checkboxes with VK Blocks Pro enabled.
+[ Bug fix ][ Dynamic Text (Pro) ] Fixed incorrect behavior when the Dynamic Text block is placed inside a Query block on the editing screen.
+[ Bug fix ][ Responsive Spacer ] Remove core classname on transform to Responsive Spacer.
+
+= 1.113.1 =
+[ Other ][ VK Query Extension (Pro) ] Added icon color inversion when "Modified date" order is selected in the right menu panel.
+
+= 1.113.0 =
+[ Add function ][ Core column ] Added a Layout Extensions toggle that limits the block width to half of the content width by applying the is-vk-content-width-half class.
+[ Specification change ][ Fixed Display (Pro) ] When the html tag has the has-modal-open class, the fixed display block will disappear.
+
+= 1.112.1 =
+[ Bug fix ][ Tab (Pro) ] Fixed tab item duplication issue where copied tab items had duplicate anchor links.
+
+= 1.112.0 =
+[ Add function ][ Slider / Post List Slider (Pro) ] Added slide direction setting.
+[ Bug fix ][ Tab (Pro) ] Fixed tab anchor link conflict issue (changed from #tab- to #vk-tab-)
+
+= 1.111.0 =
+[ Add function ][ Core Query (Pro) ] Added "Modified date" as an option for post order. (Pro only)
+[ Add function ][ Table of Contents (Pro) ] Added support for detecting headings from Border Box blocks. Border Box headings (h3-h6) can now be included in the Table of Contents.
+[ Bug fix ] Fix link to FontAwesome icon list to correctly point to the free icons page.
+
+= 1.110.1 =
+[ Bug fix ][ Table of Contents (Pro) ] Fixed an issue where Basic Auth login screen would not disappear on sites with Basic Auth enabled.
+[ Design bug fix ][ Animation (Pro) / Fixed Display (Pro) ] Fixed overlapping of the top-right label and the "Add block" button in the editor screen.
+[ Design bug fix ][ Core Group ] Fixed an issue where text color settings in group blocks were not inherited by child elements for classic theme.
 
 = 1.110.0 =
 [ Add function ][ Tab (Pro) ] Added tab anchor link functionality.
