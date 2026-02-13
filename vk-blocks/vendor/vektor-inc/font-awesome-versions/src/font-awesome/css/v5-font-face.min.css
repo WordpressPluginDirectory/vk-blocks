@@ -1,0 +1,9 @@
+/*!
+ * Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com
+ * License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
+ * Copyright 2025 Fonticons, Inc.
+ */
+
+/* .editor-styles-wrapper がないと 5.9 のブロックパターン挿入プレビューやタブレットで読み込まれない(2022.2.1現在)ので応急対応 */
+.editor-styles-wrapper{}
+@font-face{font-family:"Font Awesome 5 Brands";font-display:block;font-weight:400;src:url(../webfonts/fa-brands-400.woff2) format("woff2")}@font-face{font-family:"Font Awesome 5 Free";font-display:block;font-weight:900;src:url(../webfonts/fa-solid-900.woff2) format("woff2")}@font-face{font-family:"Font Awesome 5 Free";font-display:block;font-weight:400;src:url(../webfonts/fa-regular-400.woff2) format("woff2")}

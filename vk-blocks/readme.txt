@@ -3,8 +3,8 @@ Contributors: vektor-inc,kurudrive,naoki0h,nc30,una9,kaorock72,rickaddison7634,m
 Donate link:
 Tags: Gutenberg,FAQ,alert
 Requires at least: 6.5
-Tested up to: 6.8
-Stable tag: 1.114.2.1
+Tested up to: 6.9
+Stable tag: 1.116.1.1
 Requires PHP: 7.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -108,6 +108,45 @@ e.g.
 
 == Changelog ==
 
+= 1.116.1 =
+[ Bug fix ][ Fixed Display (Pro) ] Fixed an issue where guest actions could affect other visitors' fixed display visibility.
+[ Design Bug fix ][ Core Group ] Fixed issue where horizontal scroll cannot scroll fully when horizontal group blocks are nested inside scrollable group blocks.
+
+= 1.116.0 =
+[ Add function ][ Core Group ] Add scroll hint for horizontal scrolling.
+[ Add function ] Add support for custom colors in the color palette.
+[ Add function ][ Blog Card Title (Pro) ] Added paragraph (p) tag option in addition to heading tags (h1-h6).
+[ Add function ][ Page List Ancestor ] Add color / space / border support
+[ Add function ][ Icon ] Added inherit parent element color option as default.
+[ Specification change ][ Slider item ] Fix Padding Control.
+[ Specification change ][ Select Post List ] Disabled links on the edit screen.
+[ Bug Fix ] Fixed an issue where, if the Font Awesome version could not be retrieved, the editor icon label would incorrectly display only “( )” at the end.
+[ Bug fix ][ Tab (Pro) ] Fixed an issue where FontAwesome icons configured in the editor settings panel were not displayed in tab labels.
+[ Bug fix ] Fix link to FontAwesome icon list to use new URL format for v7.
+[ Design Bug fix ][ Fixed Display (Pro) ] Fixed admin bar positioning for from-top/from-bottom positions.
+[ Other ][ Import Export Tool ] Removed license key from export settings. The license key checkbox has been removed from the export form, and exported JSON files will have an empty string for the license key field.
+
+= 1.115.2 =
+[ Bug fix ][ Slider item ] Fix width control.
+[ Other ] Font Awesome 7.1.0 support
+
+= 1.115.1 =
+[ Specification change ][ Step ( Pro) ] Added an “Add step item” appender button to the Step block’s inner blocks 
+[ Specification change ][ Selected Post List (Pro) ] Disabled links on the edit screen.
+[ Bug fix ] Fix Font Awesome icons page link
+[ Bug fix ][ Slider ] Fix background zoom animation on iOS 26.2
+[ Bug fix ][ Highlighter / Inline Font Size ] Fixed icons that were incorrectly displaying VK icon instead of their respective icons.
+
+= 1.115.0 =
+[ Add function ][ Outer (Pro) ] Added HTML tag selection option.
+[ Specification change ][ Image / Flow / Balloon ] Reduce unnecessary style loads during split loading.
+[ Specification change ][ Slider / Outer ( Pro ) ] Add reset button on height setting panel.
+[ Bug fix ][ Outer ( Pro ) ] Fixed an issue where the layout broke in the editor.
+[ Design Bug Fix ][ Core Social Links ] Fixed unnecessary left padding for list block.
+[ Other ][ Import Export Tool ] Removed license key from export settings. The license key checkbox has been removed from the export form, and exported JSON files will have an empty string for the license key field.
+[ Other ] Refactored VK icons and style settings used in panels and toolbar buttons into a shared component.
+[ Other ][ Link Toolbar ] Improved CSS loading efficiency in split loading mode.
+
 = 1.114.2 =
 [ Bug fix ][ Grid Column Card (Pro) ] Automatically restore missing header, body, or footer inner blocks when editing with the visual editor.
 [ Bug fix ][ New Badge (Pro) ] Fixed editor display issue where the block was hidden for non-post post types.
@@ -152,10 +191,10 @@ e.g.
 
 = 1.110.0 =
 [ Add function ][ Tab (Pro) ] Added tab anchor link functionality.
-[ Design Bug Fix ][ Card (Pro) / Editor ] Scoped .vk_posts width rules to top-level children so nested blocks (e.g., Accordion) expand to full width.
 [ Specification change ][ Blog Card (Pro) ] Relax WordPress standard embed restrictions and add security validation
 [ Specification change ][ Category Badge (Pro) ] Modified to allow selection of non-hierarchical custom taxonomies.
 [ Bug fix ][ Table of Contents (Pro) ] Fixed an issue where after changing VK Blocks Settings > Table of Contents block settings, previewing from the editor still used the previous heading levels.
+[ Design Bug Fix ][ Card (Pro) / Editor ] Scoped .vk_posts width rules to top-level children so nested blocks (e.g., Accordion) expand to full width.
 
 = 1.109.2 =
 [ Bug fix ][ Table of Contents (Pro) ] Fixed an issue where global heading level settings were not applied when "Use custom heading levels" was disabled in subdirectory installations.
@@ -251,9 +290,9 @@ e.g.
 = 1.100.0 =
 [ Add function ][ Dynamic Text (Pro) ] When you set a link URL in the custom field display, you can now specify the link text.
 [ Specification change ][ Dynamic Text (Pro) ] Disable link on edit screen.
+[ Bug Fix ][ Flow ] Fix selection state not visible when block is selected (change arrow from CSS to HTML in editor)
 [ Other ][ Table of Contents New (Pro)] Improve performance and reliability.
 [ Other ][ Some Block ] Compatible for WordPress 6.8
-[ Bug Fix ][ Flow ] Fix selection state not visible when block is selected (change arrow from CSS to HTML in editor)
 
 = 1.99.0 =
 [ Add function ][ Dynamic Text (Pro) ] Add "Post Slug" as a display element.
@@ -272,10 +311,10 @@ e.g.
 [ Add function ][ Outer (Pro) / Slider ] Added a replace button to allow changing the background image without deleting it.
 [ Add function ][ Button ] Added support for typography settings.
 [ Specification change ][ Visual Embed ] Added aligncenter when iframeWidth is set to a value other than "100%".
+[ Bug fix ][ Ancestor Page List ] Fixed a warning message that appeared on the console when placing blocks.
 [ Design Bug Fix ][ Table ] Fixed overlapping borders when using vertical cells, and ensured the border color follows the theme settings.
 [ Editor Design Bug Fix ][ Animation (Pro) / Fixed Display (Pro) / New Badge (Pro) / Category Badge (Pro) ] Fixed elements not becoming semi-transparent when set to be hidden in the editing screen.
 [ Editor Design Bug Fix ][ Balloon ] Fixed a layout distortion issue when enabling the vk_hidden setting in the editor.
-[ Bug fix ][ Ancestor Page List ] Fixed a warning message that appeared on the console when placing blocks.
 
 = 1.96.2 =
 [ Bug fix ][ Post list (Pro) / Post list slider (Pro) / Tab (Pro) / Slider ] Fixed errors occurring regardless of whether the editing screen environment is in an iframe and improved the stability of feature performance.
@@ -289,9 +328,9 @@ e.g.
 [ Add function ][ Slider / group / Icon / Grid Column Card (Pro) ] Added noreferrer, nofollow, and link description options to the link feature.
 [ Specification change ][ Animation (Pro) / Fixed Display (Pro) / Outer (Pro) ] Added support for layout.allowJustification: false, allowing full-width/wide alignment in block themes where wrapped blocks previously did not appear as full-width or wide in the editor.
 [ Specification change ] Fixed the zoom-out toggle not always displaying in the editor toolbar (updated blocks.json API version from 2 to 3).
+[ Bug fix ][ Icon ] Fixed an unwanted bottom margin appearing.
 [ Editor Design Bug Fix ][ Tab (Pro) ] Fixed the issue where the block inserter button (block-list-appender) inside the tab block (.vk_tab) was affecting other block inserter buttons.
 [ Editor Design Bug Fix ][ Grid Column (Pro) ] Fixed an issue where the 'is-vertical' layout of grid column items was not displayed vertically.
-[ Bug fix ][ Icon ] Fixed an unwanted bottom margin appearing.
 
 = 1.95.0 =
 [ Add function ][ Icon / Slider ] Added noreferrer, nofollow, and link description options to the link feature.
@@ -303,8 +342,8 @@ e.g.
 [ Bug fix / Specification Change ][ Visual Embed ] Strengthened validation for XSS protection and restricted the range of allowed URLs.
 
 = 1.94.1 =
-[ Specification change ][ Visual Embed ] Add margin:0; to iframe tag.
 [ Add function ][ Outer (Pro) ] Added the ability to set a focal point for background images.
+[ Specification change ][ Visual Embed ] Add margin:0; to iframe tag.
 
 = 1.94.0 =
 [ Add Block ][ Visual Embed ] Add Visual Embed block.
@@ -786,7 +825,7 @@ e.g.
 [ Add function ][ Button ] Add Button Effect option in Solid color button.
 [ Specification change ][ Post List (Pro) ] Change to don't display unpublic posttype and terms list.
 [ Bug fix ][ Grid Column Card(Pro) ] Fixed a bug that css for editor was displayed in front.
-[ Bug fix ][ Select Post List Item (Pro) ] Fixed a bug where additional CSS classes were not attached.
+[ Bug fix ][ Selected Post List Item (Pro) ] Fixed a bug where additional CSS classes were not attached.
 
 = 1.43.0 =
 [ Add function ][ Spacer ][ Common margin ] Add size option xl/xs.
@@ -1008,7 +1047,7 @@ Change stable version
 = 1.24.0 =
 [ fix ][ Icon outer ] add orientation horizontal & fix appender
 [ fix ][ Card(Pro) ] add orientation horizontal & fix appender
-[ fix ][ selected post list(Pro) ] add orientation horizontal & fix appender
+[ fix ][ Selected Post List (Pro) ] add orientation horizontal & fix appender
 [ fix ][ Button outer(Pro) ] add orientation horizontal & fix appender
 [ fix ][ Icon Card(Pro) ] add orientation horizontal & fix appender
 [ fix ][ Grid column(Pro) ] add orientation horizontal & fix appender
@@ -1029,7 +1068,7 @@ Change stable version
 [ Bug fix ][ core/heading ] fix width
 
 = 1.22.2 =
-[ Bug fix ][ selected post list(Pro) ] fix post id
+[ Bug fix ][ Selected Post List (Pro) ] fix post id
 
 = 1.22.1 =
 Cope with WordPress 5.9
@@ -1259,8 +1298,8 @@ Cope with WordPress 5.9
 
 = 1.4.0 =
 [ Improvement ][ title ] Convert to VK Blocks Title from core title block
-[ Improvement ][ Select Post List Item ]setting from toolbar and enable search URL
-[ Bug fix ][ translate ] in Select Post List Item
+[ Improvement ][ Selected Post List Item ]setting from toolbar and enable search URL
+[ Bug fix ][ translate ] in Selected Post List Item
 [ Bug fix ][ New FAQ ] Fix multiple select
 [ Bug fix ][ Accordion ] Fix multiple select
 [ Specification change ][ Border Box ] Delete margin-top from first element / delete margin-bottom from last element

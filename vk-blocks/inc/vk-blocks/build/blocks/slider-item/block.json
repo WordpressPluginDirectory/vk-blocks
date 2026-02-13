@@ -59,6 +59,10 @@
       "type": "string",
       "default": ""
     },
+    "contentWidth": {
+      "type": "boolean",
+      "default": false
+    },
     "clientId": {
       "type": "string"
     },

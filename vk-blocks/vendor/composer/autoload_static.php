@@ -4,15 +4,15 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit762d036cae2da0c0c315316ca8d2b828
+class ComposerStaticInitb7ef50fd3fff45b0af2fa20fc68c6f2e
 {
     public static $files = array (
         'a5f882d89ab791a139cd2d37e50cdd80' => __DIR__ . '/..' . '/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php',
-        '256558b1ddf2fa4366ea7d7602798dd1' => __DIR__ . '/..' . '/yahnis-elsts/plugin-update-checker/load-v5p5.php',
+        'f6d4f6bcee7247df6b777884c3e22f98' => __DIR__ . '/..' . '/yahnis-elsts/plugin-update-checker/load-v5p6.php',
     );
 
     public static $prefixLengthsPsr4 = array (
-        'V' => 
+        'V' =>
         array (
             'VektorInc\\VK_Term_Color\\' => 24,
             'VektorInc\\VK_Swiper\\' => 20,
@@ -27,39 +27,39 @@ class ComposerStaticInit762d036cae2da0c0c315316ca8d2b828
     );
 
     public static $prefixDirsPsr4 = array (
-        'VektorInc\\VK_Term_Color\\' => 
+        'VektorInc\\VK_Term_Color\\' =>
         array (
             0 => __DIR__ . '/..' . '/vektor-inc/vk-term-color/src',
         ),
-        'VektorInc\\VK_Swiper\\' => 
+        'VektorInc\\VK_Swiper\\' =>
         array (
             0 => __DIR__ . '/..' . '/vektor-inc/vk-swiper/src',
         ),
-        'VektorInc\\VK_Helpers\\' => 
+        'VektorInc\\VK_Helpers\\' =>
         array (
             0 => __DIR__ . '/..' . '/vektor-inc/vk-helpers/src',
         ),
-        'VektorInc\\VK_Font_Awesome_Versions\\' => 
+        'VektorInc\\VK_Font_Awesome_Versions\\' =>
         array (
             0 => __DIR__ . '/..' . '/vektor-inc/font-awesome-versions/src',
         ),
-        'VektorInc\\VK_Component\\' => 
+        'VektorInc\\VK_Component\\' =>
         array (
             0 => __DIR__ . '/..' . '/vektor-inc/vk-component/src',
         ),
-        'VektorInc\\VK_Color_Palette_Manager\\' => 
+        'VektorInc\\VK_Color_Palette_Manager\\' =>
         array (
             0 => __DIR__ . '/..' . '/vektor-inc/vk-color-palette-manager/src',
         ),
-        'VektorInc\\VK_CSS_Optimize\\' => 
+        'VektorInc\\VK_CSS_Optimize\\' =>
         array (
             0 => __DIR__ . '/..' . '/vektor-inc/vk-css-optimize/src',
         ),
-        'VektorInc\\VK_Breadcrumb\\' => 
+        'VektorInc\\VK_Breadcrumb\\' =>
         array (
             0 => __DIR__ . '/..' . '/vektor-inc/vk-breadcrumb/src',
         ),
-        'VektorInc\\VK_Admin\\' => 
+        'VektorInc\\VK_Admin\\' =>
         array (
             0 => __DIR__ . '/..' . '/vektor-inc/vk-admin/src',
         ),
@@ -85,9 +85,9 @@ class ComposerStaticInit762d036cae2da0c0c315316ca8d2b828
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit762d036cae2da0c0c315316ca8d2b828::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit762d036cae2da0c0c315316ca8d2b828::$prefixDirsPsr4;
-            $loader->classMap = ComposerStaticInit762d036cae2da0c0c315316ca8d2b828::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInitb7ef50fd3fff45b0af2fa20fc68c6f2e::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInitb7ef50fd3fff45b0af2fa20fc68c6f2e::$prefixDirsPsr4;
+            $loader->classMap = ComposerStaticInitb7ef50fd3fff45b0af2fa20fc68c6f2e::$classMap;
 
         }, null, ClassLoader::class);
     }
