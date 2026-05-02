@@ -65,7 +65,7 @@ class VkFontAwesomeVersions {
 		/* admin init だと use_block_editor_for_post が効かない */
 		add_action( 'admin_enqueue_scripts', array( __CLASS__, 'load_admin_font_awesome' ) );
 
-		add_action( 'enqueue_block_editor_assets', array( __CLASS__, 'load_gutenberg_font_awesome' ) );
+		add_action( 'enqueue_block_assets', array( __CLASS__, 'load_gutenberg_font_awesome' ) );
 		add_action( 'wp_head', array( __CLASS__, 'dynamic_css' ), 3 );
 		add_filter( 'body_class', array( __CLASS__, 'add_body_class_fa_version' ) );
 	}
@@ -112,11 +112,36 @@ class VkFontAwesomeVersions {
 			$path = wp_normalize_path( __DIR__ );
 		}
 
-		// ファイルのパスの wp-content より前の部分を site_url() に置換する
-		// ABSPATH の部分を site_url() に置換したいところだが、ABSPATHは WordPress.com で /wordpress/core/5.9.3/ のような返し方をされて、一般的なサーバーのパスとは異なるので、置換などには使用しない.
-		preg_match( '/(.*)(wp-content.*)/', $path, $matches, PREG_OFFSET_CAPTURE );
-		if ( ! empty( $matches[2][0] ) ) {
-			$uri = site_url( '/' ) . $matches[2][0] . '/';
+		// WP_PLUGIN_DIR / WPMU_PLUGIN_DIR / テーマルート / WP_CONTENT_DIR は
+		// それぞれ独立にカスタマイズ可能なため、より具体的なディレクトリから順にマッチさせて URL を生成する。
+		$directories = array(
+			array(
+				'dir' => wp_normalize_path( WP_PLUGIN_DIR ),
+				'url' => plugins_url(),
+			),
+			array(
+				'dir' => wp_normalize_path( WPMU_PLUGIN_DIR ),
+				'url' => WPMU_PLUGIN_URL,
+			),
+			array(
+				'dir' => wp_normalize_path( get_theme_root() ),
+				'url' => get_theme_root_uri(),
+			),
+			array(
+				'dir' => wp_normalize_path( WP_CONTENT_DIR ),
+				'url' => content_url(),
+			),
+		);
+
+		foreach ( $directories as $directory ) {
+			// ディレクトリ境界を正しく判定するため、末尾にスラッシュを付与して比較する。
+			// 例: /wp-content/plugins が /wp-content/plugins-extra に誤マッチしないようにする。
+			$dir_with_slash = rtrim( $directory['dir'], '/' ) . '/';
+			if ( strpos( $path, $dir_with_slash ) === 0 || $path === $directory['dir'] ) {
+				$relative_path = substr( $path, strlen( $directory['dir'] ) );
+				$uri           = $directory['url'] . $relative_path . '/';
+				break;
+			}
 		}
 
 		return $uri;
@@ -402,6 +427,9 @@ class VkFontAwesomeVersions {
 	 * @return void
 	 */
 	public static function load_gutenberg_font_awesome() {
+		if ( ! is_admin() ) {
+			return;
+		}
 		$current_info = self::current_info();
 		$options = self::get_option_fa();
 		wp_enqueue_style( 'gutenberg-font-awesome', $current_info['url_css'], array(), $current_info['version'] );

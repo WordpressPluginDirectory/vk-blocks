@@ -1,0 +1,21 @@
+{
+	"name": "vektor-inc/vk-helpers",
+	"description": "WordPress Helpers Class",
+	"license": "GPL-2.0+",
+	"autoload": {
+		"psr-4": {
+			"VektorInc\\VK_Helpers\\": "src/"
+		}
+	},
+	"authors": [
+		{
+			"name": "Vektor,Inc.",
+			"email": "kurudrive@gmail.com"
+		}
+	],
+	"require-dev": {
+		"doctrine/instantiator": "1.5.0",
+		"wp-phpunit/wp-phpunit": "^5.4",
+		"yoast/phpunit-polyfills": "^1.1.0"
+	}
+}

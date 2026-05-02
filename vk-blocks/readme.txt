@@ -4,7 +4,7 @@ Donate link:
 Tags: Gutenberg,FAQ,alert
 Requires at least: 6.5
 Tested up to: 6.9
-Stable tag: 1.117.0.1
+Stable tag: 1.118.7
 Requires PHP: 7.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -108,7 +108,47 @@ e.g.
 
 == Changelog ==
 
+= 1.118.7 =
+[ Other ] Internal release pipeline fix. No changes to plugin functionality.
+
+= 1.118.6 =
+[ Other ] Added a `.distignore` file to exclude development files (such as build configs, tests, AI assistant configs, and bundled vendor demo files) from the distributed plugin package.
+[ Other ] Added License and License URI declarations to the plugin file header to comply with the WordPress.org Plugin Directory review requirements.
+[ Spec Change ] Included composer.json in the distributed plugin zip to comply with the WordPress.org plugin review guideline that requires bundling composer.json when Composer is used.
+[ Spec Change ] Excluded the `yahnis-elsts/plugin-update-checker` library from the free version distribution package to comply with the WordPress.org plugin guideline that prohibits external update checks for plugins hosted on WordPress.org.
+
+= 1.118.5 =
+[ Bug Fix ][ Slider ] Fixed an issue where loop mode caused slides to disappear when "Centering the active slide" was enabled with an even number of items per view (e.g. 2). Swiper internally increments even slidesPerView to the next odd number in this case, raising the minimum required slide count. Loop is now automatically disabled when the slide count is insufficient.
+[ Bug fix ][ Outer ( Pro ) ] Fixed an issue where "Fit to the Content area" padding did not work on block themes (TT3, TT4, etc.).
+[ Bug fix ][ Outer ( Pro ) ] Fixed an issue where "Fit to the Content area" did not constrain content width on classic themes without contentSize (e.g. Lightning Pro G2).
+[ Bug fix ][ Highlighter ] Fixed an issue where the highlighter color was removed when a post was saved by a user without the `unfiltered_html` capability (e.g. Author role, or any user on multisite).
+[ Other ][ Blog Card ( Pro ) / Visual Embed ] Compatible for WordPress 7.0 Real-Time Collaboration.
+
+= 1.118.4 =
+[ Bug fix ][ Grid Column / Grid Column Card ( Pro ) ] Fixed an issue where the block editor crashed with "This block has encountered an error" when certain third-party plugins were active.
+[ Bug Fix ][ Table of Contents ( Pro ) ] Fixed OPEN/CLOSE toggle not working when separate asset loading is disabled.
+
+= 1.118.3 =
+[ Bug Fix ][ Table of Contents Block ( Pro ) ] Fixed a missing translation in the numbering settings.
+
+= 1.118.2 =
+[ Bug fix ] Excluded Pro-specific PHPUnit tests from the free version test pipeline.
+
+= 1.118.1 =
+[ Bug fix ] Removed unnecessary language files from the free version distribution package.
+
+= 1.118.0 =
+[ Bug fix ][ Link toolbar ] Fixed an issue where "Link to post" did not work in the free version (VK Blocks) because the initialization was only in the Pro-specific file.
+[ Add function ][ Table of Contents ( Pro ) ] Added numbering style option (Auto / H2 only / None) to both global settings and per-block settings.
+[ Bug fix ][ Alert / Step ( Pro ) / Icon / Icon Card ( Pro ) / PR Blocks / Border Box / Heading / Button / PR Content ] Fixed broken Font Awesome icons to be restored automatically.
+[ Design Bug fix ] Added left margin to the VK icon displayed in block settings panels.
+
+= 1.117.1 =
+[ Bug fix ][ Table of Contents ( Pro ) ] Fixed an issue where duplicating the block caused the open/close toggle to malfunction due to duplicate checkbox IDs.
+[ Bug fix ][ Table of Contents ( Pro ) ] Fixed an issue where CSS classes (button_status-open/close, tab_content-open/close) did not switch when toggling the open/close button.
+
 = 1.117.0 =
+[ Design Bug fix ][ Core Group ] Fixed an issue where text color set on a nested group block was overridden by the parent group's text color.
 [ Add function ][ Tab ( Pro ) / Core Group / Core Table ] Added scrollbar customization options (color change and hide/show) for horizontal scroll feature.
 [ Add function ][ Link toolbar ] Added "Link to post" for Icon, Button, Outer, Group, and Cover when the block is inside a Query Loop (so the link points to the current post in the loop).
 [ Add function ][ Icon ] Icon block now supports Font Awesome rotate and flip classes.
@@ -123,6 +163,7 @@ e.g.
 = 1.116.1 =
 [ Bug fix ][ Fixed Display (Pro) ] Fixed an issue where guest actions could affect other visitors' fixed display visibility.
 [ Design Bug fix ][ Core Group ] Fixed issue where horizontal scroll cannot scroll fully when horizontal group blocks are nested inside scrollable group blocks.
+[ Other ][ Slider ] Fix Typo
 
 = 1.116.0 =
 [ Add function ][ Core Group ] Add scroll hint for horizontal scrolling.
