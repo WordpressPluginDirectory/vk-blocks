@@ -9,6 +9,7 @@ import save1_39_2 from './1.39.2/save';
 import save1_43_0 from './1.43.0/save';
 import save1_70_1 from './1.70.1/save';
 import save1_72_1 from './1.72.1/save';
+import save1_122_0 from './1.122.0/save';
 
 const blockAttributes = {
 	content: {
@@ -166,18 +167,50 @@ const blockAttributes12 = {
 	},
 }
 
-/*
 // v1.105.1 リンク機能の追加に伴う属性の追加
 const blockAttributes13 = {
 	...blockAttributes12,
 	relAttribute: {
 		type: 'string',
+		default: '',
+	},
+	// v1.117.0 投稿リンク機能の追加に伴う属性の追加
+	linkToPost: {
+		type: 'boolean',
+		default: false,
+	},
+	// v1.121.0 ホバー色設定の追加に伴う属性の追加
+	buttonHoverBgColorCustom: {
+		type: 'string',
+	},
+	buttonHoverTextColorCustom: {
+		type: 'string',
+	},
+	// [ ボタン ] サイズ 5 段階化に伴う任意の文字サイズ指定属性の追加 #2986
+	fontSizeValue: {
+		type: 'string',
 		default: null,
 	},
-}
-*/
+	// [ ボタン ] リンク先をカスタムフィールドから取得する機能の追加に伴う属性の追加 #2544
+	linkToCustomField: {
+		type: 'boolean',
+		default: false,
+	},
+	linkCustomFieldName: {
+		type: 'string',
+		default: '',
+	},
+};
+
+// buttonBorderColorCustom / buttonHoverBorderColorCustom 未設定時は
+// wrapper class と style 出力が変わらないため、deprecated save は追加しない。
+// No deprecated save is added because an unset value leaves the wrapper class and style output unchanged.
 
 export const deprecated = [
+	{
+		attributes: blockAttributes13,
+		save: save1_122_0,
+	},
 	{
 		attributes: blockAttributes12,
 		save: save1_72_1,

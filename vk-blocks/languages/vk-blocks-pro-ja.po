@@ -14,6 +14,7 @@ msgstr ""
 "X-Generator: Poedit 3.9\n"
 
 #: src/blocks/slider/edit-multiItem.js:358
+#. %s: name of the feature that is enabled (e.g. "Fade Effect" or "Background Image Zoom Animation")
 msgid "%s is enabled, so multi-item settings cannot be configured."
 msgstr "%s が有効になっているため、複数の項目の設定はできません。"
 
@@ -29,8 +30,8 @@ msgstr "（PC）"
 msgid "(Tablet)"
 msgstr "（タブレット）"
 
-#. (e.g.) %s-block-style
 #: src/admin/custom-block-style/add-button/set-property-name.js:94
+#. (e.g.) %s-block-style
 msgid "(e.g.) %s-block-style"
 msgstr "(例) %s-block-style"
 
@@ -38,19 +39,21 @@ msgstr "(例) %s-block-style"
 msgid "(e.g.) vk-format-1"
 msgstr "(例) vk-format-1"
 
+#: src/components/post-exclusion-control/index.js:94
+msgid "(no title)"
+msgstr "(タイトルなし)"
+
 #: src/components/display-condition/index.js:353
 msgid ""
-"* If you choose a future period, you will need to customize it so that future posts "
-"will be published immediately."
-msgstr ""
-"※ 未来の期間を選択する場合は、未来の投稿が即時公開になるように別途カスタマイズが必要"
-"です。"
+"* If you choose a future period, you will need to customize it so that "
+"future posts will be published immediately."
+msgstr "※ 未来の期間を選択する場合は、未来の投稿が即時公開になるように別途カスタマイズが必要です。"
 
 #: src/blocks/_pro/outer/edit.js:1180
 msgid ""
-"* If you select \"Do not use\" that, please set yourself it such as a spacer block."
-msgstr ""
-"*「使用しない」を選択した場合はスペーサーブロックなどで任意に設定してください。"
+"* If you select \"Do not use\", set the padding yourself, for example with "
+"a Spacer block."
+msgstr "*「使用しない」を選択した場合はスペーサーブロックなどで任意に設定してください。"
 
 #: src/blocks/balloon/edit.js:154
 msgid "* You can change border width on Setting > VK Blocks"
@@ -119,7 +122,8 @@ msgid "A button link that can display icons before and after."
 msgstr "前後にアイコンを表示できるボタンリンクです。"
 
 #: dist/vk-blocks-pro/inc/vk-blocks/build/blocks/_pro/card/block.json
-#: inc/vk-blocks/build/blocks/_pro/card/block.json src/blocks/_pro/card/block.json
+#: inc/vk-blocks/build/blocks/_pro/card/block.json
+#: src/blocks/_pro/card/block.json
 msgctxt "block description"
 msgid "A card where you can place images, headings, text, and links."
 msgstr "画像,見出し,テキスト,リンクが配置できるカードです。"
@@ -198,7 +202,8 @@ msgid "Activate Highlighter"
 msgstr "蛍光マーカーを有効化"
 
 #: src/admin/custom-block-style/add-button/index.js:141
-#: src/admin/custom-format/add-item.js:164 src/admin/import-export/import-form.js:304
+#: src/admin/custom-format/add-item.js:164
+#: src/admin/import-export/import-form.js:304
 #: src/extensions/common/custom-block-variation/create-variation/index.js:107
 msgid "Add"
 msgstr "追加"
@@ -300,21 +305,22 @@ msgstr "アラート Success"
 msgid "Alert Warning"
 msgstr "アラート Warning"
 
-#: src/blocks/_pro/icon-card/edit.js:71 src/components/card-align-control/index.js:33
+#: src/blocks/_pro/icon-card/edit.js:71
+#: src/components/card-align-control/index.js:33
 msgid "Align"
 msgstr "表示位置"
 
-#. translators:
 #: dist/vk-blocks-pro/inc/vk-blocks/build/blocks/_pro/taxonomy/index.php:199
 #: inc/vk-blocks/build/blocks/_pro/taxonomy/index.php:199
 #: src/blocks/_pro/taxonomy/index.php:199
+#. translators:
 #, php-format
 msgid "All of %s"
 msgstr "全ての%s"
 
-#. translators: %s = plugin name.
 #: dist/vk-blocks-pro/inc/tgm-plugin-activation/tgm-config.php:155
 #: inc/tgm-plugin-activation/tgm-config.php:155
+#. translators: %s = plugin name.
 #, php-format
 msgid "All plugins installed and activated successfully. %1$s"
 msgstr "すべてのプラグインを正常にインストールし、有効化しました。 %1$s"
@@ -356,6 +362,10 @@ msgstr "先祖のタイトルタグ"
 msgid "Anchor Link Information"
 msgstr "アンカーリンク情報"
 
+#: src/blocks/_pro/animation/edit.js:150
+msgid "Animate only on the first view"
+msgstr "初回表示のみアニメーション"
+
 #: dist/vk-blocks-pro/inc/vk-blocks/build/blocks/_pro/animation/block.json
 #: inc/vk-blocks/build/blocks/_pro/animation/block.json
 #: src/blocks/_pro/animation/block.json
@@ -370,10 +380,6 @@ msgstr "アニメーション設定"
 #: src/blocks/_pro/animation/edit.js:46
 msgid "Animation effect"
 msgstr "アニメーションの効果"
-
-#: src/blocks/_pro/animation/edit.js:150
-msgid "Animation only the first view"
-msgstr "初回表示のみアニメーション"
 
 #: src/blocks/_pro/animation/edit.js:124
 msgid "Animation range"
@@ -457,11 +463,17 @@ msgstr "自動（階層番号）"
 msgid "AutoPlay"
 msgstr "自動再生"
 
-#: src/admin/custom-format/index.js:239 src/blocks/_pro/grid-column-item/edit.js:121
-#: src/blocks/_pro/gridcolcard/edit-common.js:183 src/blocks/border-box/edit.js:272
-#: src/blocks/button/edit.js:547 src/blocks/icon/edit.js:321
+#: src/admin/custom-format/index.js:239
+#: src/blocks/_pro/grid-column-item/edit.js:121
+#: src/blocks/_pro/gridcolcard/edit-common.js:183
+#: src/blocks/border-box/edit.js:272 src/blocks/button/edit.js:547
+#: src/blocks/icon/edit.js:321
 msgid "Background Color"
 msgstr "背景色"
+
+#: src/components/background-image-toolbar/index.js:56
+msgid "Background Image"
+msgstr "背景画像"
 
 #: src/blocks/_pro/outer/edit.js:777 src/blocks/slider-item/edit.js:346
 msgid "Background Image Mobile"
@@ -495,7 +507,8 @@ msgstr "背景の位置指定"
 msgid "Background Setting"
 msgstr "背景設定"
 
-#: src/blocks/_pro/accordion/index.js:31 src/blocks/_pro/fixed-display/edit.js:311
+#: src/blocks/_pro/accordion/index.js:31
+#: src/blocks/_pro/fixed-display/edit.js:311
 msgid "Background color"
 msgstr "背景あり"
 
@@ -555,7 +568,8 @@ msgstr "吹き出しブロック設定"
 msgid "Balloon setting"
 msgstr "吹き出しブロック設定"
 
-#: src/blocks/_pro/select-post-list-item/edit.js:39 src/blocks/page-content/edit.js:75
+#: src/blocks/_pro/select-post-list-item/edit.js:39
+#: src/blocks/page-content/edit.js:75
 msgid "Because no post is selected, The block Will not render"
 msgstr "ページが選択されていないためこのブロックはレンダリングされません"
 
@@ -563,20 +577,18 @@ msgstr "ページが選択されていないためこのブロックはレンダ
 #: inc/vk-blocks/build/blocks/ancestor-page-list/index.php:91
 #: src/blocks/ancestor-page-list/index.php:91
 msgid ""
-"Because of the site editor have not child page that, the page list from ancestor is "
-"not displayed. Now displaying the dummy text list instead of the page list from "
-"ancestor."
+"Because of the site editor have not child page that, the page list from "
+"ancestor is not displayed. Now displaying the dummy text list instead of "
+"the page list from ancestor."
 msgstr ""
-"サイトエディタには子ページがないため、先祖階層からのページ一覧は表示されません。 先祖"
-"階層からのページリストの代わりにダミーテキストのリストを表示しています。"
+"サイトエディタには子ページがないため、先祖階層からのページ一覧は表示されません。 "
+"先祖階層からのページリストの代わりにダミーテキストのリストを表示しています。"
 
 #: src/extensions/core/group/style.js:124
 msgid ""
-"Because of the theme that enabled theme.json become can specify the color from "
-"border panel that, specification from here is deprecated."
-msgstr ""
-"theme.json が有効なテーマの場合は「枠線」パネルから色指定が可能になったため、ここでの"
-"色指定は非推奨になりました。"
+"Because of the theme that enabled theme.json become can specify the color "
+"from border panel that, specification from here is deprecated."
+msgstr "theme.json が有効なテーマの場合は「枠線」パネルから色指定が可能になったため、ここでの色指定は非推奨になりました。"
 
 #: src/blocks/_pro/tab-item/edit.js:282 src/blocks/button/edit.js:582
 #: src/blocks/heading/edit.js:340 src/blocks/pr-content/edit.js:219
@@ -590,9 +602,9 @@ msgid "Begin activating plugin"
 msgid_plural "Begin activating plugins"
 msgstr[0] "プラグインの有効化を開始"
 
-#. translators: %s = plugin name.
 #: dist/vk-blocks-pro/inc/tgm-plugin-activation/tgm-config.php:132
 #: inc/tgm-plugin-activation/tgm-config.php:132
+#. translators: %s = plugin name.
 msgid "Begin installing plugin"
 msgid_plural "Begin installing plugins"
 msgstr[0] "プラグインのインストールを開始"
@@ -646,7 +658,8 @@ msgstr "ブロックスタイル ラベル（変更可能）"
 msgid "Block Style Labels"
 msgstr "ブロックスタイル ラベル"
 
-#: src/admin/block-style-manager/index.js:27 src/admin/import-export/index.js:128
+#: src/admin/block-style-manager/index.js:27
+#: src/admin/import-export/index.js:128
 #: dist/vk-blocks-pro/inc/vk-blocks/admin/admin.php:119
 #: inc/vk-blocks/admin/admin.php:119
 msgid "Block Style Manager Setting"
@@ -658,7 +671,8 @@ msgstr "ブロックスタイルマネージャー設定"
 msgid "Blocks"
 msgstr "Blocks"
 
-#: dist/vk-blocks-pro/inc/vk-blocks/admin/admin.php:84 inc/vk-blocks/admin/admin.php:84
+#: dist/vk-blocks-pro/inc/vk-blocks/admin/admin.php:84
+#: inc/vk-blocks/admin/admin.php:84
 msgctxt "label in admin menu"
 msgid "Blocks"
 msgstr "Blocks"
@@ -674,7 +688,8 @@ msgstr "ブロックレイアウト"
 msgid "Blocks Setting"
 msgstr "Blocks 設定"
 
-#: dist/vk-blocks-pro/inc/vk-blocks/admin/admin.php:83 inc/vk-blocks/admin/admin.php:83
+#: dist/vk-blocks-pro/inc/vk-blocks/admin/admin.php:83
+#: inc/vk-blocks/admin/admin.php:83
 msgid "Blocks setting"
 msgstr "Blocks 設定"
 
@@ -735,7 +750,8 @@ msgstr "太字"
 msgid "Book"
 msgstr "本"
 
-#: src/blocks/_pro/gridcolcard/edit-common.js:200 src/blocks/balloon/edit.js:319
+#: src/blocks/_pro/gridcolcard/edit-common.js:200
+#: src/blocks/balloon/edit.js:319
 #: dist/vk-blocks-pro/inc/vk-blocks/class-vk-blocks-global-settings.php:392
 #: dist/vk-blocks-pro/inc/vk-blocks/class-vk-blocks-global-settings.php:410
 #: inc/vk-blocks/class-vk-blocks-global-settings.php:392
@@ -753,7 +769,8 @@ msgid "Border Box"
 msgstr "枠線ボックス"
 
 #: dist/vk-blocks-pro/inc/vk-blocks/build/blocks/border-box/block.json
-#: inc/vk-blocks/build/blocks/border-box/block.json src/blocks/border-box/block.json
+#: inc/vk-blocks/build/blocks/border-box/block.json
+#: src/blocks/border-box/block.json
 msgctxt "block title"
 msgid "Border Box"
 msgstr "枠線ボックス"
@@ -762,8 +779,8 @@ msgstr "枠線ボックス"
 msgid "Border Circle"
 msgstr "枠線 円形"
 
-#: src/blocks/_pro/gridcolcard/edit-common.js:220 src/blocks/border-box/edit.js:263
-#: src/extensions/core/group/style.js:119
+#: src/blocks/_pro/gridcolcard/edit-common.js:220
+#: src/blocks/border-box/edit.js:263 src/extensions/core/group/style.js:119
 msgid "Border Color"
 msgstr "線の色"
 
@@ -860,6 +877,11 @@ msgstr "下 XXS"
 msgid "Bottom on Mobile device"
 msgstr "モバイルでは下部に表示"
 
+#: src/blocks/_pro/post-list-slider/edit.js:370
+#: src/blocks/slider/edit.js:717
+msgid "Bottom on all devices"
+msgstr "常に下部に表示"
+
 #: src/blocks/_pro/fixed-display/edit.js:244
 msgid "Bottom section"
 msgstr "下部"
@@ -886,7 +908,8 @@ msgstr "パンくずリストセパレーター設定"
 msgid "Breadcrumb Setting"
 msgstr "パンくずリストブロック設定"
 
-#: src/blocks/_pro/card/edit.js:169 src/components/display-items-control/index.js:87
+#: src/blocks/_pro/card/edit.js:169
+#: src/components/display-items-control/index.js:87
 msgid "Button"
 msgstr "ボタン"
 
@@ -955,7 +978,8 @@ msgstr "ボタンの角丸の大きさ"
 msgid "Button gap size"
 msgstr "ボタンギャップサイズ"
 
-#: src/blocks/_pro/card/edit.js:174 src/components/display-items-control/index.js:109
+#: src/blocks/_pro/card/edit.js:174
+#: src/components/display-items-control/index.js:109
 msgid "Button option"
 msgstr "ボタンオプション"
 
@@ -963,7 +987,8 @@ msgstr "ボタンオプション"
 msgid "Button setting"
 msgstr "ボタン設定"
 
-#: src/blocks/_pro/card/edit.js:183 src/components/display-items-control/index.js:118
+#: src/blocks/_pro/card/edit.js:183
+#: src/components/display-items-control/index.js:118
 msgid "Button text"
 msgstr "ボタンの文字"
 
@@ -1001,7 +1026,8 @@ msgid "Card"
 msgstr "カード"
 
 #: dist/vk-blocks-pro/inc/vk-blocks/build/blocks/_pro/card/block.json
-#: inc/vk-blocks/build/blocks/_pro/card/block.json src/blocks/_pro/card/block.json
+#: inc/vk-blocks/build/blocks/_pro/card/block.json
+#: src/blocks/_pro/card/block.json
 msgctxt "block title"
 msgid "Card ( not recommended )"
 msgstr "カード (非推奨)"
@@ -1069,7 +1095,8 @@ msgid "Cell Vertical Breakpoint"
 msgstr "セルを縦方向にするブレイクポイント"
 
 #: src/blocks/_pro/post-list-slider/edit.js:323 src/blocks/button/edit.js:296
-#: src/blocks/slider/edit.js:649 src/components/display-items-control/index.js:136
+#: src/blocks/slider/edit.js:649
+#: src/components/display-items-control/index.js:136
 msgid "Center"
 msgstr "中央"
 
@@ -1149,13 +1176,12 @@ msgstr "旧 FAQ"
 msgid "Clear cache"
 msgstr "キャッシュをクリア"
 
-#: src/blocks/_pro/card/edit.js:177 src/components/display-items-control/index.js:112
+#: src/blocks/_pro/card/edit.js:177
+#: src/components/display-items-control/index.js:112
 msgid ""
-"Click each card block to set the target url. You can find the url form at its "
-"sidebar."
-msgstr ""
-"ボタンのリンク先は各カードブロックをクリックすると、サイドバーにURL入力フォームが表示"
-"されます。"
+"Click each card block to set the target URL. You can find the URL field in "
+"the sidebar."
+msgstr "ボタンのリンク先は各カードブロックをクリックすると、サイドバーにURL入力フォームが表示されます。"
 
 #: src/blocks/_pro/fixed-display/edit.js:544
 msgid "Click to hide this fixed display element"
@@ -1208,13 +1234,6 @@ msgstr "色設定"
 #: src/blocks/_pro/gridcolcard/edit-common.js:175
 msgid "Color Settings"
 msgstr "色設定"
-
-#: src/blocks/_pro/outer/edit.js:723 src/blocks/slider-item/edit.js:271
-msgid ""
-"Color will overcome background image. If you want to display image, set opacity 0."
-msgstr ""
-"色を指定すると画像よりも優先されます。画像を表示したい場合は、不透明度を0に設定しま"
-"す。"
 
 #: src/components/column-layout/index.js:103
 msgid "Column ( Screen size : Extra large )"
@@ -1331,10 +1350,6 @@ msgstr "含める"
 msgid "Container Inner Side Space Setting"
 msgstr "コンテナ内側のスペース設定"
 
-#: src/blocks/_pro/outer/edit.js
-msgid "Specifies the left/right inner padding of the container. When \"Fit to the Content area\" is selected, entering 0 keeps the theme's default padding. To remove the padding completely, deselect \"Fit to the Content area\"."
-msgstr "コンテナ内側の左右余白を指定します。「コンテンツエリアに合わせる」を選択している場合、0 を指定するとテーマ標準の余白がそのまま適用されます。余白を完全に取り除きたい場合は「コンテンツエリアに合わせる」を解除してください。"
-
 #: src/blocks/slider-item/edit.js:245
 msgid "Content Area Width"
 msgstr "コンテントエリアの幅"
@@ -1364,8 +1379,8 @@ msgstr "コピー"
 msgid "Copy link"
 msgstr "リンクをコピー"
 
-#. %s is the link URL
 #: src/components/link-toolbar/index.js:84
+#. %s is the link URL
 msgid "Copy link: %s"
 msgstr "リンクをコピー: %s"
 
@@ -1389,6 +1404,11 @@ msgstr "カバーリンク"
 #: src/extensions/common/custom-block-variation/block-variation-explorer/sidebar.js:17
 msgid "Create"
 msgstr "作成"
+
+#: dist/vk-blocks-pro/inc/vk-blocks/class-vk-blocks-global-settings.php:382
+#: inc/vk-blocks/class-vk-blocks-global-settings.php:382
+msgid "Cross"
+msgstr "✕"
 
 #: src/blocks/_pro/dynamic-text/edit.js:411
 msgid "Current login user name"
@@ -1446,7 +1466,8 @@ msgstr "カスタムフィールド"
 msgid "Custom Field Name"
 msgstr "カスタムフィールド値"
 
-#: src/admin/custom-format/delete-item-button.js:31 src/admin/custom-format/index.js:69
+#: src/admin/custom-format/delete-item-button.js:31
+#: src/admin/custom-format/index.js:69
 msgid "Custom Format"
 msgstr "書式設定"
 
@@ -1463,6 +1484,10 @@ msgstr "カスタム値"
 #: src/blocks/_pro/dynamic-text/edit.js:302
 msgid "Custom field"
 msgstr "カスタムフィールド"
+
+#: src/components/link-toolbar/index.js:364
+msgid "Custom field URL"
+msgstr ""
 
 #: src/utils/font-awesome-new.js:203
 msgid "Custom list"
@@ -1483,7 +1508,8 @@ msgstr "Danger"
 msgid "Dark"
 msgstr "Dark"
 
-#: src/blocks/_pro/gridcolcard/edit-common.js:70 src/blocks/_pro/outer/edit.js:1465
+#: src/blocks/_pro/gridcolcard/edit-common.js:70
+#: src/blocks/_pro/outer/edit.js:1465
 #: dist/vk-blocks-pro/inc/vk-blocks/class-vk-blocks-global-settings.php:460
 #: inc/vk-blocks/class-vk-blocks-global-settings.php:460
 msgid "Dashed"
@@ -1502,7 +1528,8 @@ msgstr "日付"
 msgid "Days Counted as New Post"
 msgstr "新しい投稿としてカウントされる日数"
 
-#: src/blocks/_pro/post-list-slider/edit.js:295 src/blocks/_pro/step-item/edit.js:139
+#: src/blocks/_pro/post-list-slider/edit.js:295
+#: src/blocks/_pro/step-item/edit.js:139
 #: src/blocks/_pro/table-of-contents-new/edit.js:352
 #: src/blocks/_pro/timeline-item/edit.js:105 src/blocks/heading/edit.js:265
 #: src/blocks/slider/edit.js:621 src/blocks/staff/edit.js:174
@@ -1586,16 +1613,16 @@ msgstr "モバイルでオフセットを無効にする"
 
 #: dist/vk-blocks-pro/vk-blocks.php:98 vk-blocks.php:98
 msgid ""
-"Disabled Blocks module on VK All in One Expansion Unit. Because VK-Blocks Plugin "
-"running."
-msgstr ""
-"VK-Blocksと競合するため、VK All in One Expansion Unitの Block機能を停止しました。"
+"Disabled Blocks module on VK All in One Expansion Unit. Because VK-Blocks "
+"Plugin running."
+msgstr "VK-Blocksと競合するため、VK All in One Expansion Unitの Block機能を停止しました。"
 
 #: dist/vk-blocks-pro/inc/admin-notices.php:49 inc/admin-notices.php:49
 msgid "Dismiss this notice"
 msgstr "通知を無視"
 
-#: src/blocks/_pro/gridcolcard/edit-common.js:163 src/blocks/heading/edit.js:373
+#: src/blocks/_pro/gridcolcard/edit-common.js:163
+#: src/blocks/heading/edit.js:373
 msgid "Display"
 msgstr "表示"
 
@@ -1621,10 +1648,10 @@ msgstr "タクソノミーの一覧やプルダウンを表示します"
 msgid "Display Time"
 msgstr "表示時間"
 
-#. translators: %s: taxonomy's label
 #: dist/vk-blocks-pro/inc/vk-blocks/build/blocks/_pro/post-category-badge/index.php:247
 #: inc/vk-blocks/build/blocks/_pro/post-category-badge/index.php:247
 #: src/blocks/_pro/post-category-badge/index.php:247
+#. translators: %s: taxonomy's label
 #, php-format
 msgid "Display a list of assigned terms from the taxonomy: %s"
 msgstr "タクソノミーに紐づいているタームのリストを表示します: %s"
@@ -1640,7 +1667,8 @@ msgctxt "block description"
 msgid "Display card with icons, headings, text, and links."
 msgstr "アイコン,見出し,テキスト,リンクを設定してカードを表示します。"
 
-#: src/blocks/_pro/child-page/edit.js:115 src/components/display-condition/index.js:271
+#: src/blocks/_pro/child-page/edit.js:115
+#: src/components/display-condition/index.js:271
 msgid "Display conditions"
 msgstr "表示条件"
 
@@ -1673,7 +1701,8 @@ msgctxt "block description"
 msgid "Display icons with Font Awesome."
 msgstr "Font Awesome のアイコンフォントを表示します"
 
-#: src/blocks/_pro/card/edit.js:130 src/components/display-items-control/index.js:32
+#: src/blocks/_pro/card/edit.js:130
+#: src/components/display-items-control/index.js:32
 msgid "Display item"
 msgstr "表示要素"
 
@@ -1681,8 +1710,13 @@ msgstr "表示要素"
 msgid "Display of arrow"
 msgstr "矢印の表示"
 
+#: src/blocks/slider/edit.js src/blocks/_pro/post-list-slider/edit.js
+msgid "Display pause / play button"
+msgstr "一時停止 / 再生ボタンを表示"
+
 #: dist/vk-blocks-pro/inc/vk-blocks/build/blocks/icon-outer/block.json
-#: inc/vk-blocks/build/blocks/icon-outer/block.json src/blocks/icon-outer/block.json
+#: inc/vk-blocks/build/blocks/icon-outer/block.json
+#: src/blocks/icon-outer/block.json
 msgctxt "block description"
 msgid "Display the Font Awesome icons horizontally."
 msgstr "Font Awesome のアイコンフォントを横並びに表示します"
@@ -1721,6 +1755,12 @@ msgstr "ブロックバリエーション変換で表示されます。"
 msgid "Displayed on the inserter. <Link>Learn more about inserters</Link>."
 msgstr "インサータに表示されます。<Link>インサータの詳細をご覧ください</Link>。"
 
+#: src/blocks/slider/edit.js src/blocks/_pro/post-list-slider/edit.js
+msgid ""
+"Displays a button on the front end that lets visitors pause and resume the "
+"autoplay."
+msgstr "閲覧者が自動再生を一時停止 / 再生できるボタンをフロント側に表示します。"
+
 #: dist/vk-blocks-pro/inc/vk-blocks/build/blocks/faq/block.json
 #: inc/vk-blocks/build/blocks/faq/block.json src/blocks/faq/block.json
 msgctxt "block description"
@@ -1745,8 +1785,8 @@ msgstr "時系列で順を追った説明を表示します。"
 #: src/blocks/_pro/timeline/block.json
 msgctxt "block description"
 msgid ""
-"Displays a simple schedule and other information that is useful for explaining the "
-"order."
+"Displays a simple schedule and other information that is useful for "
+"explaining the order."
 msgstr "注文内容の説明に役立つ簡単なスケジュールやその他の情報を表示します。"
 
 #: dist/vk-blocks-pro/inc/vk-blocks/build/blocks/_pro/post-category-badge/block.json
@@ -1754,11 +1794,9 @@ msgstr "注文内容の説明に役立つ簡単なスケジュールやその他
 #: src/blocks/_pro/post-category-badge/block.json
 msgctxt "block description"
 msgid ""
-"Displays a single category or custom taxonomy associated with the post. It allows "
-"for the specification of taxonomy and design."
-msgstr ""
-"投稿に関連付けられた単一のカテゴリーまたはカスタムタクソノミーを表示します。タクソノ"
-"ミーとデザインの指定が可能です。"
+"Displays a single category or custom taxonomy associated with the post. It "
+"allows for the specification of taxonomy and design."
+msgstr "投稿に関連付けられた単一のカテゴリーまたはカスタムタクソノミーを表示します。タクソノミーとデザインの指定が可能です。"
 
 #: dist/vk-blocks-pro/inc/vk-blocks/build/blocks/_pro/select-post-list/block.json
 #: inc/vk-blocks/build/blocks/_pro/select-post-list/block.json
@@ -1772,11 +1810,9 @@ msgstr "任意に指定したページを投稿リストのレイアウトで表
 #: src/blocks/_pro/breadcrumb/block.json
 msgctxt "block description"
 msgid ""
-"Displays breadcrumbs of a page's hierarchy, or a post's categories.This block is not "
-"displayed on the front page."
-msgstr ""
-"ページや投稿カテゴリーなどページ階層のパンくずリストを表示します。このブロックはトッ"
-"プページでは表示されません。"
+"Displays breadcrumbs of a page's hierarchy, or a post's categories.This "
+"block is not displayed on the front page."
+msgstr "ページや投稿カテゴリーなどページ階層のパンくずリストを表示します。このブロックはトップページでは表示されません。"
 
 #: dist/vk-blocks-pro/inc/vk-blocks/build/blocks/page-content/block.json
 #: inc/vk-blocks/build/blocks/page-content/block.json
@@ -1796,11 +1832,12 @@ msgstr "URLから取得したアイキャッチ画像を表示します。"
 #: dist/vk-blocks-pro/inc/vk-blocks/build/blocks/_pro/post-list/block.json
 #: inc/vk-blocks/build/blocks/_pro/post-list-slider/block.json
 #: inc/vk-blocks/build/blocks/_pro/post-list/block.json
-#: src/blocks/_pro/post-list-slider/block.json src/blocks/_pro/post-list/block.json
+#: src/blocks/_pro/post-list-slider/block.json
+#: src/blocks/_pro/post-list/block.json
 msgctxt "block description"
 msgid ""
-"Displays the list of posts by setting the post type, classification, and number of "
-"posts to display."
+"Displays the list of posts by setting the post type, classification, and "
+"number of posts to display."
 msgstr "投稿タイプ,分類,表示件数が設定して投稿リストを表示します。"
 
 #: dist/vk-blocks-pro/inc/vk-blocks/build/blocks/_pro/blog-card-site-logo/block.json
@@ -1844,7 +1881,13 @@ msgstr "非アクティブな孫ページを表示しない"
 msgid "Don’t rotate letters and numbers"
 msgstr "英数字を回転させない"
 
-#: src/blocks/_pro/gridcolcard/edit-common.js:71 src/blocks/_pro/outer/edit.js:1461
+#: src/blocks/_pro/step-item/edit.js:148
+#: src/blocks/_pro/timeline-item/edit.js:103
+msgid "Dot border radius"
+msgstr "ドットの角丸の大きさ"
+
+#: src/blocks/_pro/gridcolcard/edit-common.js:71
+#: src/blocks/_pro/outer/edit.js:1461
 #: dist/vk-blocks-pro/inc/vk-blocks/class-vk-blocks-global-settings.php:456
 #: inc/vk-blocks/class-vk-blocks-global-settings.php:456
 msgid "Dotted"
@@ -1877,6 +1920,16 @@ msgstr "二重線 上下線 黒"
 msgid "Dummy Text"
 msgstr "ダミーテキスト"
 
+#: src/blocks/_pro/table-of-contents-new/edit.js:329
+msgid ""
+"Duplicate heading IDs are automatically corrected on the front end, so the "
+"table of contents links always point to the right heading. No manual "
+"changes are needed (the editor may still show duplicate IDs)."
+msgstr ""
+"見出しの ID "
+"が重複しても公開ページ側で自動的に調整され、目次のリンクは常に正しい見出しを指します。手動での変更は不要です（編集画面では重複したまま表示される場合があ"
+"ります）。"
+
 #: dist/vk-blocks-pro/inc/vk-blocks/build/blocks/_pro/dynamic-text/block.json
 #: inc/vk-blocks/build/blocks/_pro/dynamic-text/block.json
 #: src/blocks/_pro/dynamic-text/block.json
@@ -1889,11 +1942,9 @@ msgstr "ダイナミックテキスト"
 #: src/blocks/visual-embed/block.json
 msgctxt "block description"
 msgid ""
-"Easily embed iframe content with a live preview in the editor, perfect for maps, "
-"videos, and other iframe-based media."
-msgstr ""
-"エディターでライブプレビュー付きのiframeコンテンツを簡単に埋め込むことができます。地"
-"図、動画、その他iframeベースのメディアに最適です。"
+"Easily embed iframe content with a live preview in the editor, perfect for "
+"maps, videos, and other iframe-based media."
+msgstr "エディターでライブプレビュー付きのiframeコンテンツを簡単に埋め込むことができます。地図、動画、その他iframeベースのメディアに最適です。"
 
 #: dist/vk-blocks-pro/inc/vk-blocks/build/blocks/_pro/post-new-badge/block.json
 #: inc/vk-blocks/build/blocks/_pro/post-new-badge/block.json
@@ -1942,8 +1993,8 @@ msgstr "編集モード"
 msgid "Editor Setting"
 msgstr "エディタ設定"
 
-#: src/blocks/_pro/post-list-slider/edit.js:151 src/blocks/slider/edit-multiItem.js:349
-#: src/blocks/slider/edit.js:477
+#: src/blocks/_pro/post-list-slider/edit.js:151
+#: src/blocks/slider/edit-multiItem.js:349 src/blocks/slider/edit.js:477
 msgid "Effect"
 msgstr "エフェクト"
 
@@ -1996,40 +2047,30 @@ msgstr "埋め込むURLを入力…"
 msgid "Enter a value as an integer divisor of the number of items to retrieve."
 msgstr "表示（取得）件数の整数の約数で入力してください。"
 
-#: src/blocks/slider/edit-multiItem.js:158
-msgid "Enter the number of slide items to display on each device."
-msgstr "各デバイスで表示するスライドアイテムの枚数を入力してください。"
-
-#: src/blocks/slider/edit-multiItem.js:143
-msgid "In one-by-one mode, you can set decimals (e.g. 1.5). If you specify a decimal, please enable \"Centering the active slide\"."
-msgstr "1つずつ切り替えモードでは、1.5 などの小数点以下の数値を指定することができます。小数点以下の数値を指定する場合は「アクティブスライドを中央にする」を有効にしてください。"
-
-#: src/blocks/slider/edit-multiItem.js:149
-msgid "In slides-per-view mode, enter a divisor of the total number of placed slides. If the number is not a divisor, the sliding behavior will be unnatural."
-msgstr "表示枚数と同じモードでは、配置済みスライドアイテム数の約数を入力してください。約数でない場合、スライド動作が不自然になります。"
-
-#: src/blocks/slider/edit-multiItem.js:155
-msgid "When \"Centering the active slide\" is enabled and the number of items to display is even, it is automatically treated as the next odd number internally. This may increase the minimum number of slides required for loop mode."
-msgstr "「アクティブスライドを中央にする」が有効かつ表示枚数が偶数の場合、内部的に自動で奇数に切り上げられます。そのため、ループモードに必要な最小スライド数が増える場合があります。"
-
 #: src/blocks/_pro/post-list-slider/multi-item-setting.js:162
 msgid "Enter divisors for the number of posts for each display size."
 msgstr "表示（取得）件数を割り切れる数を入力してください。"
 
 #: src/blocks/slider/edit-multiItem.js:53
 msgid ""
-"Enter integer divisors for the number of placed slide items for each display size."
+"Enter integer divisors for the number of placed slide items for each "
+"display size."
 msgstr "各表示サイズのスライド アイテムの配置数の整数の約数を入力します。"
 
 #: dist/vk-blocks-pro/vk-blocks.php:363 vk-blocks.php:363
 msgid "Enter the license key"
 msgstr "ライセンスキーを入力"
 
+#: src/blocks/slider/edit-multiItem.js:158
+msgid "Enter the number of slide items to display on each device."
+msgstr "各デバイスで表示するスライドアイテムの枚数を入力してください。"
+
 #: src/utils/font-awesome-new.js:402
 msgid "Ex)"
 msgstr "例) "
 
-#: src/blocks/_pro/step-item/edit.js:102 src/blocks/_pro/timeline-item/edit.js:69
+#: src/blocks/_pro/step-item/edit.js:102
+#: src/blocks/_pro/timeline-item/edit.js:69
 msgid "Ex,6:00AM"
 msgstr "例) 午前 6:00"
 
@@ -2058,14 +2099,35 @@ msgstr "除外する"
 msgid "Exclude Headings"
 msgstr "除外する見出し"
 
+#: src/components/display-condition/index.js:371
+#. Exclude by %s
+msgid "Exclude by %s"
+msgstr "%sで除外"
+
+#: src/components/post-exclusion-control/index.js:125
+msgid "Exclude by Article"
+msgstr "記事で除外"
+
+#: src/components/display-condition/index.js:485
+msgid "Exclusion settings"
+msgstr "除外設定"
+
 #: src/admin/import-export/export-form.js:156
 msgid "Export"
 msgstr "エクスポート"
 
-#. Export %s
 #: src/admin/import-export/export-form.js:132
+#. Export %s
 msgid "Export %s"
 msgstr "%s をエクスポート"
+
+#: src/blocks/button/edit.js:664
+msgid "Extra Large"
+msgstr ""
+
+#: src/blocks/button/edit.js:640
+msgid "Extra Small"
+msgstr ""
 
 #: src/extensions/common/inline-font-size/inline.js:38
 #: dist/vk-blocks-pro/inc/vk-blocks/class-vk-blocks-global-settings.php:532
@@ -2094,8 +2156,8 @@ msgstr "FAQ 質問"
 msgid "FAQ Setting"
 msgstr "FAQ ブロックの設定"
 
-#: src/blocks/_pro/post-list-slider/edit.js:165 src/blocks/slider/edit-multiItem.js:347
-#: src/blocks/slider/edit.js:491
+#: src/blocks/_pro/post-list-slider/edit.js:165
+#: src/blocks/slider/edit-multiItem.js:347 src/blocks/slider/edit.js:491
 msgid "Fade"
 msgstr "フェード"
 
@@ -2116,8 +2178,8 @@ msgctxt "Scale option for Image dimension control"
 msgid "Fill"
 msgstr "埋める"
 
-#. Filter by %s
 #: src/components/display-condition/index.js:237
+#. Filter by %s
 msgid "Filter by %s"
 msgstr "%sで絞り込み"
 
@@ -2202,6 +2264,14 @@ msgstr "Font Awesome カスタムリスト設定"
 msgid "Font Awesome icon list"
 msgstr "Font Awesome アイコンリスト"
 
+#: src/utils/font-awesome-new.js:413
+msgid "(opens in a new tab)"
+msgstr "(新しいタブで開く)"
+
+#: src/blocks/button/edit.js:733
+msgid "Font Size"
+msgstr ""
+
 #: dist/vk-blocks-pro/inc/vk-blocks/build/blocks/_pro/gridcolcard-item-footer/block.json
 #: inc/vk-blocks/build/blocks/_pro/gridcolcard-item-footer/block.json
 #: src/blocks/_pro/gridcolcard-item-footer/block.json
@@ -2212,8 +2282,8 @@ msgstr "グリッドカラムカードアイテムブロックのフッターボ
 #: src/extensions/common/custom-block-variation/block-variation-list/item/body-area/index.js:148
 #: src/extensions/common/custom-block-variation/create-variation/block-variation-form/index.js:175
 msgid ""
-"For the icon name, please enter alphanumeric characters without \"dashicons-\". "
-"Example: embed-generic"
+"For the icon name, please enter alphanumeric characters without "
+"\"dashicons-\". Example: embed-generic"
 msgstr "アイコン名は「dashicons-」を除いた英数字を入力してください。例:embed-generic"
 
 #: src/admin/custom-format/index.js:111
@@ -2322,11 +2392,9 @@ msgstr "グループリンク"
 
 #: src/extensions/core/group/style.js:596
 msgid ""
-"Groups are supported only when their layout is Flex/Grid or when their direct inner "
-"blocks are supported."
-msgstr ""
-"グループはレイアウトが Flex/Grid の場合、または直接の内部ブロックがサポートされている"
-"場合にのみサポートされます。"
+"Groups are supported only when their layout is Flex/Grid or when their "
+"direct inner blocks are supported."
+msgstr "グループはレイアウトが Flex/Grid の場合、または直接の内部ブロックがサポートされている場合にのみサポートされます。"
 
 #: src/admin/toc.js:161 src/blocks/_pro/table-of-contents-new/edit.js:563
 msgid "H2 only"
@@ -2365,8 +2433,8 @@ msgid "Header image area of Grid Column Card Block Item"
 msgstr "グリッドカードカラムアイテムブロックのヘッダー画像エリア"
 
 # %s: heading level e.g: "1", "2", "3"
-#. %s: heading level e.g: "1", "2", "3"
 #: src/blocks/heading/heading-level-dropdown.js:39
+#. %s: heading level e.g: "1", "2", "3"
 msgid "Heading %d"
 msgstr "見出し %d"
 
@@ -2490,11 +2558,28 @@ msgstr "水平スクロールのブレイクポイント"
 msgid "Horizontal scroll area"
 msgstr "水平スクロールエリア"
 
-#: src/blocks/_pro/icon-card-item/edit.js:138 src/blocks/_pro/step-item/edit.js:83
-#: src/blocks/_pro/tab-item/edit.js:275 src/blocks/alert/edit.js:75
-#: src/blocks/border-box/edit.js:296 src/blocks/button/edit.js:575
-#: src/blocks/heading/edit.js:336 src/blocks/icon/edit.js:293
-#: src/blocks/pr-content/edit.js:212 src/components/scroll-hint/index.js:103
+#: src/blocks/button/edit.js:620
+msgid "Hover Background Color"
+msgstr "ホバー背景色"
+
+#: src/blocks/button/edit.js:1199
+msgid "Hover Border Color"
+msgstr "ホバー線の色"
+
+#: src/blocks/button/edit.js:614
+msgid "Hover Color"
+msgstr "ホバー色"
+
+#: src/blocks/button/edit.js:633
+msgid "Hover Text Color"
+msgstr "ホバー文字の色"
+
+#: src/blocks/_pro/icon-card-item/edit.js:138
+#: src/blocks/_pro/step-item/edit.js:83 src/blocks/_pro/tab-item/edit.js:275
+#: src/blocks/alert/edit.js:75 src/blocks/border-box/edit.js:296
+#: src/blocks/button/edit.js:575 src/blocks/heading/edit.js:336
+#: src/blocks/icon/edit.js:293 src/blocks/pr-content/edit.js:212
+#: src/components/scroll-hint/index.js:103
 #: src/extensions/common/custom-block-variation/block-variation-list/item/body-area/index.js:142
 #: src/extensions/common/custom-block-variation/create-variation/block-variation-form/index.js:167
 #: src/utils/font-awesome-new.js:197
@@ -2558,7 +2643,8 @@ msgid "Icon Name"
 msgstr "アイコンの名前"
 
 #: dist/vk-blocks-pro/inc/vk-blocks/build/blocks/icon-outer/block.json
-#: inc/vk-blocks/build/blocks/icon-outer/block.json src/blocks/icon-outer/block.json
+#: inc/vk-blocks/build/blocks/icon-outer/block.json
+#: src/blocks/icon-outer/block.json
 msgctxt "block title"
 msgid "Icon Outer"
 msgstr "横並びアイコン"
@@ -2581,58 +2667,68 @@ msgstr "アイコンのみ"
 
 #: src/blocks/_pro/gridcolcard-item/edit.js:340
 msgid ""
-"If Edit Lock is disabled, changes made in this item block (such as color or image "
-"ratio) will be overwritten when the parent Grid Column Card block is re-selected."
+"If Edit Lock is disabled, changes made in this item block (such as color or "
+"image ratio) will be overwritten when the parent Grid Column Card block is "
+"re-selected."
 msgstr ""
-"編集ロックが無効になっている場合、この項目ブロックで行われた変更 (色や画像の比率な"
-"ど) は、親のグリッド列カード ブロックが再度選択されたときに上書きされます。"
+"編集ロックが無効になっている場合、この項目ブロックで行われた変更 (色や画像の比率など) は、親のグリッド列カード "
+"ブロックが再度選択されたときに上書きされます。"
 
 #: src/blocks/_pro/step-item/edit.js:88
 msgid "If Font Awesome tags entered, it will overrides the number."
 msgstr "Font Awesome の class 名が入力されている場合は数字は上書きされます。"
 
+#: src/blocks/_pro/step-item/edit.js:149
+#: src/blocks/_pro/timeline-item/edit.js:104
+msgid "If left blank, it will be displayed as a circle."
+msgstr "未入力の場合は円形で表示されます。"
+
+#: src/blocks/button/edit.js:1202
+msgid "If not specified, the color specified in Border Color is also used on hover."
+msgstr "未指定の場合は「線の色」で指定した色をホバー時も使います。"
+
 #: src/extensions/common/custom-css-extension/index.js:204
 msgid ""
-"If selector is specified, it is replaced by a block-specific CSS class. If selector "
-"is set to \"selector\", it will be replaced with a block-specific CSS class. CSS "
-"selectors other than \"selector\" may affect the entire page."
+"If selector is specified, it is replaced by a block-specific CSS class. If "
+"selector is set to \"selector\", it will be replaced with a block-specific "
+"CSS class. CSS selectors other than \"selector\" may affect the entire page."
 msgstr ""
-"selector を指定した場合ブロック固有の CSS クラスに置き換わります。selector以外のCSSセ"
-"レクターは、ページ全体に影響する可能性があります。"
+"selector を指定した場合ブロック固有の CSS "
+"クラスに置き換わります。selector以外のCSSセレクターは、ページ全体に影響する可能性があります。"
 
-#. If selector is specified, it will be replaced by a unique CSS class (<code>.%s</code>); CSS selectors other than selector may affect the entire page.
 #: src/admin/custom-format/index.js:357
+#. If selector is specified, it will be replaced by a unique CSS class (<code>.%s</code>); CSS selectors other than selector may affect the entire page.
 msgid ""
-"If selector is specified, it will be replaced by a unique CSS class (<code>.%s</"
-"code>); CSS selectors other than selector may affect the entire page."
+"If selector is specified, it will be replaced by a unique CSS class "
+"(<code>.%s</code>); CSS selectors other than selector may affect the entire "
+"page."
 msgstr ""
-"selector を指定した場合、固有の CSS クラス(<code>.%s</code>)に置き換わります。"
-"selector以外のCSSセレクターは、ページ全体に影響する可能性があります。"
+"selector を指定した場合、固有の CSS "
+"クラス(<code>.%s</code>)に置き換わります。selector以外のCSSセレクターは、ページ全体に影響する可能性があります。"
 
-#. If selector is specified, it is replaced by CSS class (is-style-%1$s); CSS selectors other than selector and is-style-%2$s may affect the entire page.
 #: src/admin/custom-block-style/item/body-area/property-inline-style.js:42
+#. If selector is specified, it is replaced by CSS class (is-style-%1$s); CSS selectors other than selector and is-style-%2$s may affect the entire page.
 msgid ""
-"If selector is specified, it will be replaced with CSS class (<code>.is-style-%1$s</"
-"code>). CSS selectors other than selector,<code>.is-style-%2$s</code> may affect the "
-"entire page."
+"If selector is specified, it will be replaced with CSS class "
+"(<code>.is-style-%1$s</code>). CSS selectors other than "
+"selector,<code>.is-style-%2$s</code> may affect the entire page."
 msgstr ""
-"selector を指定した場合、CSS クラス(<code>.is-style-%1$s</code>)に置き換わります。"
-"selector,<code>.is-style-%2$s</code>以外のCSSセレクターは、ページ全体に影響する可能性"
-"があります。"
+"selector を指定した場合、CSS "
+"クラス(<code>.is-style-%1$s</code>)に置き換わります。selector,<code>.is-style-%2$s</"
+"code>以外のCSSセレクターは、ページ全体に影響する可能性があります。"
 
 #: src/blocks/slider/edit-multiItem.js:106
 msgid ""
-"If the active slide is in the center, the number of placed slide items must be "
-"greater than or equal to the number of items you want to display in one view + 2."
-msgstr ""
-"アクティブスライドを中央にする場合、配置されたスライドアイテムの数は、1ビューに表示し"
-"たいアイテム数＋2以上である必要があります。"
+"If the active slide is in the center, the number of placed slide items must "
+"be greater than or equal to the number of items you want to display in one "
+"view + 2."
+msgstr "アクティブスライドを中央にする場合、配置されたスライドアイテムの数は、1ビューに表示したいアイテム数＋2以上である必要があります。"
 
 #: src/blocks/_pro/blog-card/edit/index.js:144
-msgid "If the data is old, please clear the cache. It is usually updated every hour."
-msgstr ""
-"データが古い場合は、キャッシュをクリアしてください。通常、データは1時間ごとに更新され"
-"ます。"
+msgid ""
+"If the data is old, please clear the cache. It is usually updated every "
+"hour."
+msgstr "データが古い場合は、キャッシュをクリアしてください。通常、データは1時間ごとに更新されます。"
 
 #: src/blocks/_pro/post-list-slider/multi-item-setting.js:166
 #: src/blocks/slider/edit-multiItem.js:190
@@ -2645,11 +2741,9 @@ msgstr "保存したコンテンツにこのフォーマットがある場合、
 
 #: src/blocks/_pro/tab/edit.js:1107
 msgid ""
-"If there are many labels or the screen width is narrow, you can adjust it here. *Tab "
-"size setting will not be effective."
-msgstr ""
-"ラベルが多い場合や画面の幅が狭い場合、ここで調整することができます。* タブサイズの設"
-"定は反映されなくなります。"
+"If there are many labels or the screen width is narrow, you can adjust it "
+"here. *Tab size setting will not be effective."
+msgstr "ラベルが多い場合や画面の幅が狭い場合、ここで調整することができます。* タブサイズの設定は反映されなくなります。"
 
 #: src/blocks/ancestor-page-list/edit.js:131
 msgid "If there is no child page, the block itself is not displayed"
@@ -2661,142 +2755,124 @@ msgstr "保存したコンテンツにこのブロックスタイルがある場
 
 #: dist/vk-blocks-pro/vk-blocks.php:366 vk-blocks.php:366
 msgid ""
-"If this display does not disappear even after entering a valid license key, re-"
-"acquire the update."
-msgstr ""
-"有効なライセンスキーを入力してもこの表示が消えない場合は更新の再取得をしてください。"
-
-#: src/blocks/_pro/table-of-contents-new/edit.js:329
-msgid ""
-"If you duplicate a heading, the table of contents block will not work properly, "
-"please reassign the ID."
-msgstr "見出しを複製すると目次ブロックが適切に動作しません。IDを振り直してください。"
+"If this display does not disappear even after entering a valid license key, "
+"re-acquire the update."
+msgstr "有効なライセンスキーを入力してもこの表示が消えない場合は更新の再取得をしてください。"
 
 #: src/admin/margin.js:117
-msgid "If you enter a custom value, the values you entered will be used as a priority."
+msgid ""
+"If you enter a custom value, the values you entered will be used as a "
+"priority."
 msgstr "カスタム値を入力すると、入力した値が優先されます。"
 
 #: src/blocks/button/edit.js:461
 msgid "If you select \"No background\", that you need to select a Custom Color."
 msgstr "もし「背景なし」を選択した場合はカスタムカラーで色を指定してください。"
 
+#: src/blocks/button/edit.js:1009
+msgid "If you select \"No background\", you need to select a custom color."
+msgstr ""
+
 #: src/blocks/_pro/gridcolcard-item/edit.js:396
 msgid ""
-"If you set a link URL, do not place the link element (text or button) in the Grid "
-"Column Card Item. It may not be displayed correctly."
-msgstr ""
-"リンクURLを設定する場合は、グリッドカラムカードアイテム内にリンク要素（テキストやボタ"
-"ン）を配置しないでください。 正しく表示されない場合があります。"
+"If you set a link URL, do not place the link element (text or button) in "
+"the Grid Column Card Item. It may not be displayed correctly."
+msgstr "リンクURLを設定する場合は、グリッドカラムカードアイテム内にリンク要素（テキストやボタン）を配置しないでください。 正しく表示されない場合があります。"
 
 #: src/blocks/slider/edit-multiItem.js:332
 msgid ""
-"If you specify the center, you can display items that are cut off on the left and "
-"right."
+"If you specify the center, you can display items that are cut off on the "
+"left and right."
 msgstr "中央を指定すると左右が切れたアイテムを表示できます。"
 
 #: src/blocks/_pro/post-list-slider/multi-item-setting.js:308
 msgid ""
-"If you specify the center, you can display posts that are cut off on the left and "
-"right."
+"If you specify the center, you can display posts that are cut off on the "
+"left and right."
 msgstr "中央を指定すると左右が切れたアイテムを表示できます。"
 
 #: src/blocks/_pro/gridcolcard/edit.js:232
 msgid ""
-"If you specify the minimum column size on a tablet or PC with %, it will be easier "
-"to align the number of columns in the upper and lower rows according to the screen "
-"size."
-msgstr ""
-"タブレットまたはPCの最小列サイズを％で指定すると、画面サイズに応じて上下の行の列数を"
-"揃えやすくなります。"
+"If you specify the minimum column size on a tablet or PC with %, it will be "
+"easier to align the number of columns in the upper and lower rows according "
+"to the screen size."
+msgstr "タブレットまたはPCの最小列サイズを％で指定すると、画面サイズに応じて上下の行の列数を揃えやすくなります。"
 
 #: src/blocks/_pro/post-list-slider/multi-item-setting.js:27
 #: src/blocks/slider/edit-multiItem.js:33
 msgid ""
-"If you specifying a numbers with decimals such as 1.5, Please set \"Centering the "
-"active slide\""
-msgstr ""
-"1.5などの小数点以下の数値を指定する場合は「アクティブスライドを中央にする」に設定して"
-"ください"
+"If you specifying a numbers with decimals such as 1.5, Please set "
+"\"Centering the active slide\""
+msgstr "1.5などの小数点以下の数値を指定する場合は「アクティブスライドを中央にする」に設定してください"
 
 #: src/extensions/common/custom-css-extension/index.js:228
 msgid ""
-"If you want the edit screen to be as close to the public screen as possible, or if "
-"your own CSS interferes with the CSS for the identification display and does not "
-"display as intended on the edit screen, please hide it."
+"If you want the edit screen to be as close to the public screen as "
+"possible, or if your own CSS interferes with the CSS for the identification "
+"display and does not display as intended on the edit screen, please hide it."
 msgstr ""
-"編集画面をできるだけ公開画面に近づけたい場合や、自作のCSSが識別表示用のCSSと干渉して"
-"編集画面で意図した通りに表示されない場合は、非表示にすることをお勧めします。"
+"編集画面をできるだけ公開画面に近づけたい場合や、自作のCSSが識別表示用のCSSと干渉して編集画面で意図した通りに表示されない場合は、非表示にすることを"
+"お勧めします。"
 
 #: src/blocks/faq/edit.js:14
-msgid "If you want to be collapsing this block, you can set it at Setting > VK Blocks"
+msgid ""
+"If you want to be collapsing this block, you can set it at Setting > VK "
+"Blocks"
 msgstr "このブロックを折りたたみたい場合は 設定 > VK Blocks から指定できます"
 
 #: dist/vk-blocks-pro/inc/vk-blocks/build/blocks/page-content/index.php:56
 #: inc/vk-blocks/build/blocks/page-content/index.php:56
 #: src/blocks/page-content/index.php:56
 msgid ""
-"If you want to display non-public content in multiple locations, please create it as "
-"a Synced pattern(Reusable block) and place it in the desired locations instead of "
-"using Page Content block."
-msgstr ""
-"もし非公開のコンテンツを複数の場所に表示したい場合は同期パターン（再利用ブロック）を"
-"作成して固定ページ本文ブロックのかわりに配置してください。"
+"If you want to display non-public content in multiple locations, please "
+"create it as a Synced pattern(Reusable block) and place it in the desired "
+"locations instead of using Page Content block."
+msgstr "もし非公開のコンテンツを複数の場所に表示したい場合は同期パターン（再利用ブロック）を作成して固定ページ本文ブロックのかわりに配置してください。"
 
 #: src/extensions/common/hidden-extension/index.js:322
 msgid ""
-"If you want to hide multiple blocks, that first you set to group block and the next, "
-"hide for the that group block."
-msgstr ""
-"複数のブロックを非表示にする場合は、最初にグループブロックに設定し、そのグループブ"
-"ロックに対して非表示にします。"
+"If you want to hide multiple blocks, that first you set to group block and "
+"the next, hide for the that group block."
+msgstr "複数のブロックを非表示にする場合は、最初にグループブロックに設定し、そのグループブロックに対して非表示にします。"
 
 #: src/blocks/slider/edit-multiItem.js:115
 msgid ""
-"If you want to loop slides, the number of placed slide items must be greater than or "
-"equal to the number of items you want to display per view + 1."
-msgstr ""
-"スライドをループさせたい場合、配置されたスライドアイテムの数は、1ビューに表示したいア"
-"イテム数＋1以上である必要があります。"
+"If you want to loop slides, the number of placed slide items must be "
+"greater than or equal to the number of items you want to display per view + "
+"1."
+msgstr "スライドをループさせたい場合、配置されたスライドアイテムの数は、1ビューに表示したいアイテム数＋1以上である必要があります。"
 
 #: src/blocks/slider/edit-multiItem.js:93
 msgid ""
-"If you want to loop slides, the number of placed slide items must be greater than or "
-"equal to twice the number of items you want to display per view."
-msgstr ""
-"スライドをループさせたい場合、配置されたスライドアイテムの数は、1ビューに表示したいア"
-"イテム数の2倍以上である必要があります。"
+"If you want to loop slides, the number of placed slide items must be "
+"greater than or equal to twice the number of items you want to display per "
+"view."
+msgstr "スライドをループさせたい場合、配置されたスライドアイテムの数は、1ビューに表示したいアイテム数の2倍以上である必要があります。"
 
 #: src/blocks/_pro/post-list-slider/multi-item-setting.js:104
 msgid ""
-"If you want to loop slides, the number of posts must be greater than or equal to the "
-"number of posts you want to display per view + 1."
-msgstr ""
-"スライドをループさせたい場合、投稿の数は、1ビューに表示したいアイテム数＋1以上である"
-"必要があります。"
+"If you want to loop slides, the number of posts must be greater than or "
+"equal to the number of posts you want to display per view + 1."
+msgstr "スライドをループさせたい場合、投稿の数は、1ビューに表示したいアイテム数＋1以上である必要があります。"
 
 #: src/blocks/_pro/post-list-slider/multi-item-setting.js:95
 msgid ""
-"If you want to loop slides, the number of posts must be greater than or equal to the "
-"number of posts you want to display per view + 2."
-msgstr ""
-"スライドをループさせたい場合、投稿の数は、1ビューに表示したいアイテム数＋2以上である"
-"必要があります。"
+"If you want to loop slides, the number of posts must be greater than or "
+"equal to the number of posts you want to display per view + 2."
+msgstr "スライドをループさせたい場合、投稿の数は、1ビューに表示したいアイテム数＋2以上である必要があります。"
 
 #: src/blocks/_pro/post-list-slider/multi-item-setting.js:86
 msgid ""
-"If you want to loop slides, the number of posts must be greater than or equal to "
-"twice the number of posts you want to display per view."
-msgstr ""
-"スライドをループさせたい場合、投稿の数は、1ビューに表示したいアイテム数の2倍以上であ"
-"る必要があります。"
+"If you want to loop slides, the number of posts must be greater than or "
+"equal to twice the number of posts you want to display per view."
+msgstr "スライドをループさせたい場合、投稿の数は、1ビューに表示したいアイテム数の2倍以上である必要があります。"
 
 #: src/utils/font-awesome-new.js:397
 msgid ""
-"If you want to use an icon other than the ones listed above, you can use any of the "
-"icons from Font Awesome's icon list Please select a tag and enter it."
-msgstr ""
-"他のアイコンを使いたい場合は Font Awesome のアイコンリストから選んでタグを入力してく"
-"ださい。"
+"If you want to use an icon other than the ones listed above, you can use "
+"any of the icons from Font Awesome's icon list Please select a tag and "
+"enter it."
+msgstr "他のアイコンを使いたい場合は Font Awesome のアイコンリストから選んでタグを入力してください。"
 
 #: src/blocks/visual-embed/edit.js:250
 msgid "Iframe Height"
@@ -2806,11 +2882,13 @@ msgstr "iframeの高さ"
 msgid "Iframe Width"
 msgstr "iframeの幅"
 
-#: src/blocks/_pro/child-page/edit.js:134 src/components/display-condition/index.js:434
+#: src/blocks/_pro/child-page/edit.js:134
+#: src/components/display-condition/index.js:434
 msgid "Ignore this post"
 msgstr "この投稿を除く"
 
-#: src/blocks/_pro/card/edit.js:162 src/components/display-items-control/index.js:36
+#: src/blocks/_pro/card/edit.js:162
+#: src/components/display-items-control/index.js:36
 msgid "Image"
 msgstr "画像"
 
@@ -2839,7 +2917,9 @@ msgid "Image fit to column"
 msgstr "画像とカラム内の余白をなくす"
 
 #: src/blocks/_pro/blog-card-featured-image/dimension-controls.js:39
-msgid "Image is scaled and cropped to fill the entire space without being distorted."
+msgid ""
+"Image is scaled and cropped to fill the entire space without being "
+"distorted."
 msgstr "全体を埋めるように拡大・切り取られます。"
 
 #: src/blocks/_pro/blog-card-featured-image/dimension-controls.js:42
@@ -2858,8 +2938,8 @@ msgstr "画像はスペースを完全に埋めるために引き伸ばされま
 msgid "Import"
 msgstr "インポート"
 
-#. Import %s
 #: src/admin/import-export/import-form.js:263
+#. Import %s
 msgid "Import %s"
 msgstr "%s をインポート"
 
@@ -2883,9 +2963,24 @@ msgstr "インポート方法"
 
 #: src/blocks/slider/edit.js:456
 msgid ""
-"In edit mode, the elements are stacked vertically. In preview mode, the slides "
-"actually animate."
+"In edit mode, the elements are stacked vertically. In preview mode, the "
+"slides actually animate."
 msgstr "編集モードでは縦積みになります。プレビューモードでは実際にスライドが動きます。"
+
+#: src/blocks/slider/edit-multiItem.js:143
+msgid ""
+"In one-by-one mode, you can set decimals (e.g. 1.5). If you specify a "
+"decimal, please enable \"Centering the active slide\"."
+msgstr ""
+"1つずつ切り替えモードでは、1.5 "
+"などの小数点以下の数値を指定することができます。小数点以下の数値を指定する場合は「アクティブスライドを中央にする」を有効にしてください。"
+
+#: src/blocks/slider/edit-multiItem.js:149
+msgid ""
+"In slides-per-view mode, enter a divisor of the total number of placed "
+"slides. If the number is not a divisor, the sliding behavior will be "
+"unnatural."
+msgstr "表示枚数と同じモードでは、配置済みスライドアイテム数の約数を入力してください。約数でない場合、スライド動作が不自然になります。"
 
 #: src/components/display-condition/index.js:445
 msgid "Include"
@@ -2988,9 +3083,9 @@ msgstr "プラグインのインストール"
 msgid "Install Required Plugins"
 msgstr "必須プラグインのインストール"
 
-#. translators: %s = plugin name.
 #: dist/vk-blocks-pro/inc/tgm-plugin-activation/tgm-config.php:75
 #: inc/tgm-plugin-activation/tgm-config.php:75
+#. translators: %s = plugin name.
 #, php-format
 msgid "Installing Plugin: %s"
 msgstr "プラグイン %s をインストール中"
@@ -2999,14 +3094,20 @@ msgstr "プラグイン %s をインストール中"
 msgid "Invalid JSON file"
 msgstr "無効なJSONファイルです"
 
+#: dist/vk-blocks-pro/inc/vk-blocks-pro/App/RestAPI/BlockMeta/class-vk-blocks-pro-entrypoint.php:80
+#: dist/vk-blocks-pro/inc/vk-blocks-pro/App/RestAPI/BlockMeta/class-vk-blocks-pro-entrypoint.php:94
+#: inc/vk-blocks-pro/App/RestAPI/BlockMeta/class-vk-blocks-pro-entrypoint.php:80
+#: inc/vk-blocks-pro/App/RestAPI/BlockMeta/class-vk-blocks-pro-entrypoint.php:94
+msgid "Invalid URL."
+msgstr "無効な URL です。"
+
 #: dist/vk-blocks-pro/inc/vk-blocks/build/blocks/faq2/block.json
 #: inc/vk-blocks/build/blocks/faq2/block.json src/blocks/faq2/block.json
 msgctxt "block description"
 msgid ""
-"It displays a combination of questions and answers. You can freely add blocks to the "
-"question area as well."
-msgstr ""
-"質問と回答を組み合わせて表示します。質問エリアにも自由にブロックを追加できます。"
+"It displays a combination of questions and answers. You can freely add "
+"blocks to the question area as well."
+msgstr "質問と回答を組み合わせて表示します。質問エリアにも自由にブロックを追加できます。"
 
 #: dist/vk-blocks-pro/inc/vk-blocks/build/blocks/_pro/gridcolcard-item/block.json
 #: inc/vk-blocks/build/blocks/_pro/gridcolcard-item/block.json
@@ -3076,7 +3177,8 @@ msgstr "ブロックのバリエーションについて詳しく見る"
 
 #: src/blocks/_pro/fixed-display/edit.js:222 src/blocks/_pro/outer/edit.js:1073
 #: src/blocks/balloon/edit.js:431 src/blocks/button/edit.js:292
-#: src/blocks/pr-content/edit.js:256 src/components/display-items-control/index.js:132
+#: src/blocks/pr-content/edit.js:256
+#: src/components/display-items-control/index.js:132
 msgid "Left"
 msgstr "左"
 
@@ -3086,6 +3188,10 @@ msgstr "左 (標準)"
 
 #: src/blocks/_pro/animation/edit.js:72
 msgid "Left Right"
+msgstr "左右"
+
+#: src/blocks/_pro/tab/edit.js:1223
+msgid "Left and right"
 msgstr "左右"
 
 #: src/blocks/_pro/blog-card/variations.js:18
@@ -3118,7 +3224,8 @@ msgstr "Light"
 msgid "Line"
 msgstr "ライン"
 
-#: src/blocks/_pro/step-item/edit.js:130 src/blocks/_pro/timeline-item/edit.js:96
+#: src/blocks/_pro/step-item/edit.js:130
+#: src/blocks/_pro/timeline-item/edit.js:96
 msgid "Line style"
 msgstr "ラインスタイル"
 
@@ -3150,7 +3257,8 @@ msgstr "リンク情報"
 #: src/blocks/_pro/blog-card-featured-image/edit.js:66
 #: src/blocks/_pro/blog-card-site-logo/edit.js:54
 #: src/blocks/_pro/blog-card-site-title/edit.js:88
-#: src/blocks/_pro/blog-card-title/edit.js:86 src/components/link-control/index.js:46
+#: src/blocks/_pro/blog-card-title/edit.js:86
+#: src/components/link-control/index.js:46
 msgid "Link rel"
 msgstr "rel属性"
 
@@ -3202,6 +3310,13 @@ msgstr "長い"
 msgid "Loop"
 msgstr "ループ"
 
+#: src/blocks/slider/edit-multiItem.js:76
+#. %d: minimum number of slides required for loop mode
+msgid ""
+"Loop mode requires at least %d slides with the current slider settings. "
+"Please add more slides or disable loop."
+msgstr "現在のスライダー設定ではループモードに最低 %d 枚のスライドが必要です。スライドを追加するか、ループを無効にしてください。"
+
 #: src/utils/example-data.js:7
 msgid "Lorem ipsum"
 msgstr "ロレム・アプサム"
@@ -3212,11 +3327,11 @@ msgstr "闇の中で"
 
 #: src/blocks/_pro/card-item/edit.js:140 src/utils/example-data.js:3
 msgid ""
-"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor "
-"incididunt ut labore et dolore magna aliqua."
+"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod "
+"tempor incididunt ut labore et dolore magna aliqua."
 msgstr ""
-"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor "
-"incididunt ut labore et dolore magna aliqua."
+"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod "
+"tempor incididunt ut labore et dolore magna aliqua."
 
 #: src/blocks/_pro/outer/edit.js:1351
 msgid "Lower Divider Level"
@@ -3276,6 +3391,14 @@ msgstr "最大長さ"
 msgid "Media"
 msgstr "メディア"
 
+#: src/blocks/button/edit.js:652
+msgid "Medium"
+msgstr ""
+
+#: src/extensions/core/navigation/style.js:46
+msgid "Menu Item Description"
+msgstr "メニュー項目の説明"
+
 #: src/blocks/_pro/outer/edit.js:1569
 msgid "Min Height Setting"
 msgstr "最小高さ設定"
@@ -3308,6 +3431,10 @@ msgstr "更新日 (過去から)"
 msgid "Modified Date"
 msgstr "更新日"
 
+#: src/components/display-items-control/index.js:73
+msgid "Modified date"
+msgstr "更新日"
+
 #: src/blocks/_pro/tab/edit.js:1096
 msgid "Monospaced"
 msgstr "等幅"
@@ -3324,8 +3451,8 @@ msgstr "アイテムの複数表示設定"
 #: src/admin/custom-format/add-item.js:74
 #: src/extensions/common/custom-block-variation/create-variation/block-variation-form/variation-name/index.js:26
 msgid ""
-"Must begin with an alphabetic character and only alphanumeric characters and hyphens "
-"may be used."
+"Must begin with an alphabetic character and only alphanumeric characters "
+"and hyphens may be used."
 msgstr "英字から始まり、英数字,ハイフン-のみ使用可能です"
 
 #: src/extensions/common/custom-block-variation/block-variation-list/item/body-area/index.js:62
@@ -3347,8 +3474,7 @@ msgstr "ナビゲーションの位置"
 
 #: src/blocks/slider-item/edit.js:257
 msgid "Nested blocks should inherit the content width."
-msgstr ""
-"ネストしたブロックはコンテンツ幅を使用し、オプションで全幅、幅広に設定できます。"
+msgstr "ネストしたブロックはコンテンツ幅を使用し、オプションで全幅、幅広に設定できます。"
 
 #: src/blocks/_pro/post-new-badge/variations.js:14
 msgid "New Badge"
@@ -3383,9 +3509,9 @@ msgstr "新着表示オプション"
 msgid "New post mark"
 msgstr "新着表示"
 
-#. translators: %s = plugin name.
 #: dist/vk-blocks-pro/inc/tgm-plugin-activation/tgm-config.php:151
 #: inc/tgm-plugin-activation/tgm-config.php:151
+#. translators: %s = plugin name.
 #, php-format
 msgid "No action taken. Plugin %1$s was already active."
 msgstr "操作を実行しませんでした。プラグイン %1$s はすでに有効化されています。"
@@ -3440,12 +3566,10 @@ msgstr "注意 : 全角スペースが含まれています。CSSが効かない
 
 #: src/extensions/common/hidden-extension/index.js:226
 msgid ""
-"Note : This function is display hidden only. Actually Block is output to HTML. "
-"Please don't use you must not visible item. Don't use it for blocks you really don't "
-"want to display."
-msgstr ""
-"注意 : この機能はあくまでHTMLに出力される要素を非表示にするだけです。本当に見せてはい"
-"けない要素には使わないでください。"
+"Note : This function is display hidden only. Actually Block is output to "
+"HTML. Please don't use you must not visible item. Don't use it for blocks "
+"you really don't want to display."
+msgstr "注意 : この機能はあくまでHTMLに出力される要素を非表示にするだけです。本当に見せてはいけない要素には使わないでください。"
 
 #: src/blocks/_pro/table-of-contents-new/edit.js:324
 msgid "Note on duplicating headings"
@@ -3457,11 +3581,9 @@ msgstr "CSS / JSの読み込み順序が変わることに注意してくださ�
 
 #: src/blocks/visual-embed/edit.js:274
 msgid ""
-"Note: These settings are only applicable to iframe tags. Other embed codes will not "
-"respond to these adjustments."
-msgstr ""
-"注意: これらの設定はiframeタグにのみ適用されます。他の埋め込みコードには対応していま"
-"せん。"
+"Note: These settings are only applicable to iframe tags. Other embed codes "
+"will not respond to these adjustments."
+msgstr "注意: これらの設定はiframeタグにのみ適用されます。他の埋め込みコードには対応していません。"
 
 #: src/admin/custom-format/index.js:171
 msgid "Nowrap"
@@ -3528,11 +3650,9 @@ msgstr "OR ( どれか )"
 
 #: src/admin/license.js:30
 msgid ""
-"Once you enter the license key you will be able to do a one click update from the "
-"administration screen."
-msgstr ""
-"有効なライセンスキーを入力すると、管理画面からワンクリックでアップデートが可能になり"
-"ます。"
+"Once you enter the license key you will be able to do a one click update "
+"from the administration screen."
+msgstr "有効なライセンスキーを入力すると、管理画面からワンクリックでアップデートが可能になります。"
 
 #: src/blocks/_pro/post-list-slider/multi-item-setting.js:279
 #: src/blocks/slider/edit-multiItem.js:303
@@ -3569,7 +3689,8 @@ msgstr "開く"
 #: src/blocks/_pro/blog-card-featured-image/edit.js:56
 #: src/blocks/_pro/blog-card-site-logo/edit.js:44
 #: src/blocks/_pro/blog-card-site-title/edit.js:78
-#: src/blocks/_pro/blog-card-title/edit.js:76 src/components/link-control/index.js:41
+#: src/blocks/_pro/blog-card-title/edit.js:76
+#: src/components/link-control/index.js:41
 msgid "Open in new tab"
 msgstr "リンクを別ウィンドウで開く"
 
@@ -3585,16 +3706,26 @@ msgstr "リンクを新しいタブで開く"
 msgid "Order"
 msgstr "表示順"
 
-#: src/components/display-condition/index.js:379 src/extensions/core/query/style.js:55
+#: src/components/display-condition/index.js:379
+#: src/extensions/core/query/style.js:55
 msgid "Order by"
 msgstr "並び順"
+
+#: src/extensions/core/query/style.js:359
+msgid "Order for posts that share the same number of tags."
+msgstr "共有するタグ数が同じ記事どうしの並び順です。"
+
+#: src/extensions/core/query/style.js:344
+msgid "Order settings only affect posts that share the same number of tags."
+msgstr "並び順の設定は、共有するタグ数が同じ記事どうしの並びにのみ影響します。"
 
 #: src/blocks/_pro/blog-card-featured-image/dimension-controls.js:107
 msgid "Original"
 msgstr "オリジナル"
 
 #: dist/vk-blocks-pro/inc/vk-blocks/build/blocks/_pro/outer/block.json
-#: inc/vk-blocks/build/blocks/_pro/outer/block.json src/blocks/_pro/outer/block.json
+#: inc/vk-blocks/build/blocks/_pro/outer/block.json
+#: src/blocks/_pro/outer/block.json
 msgctxt "block title"
 msgid "Outer"
 msgstr "Outer"
@@ -3609,7 +3740,8 @@ msgstr "Outer"
 msgid "Outer link"
 msgstr "Outerリンク"
 
-#: src/blocks/_pro/step-item/edit.js:123 src/blocks/_pro/timeline-item/edit.js:85
+#: src/blocks/_pro/step-item/edit.js:123
+#: src/blocks/_pro/timeline-item/edit.js:85
 msgid "Outlined"
 msgstr "アウトライン"
 
@@ -3646,13 +3778,15 @@ msgid "PR Block3 Setting"
 msgstr "PR Block3 設定"
 
 #: dist/vk-blocks-pro/inc/vk-blocks/build/blocks/pr-blocks/block.json
-#: inc/vk-blocks/build/blocks/pr-blocks/block.json src/blocks/pr-blocks/block.json
+#: inc/vk-blocks/build/blocks/pr-blocks/block.json
+#: src/blocks/pr-blocks/block.json
 msgctxt "block title"
 msgid "PR Blocks ( not recommended )"
 msgstr "PR Blocks (非推奨)"
 
 #: dist/vk-blocks-pro/inc/vk-blocks/build/blocks/pr-content/block.json
-#: inc/vk-blocks/build/blocks/pr-content/block.json src/blocks/pr-content/block.json
+#: inc/vk-blocks/build/blocks/pr-content/block.json
+#: src/blocks/pr-content/block.json
 msgctxt "block title"
 msgid "PR Content ( not recommended )"
 msgstr "PR Content (非推奨)"
@@ -3673,7 +3807,8 @@ msgstr "PR 画像 3"
 msgid "Padding (Bottom)"
 msgstr "余白 (下)"
 
-#: src/blocks/_pro/grid-column-item/edit.js:154 src/blocks/_pro/outer/edit.js:1112
+#: src/blocks/_pro/grid-column-item/edit.js:154
+#: src/blocks/_pro/outer/edit.js:1112
 msgid "Padding (Left and Right)"
 msgstr "余白 (左右)"
 
@@ -3739,6 +3874,10 @@ msgstr "パスワード保護"
 msgid "Paste a link to the content you want to display on your site."
 msgstr "サイトに表示したいコンテンツへのリンクを貼り付けてください。"
 
+#: src/blocks/slider/pause-button.js src/blocks/_pro/post-list-slider/index.php
+msgid "Pause slideshow"
+msgstr "スライドショーを一時停止"
+
 #: dist/vk-blocks-pro/inc/vk-blocks/class-vk-blocks-global-settings.php:366
 #: inc/vk-blocks/class-vk-blocks-global-settings.php:366
 msgid "Pencil"
@@ -3773,6 +3912,10 @@ msgstr "フォトフレーム傾き右"
 msgid "Plain"
 msgstr "装飾無し"
 
+#: src/blocks/slider/pause-button.js src/blocks/_pro/post-list-slider/index.php
+msgid "Play slideshow"
+msgstr "スライドショーを再生"
+
 #: src/blocks/_pro/dynamic-text/edit.js:386
 msgid "Please Select"
 msgstr "選択してください"
@@ -3781,19 +3924,19 @@ msgstr "選択してください"
 msgid "Please check the actual behavior on the live site."
 msgstr "実際の動作は公開画面で確認してください。"
 
-#. translators: %s = dashboard link.
 #: dist/vk-blocks-pro/inc/tgm-plugin-activation/tgm-config.php:157
 #: inc/tgm-plugin-activation/tgm-config.php:157
+#. translators: %s = dashboard link.
 msgid "Please contact the administrator of this site for help."
 msgstr "ヘルプが必要な場合はこのサイトの管理者にお問い合わせください。"
 
 #: src/admin/license.js:24
 msgid ""
-"Please enter a license key of valid Vektor Passport ( or Lightning G3 Pro Pack or "
-"Lightning Pro )."
+"Please enter a license key of valid Vektor Passport ( or Lightning G3 Pro "
+"Pack or Lightning Pro )."
 msgstr ""
-"有効な Vektor Passport (または Lightning G3 Pro Pack または Lightning Pro ) のライセ"
-"ンス キーを入力してください。"
+"有効な Vektor Passport (または Lightning G3 Pro Pack または Lightning Pro ) のライセンス "
+"キーを入力してください。"
 
 #: src/blocks/faq/edit.js:44
 msgid "Please enter a question."
@@ -3815,8 +3958,8 @@ msgstr "http:// または https:// で始まる有効なURLを入力欄に入力
 
 #: dist/vk-blocks-pro/vk-blocks.php:353 vk-blocks.php:353
 msgid ""
-"Please enter a valid license key for any of the following products on the settings "
-"screen."
+"Please enter a valid license key for any of the following products on the "
+"settings screen."
 msgstr "設定画面で以下のいずれかの製品の有効なライセンスキーを入力してください。"
 
 #: src/blocks/visual-embed/edit.js:208
@@ -3829,13 +3972,12 @@ msgstr "使用したいセパレーターの文字を入力してください。
 
 #: src/blocks/visual-embed/edit.js:197
 msgid ""
-"Please paste the iframe embed code directly. Only iframe tags with allowed URLs "
-"(Google Maps, Google Calendar, Google Forms, YouTube、OpenStreetMap, Vimeo) are "
-"permitted."
+"Please paste the iframe embed code directly. Only iframe tags with allowed "
+"URLs (Google Maps, Google Calendar, Google Forms, YouTube、OpenStreetMap, "
+"Vimeo) are permitted."
 msgstr ""
-"iframe 埋め込みコードを直接貼り付けてください。許可された URL (Google マップ、Google "
-"カレンダー、Google フォーム、YouTube、OpenStreetMap、Vimeo) の iframe タグのみが許可"
-"されます。"
+"iframe 埋め込みコードを直接貼り付けてください。許可された URL (Google マップ、Google カレンダー、Google "
+"フォーム、YouTube、OpenStreetMap、Vimeo) の iframe タグのみが許可されます。"
 
 #: src/blocks/_pro/dynamic-text/edit.js:156
 msgid "Please select display element from the Setting sidebar."
@@ -3880,7 +4022,9 @@ msgid "Please specify the layout of the balloon."
 msgstr "吹き出しの配置を指定してください。"
 
 #: src/admin/margin.js:75
-msgid "Please specify the size of the common margin used for responsive spacers, etc."
+msgid ""
+"Please specify the size of the common margin used for responsive spacers, "
+"etc."
 msgstr "レスポンシブスペーサーなどで使用する共通余白のサイズを指定してください。"
 
 #: dist/vk-blocks-pro/inc/tgm-plugin-activation/tgm-config.php:148
@@ -3888,16 +4032,14 @@ msgstr "レスポンシブスペーサーなどで使用する共通余白のサ
 msgid "Plugin activated successfully."
 msgstr "プラグインを有効化しました。"
 
-#. translators: %s = plugin name.
 #: dist/vk-blocks-pro/inc/tgm-plugin-activation/tgm-config.php:153
 #: inc/tgm-plugin-activation/tgm-config.php:153
+#. translators: %s = plugin name.
 #, php-format
 msgid ""
-"Plugin not activated. A higher version of %s is needed for this theme. Please update "
-"the plugin."
-msgstr ""
-"プラグインを有効化できませんでした。このテーマはプラグイン %s の現在のバージョンをサ"
-"ポートしていません。プラグインを更新してください。"
+"Plugin not activated. A higher version of %s is needed for this theme. "
+"Please update the plugin."
+msgstr "プラグインを有効化できませんでした。このテーマはプラグイン %s の現在のバージョンをサポートしていません。プラグインを更新してください。"
 
 #: src/blocks/balloon/edit.js:414 src/blocks/heading/edit.js:369
 msgid "Position"
@@ -3907,6 +4049,10 @@ msgstr "位置"
 #: inc/vk-blocks/view/class-vk-blocks-postlist.php:316
 msgid "Post"
 msgstr "投稿"
+
+#: inc/vk-blocks-pro/extensions/core/query.php:357
+msgid "Post ID used as the related-posts reference in the editor preview."
+msgstr "エディタプレビューで関連記事の基準として使用する投稿ID。"
 
 #: dist/vk-blocks-pro/inc/vk-blocks/build/blocks/_pro/post-list-slider/block.json
 #: inc/vk-blocks/build/blocks/_pro/post-list-slider/block.json
@@ -3962,11 +4108,10 @@ msgstr "テキストを折り返さない"
 
 #: src/extensions/core/group/style.js:648
 msgid ""
-"Prevents text from wrapping to multiple lines and ensures horizontal scrolling. "
-"Disable this only if you want text to wrap naturally within the scrollable area."
-msgstr ""
-"テキストが複数行に折り返されることを防ぎ水平スクロールを可能にします。スクロール領域"
-"内でテキストを自然に折り返したい場合にのみこれを無効にしてください。"
+"Prevents text from wrapping to multiple lines and ensures horizontal "
+"scrolling. Disable this only if you want text to wrap naturally within the "
+"scrollable area."
+msgstr "テキストが複数行に折り返されることを防ぎ水平スクロールを可能にします。スクロール領域内でテキストを自然に折り返したい場合にのみこれを無効にしてください。"
 
 #: src/blocks/slider/edit.js:467
 msgid "Preview"
@@ -3983,6 +4128,10 @@ msgstr "プレビューテキスト"
 #: src/blocks/_pro/dynamic-text/edit.js:193
 msgid "Preview display"
 msgstr "プレビュー表示"
+
+#: src/blocks/visual-embed/edit.js:293
+msgid "Preview only. The video plays on the published page."
+msgstr "プレビューのみです。動画は公開ページで再生されます。"
 
 #: src/blocks/button/edit.js:499 src/blocks/pr-content/edit.js:163
 msgid "Primary"
@@ -4012,6 +4161,10 @@ msgstr "公開日"
 msgid "Pyramid"
 msgstr "ピラミッド"
 
+#: src/extensions/core/query/style.js:118
+msgid "Query Loop"
+msgstr "クエリーループ"
+
 #: src/blocks/faq/save.js:16 src/blocks/faq2-q/save.js:9
 msgid "Question"
 msgstr "質問"
@@ -4037,6 +4190,26 @@ msgstr "再表示設定"
 #: src/extensions/common/custom-block-variation/block-variation-explorer/sidebar.js:21
 msgid "Registered"
 msgstr "登録済み"
+
+#: src/extensions/core/query/style.js:198
+msgid "Related posts are matched by the tags on the current post."
+msgstr "関連記事は、現在の投稿のタグをもとに選ばれます。"
+
+#: src/extensions/core/query/style.js:339
+msgid ""
+"Related posts are ranked by how many tags each post shares with the post "
+"you are editing, showing the most related first."
+msgstr ""
+"関連記事は、編集中の投稿と共有するタグの数が多い順に並び、最も関連性の高い"
+"記事から表示されます。"
+
+#: src/extensions/core/query/style.js:322
+msgid "Related posts are unavailable for this content type."
+msgstr "このコンテンツタイプでは関連記事を利用できません。"
+
+#: src/extensions/core/query/style.js:278
+msgid "Related posts turned off."
+msgstr "関連記事の表示をオフにしました。"
 
 #: dist/vk-blocks-pro/inc/vk-blocks/build/blocks/_pro/fixed-display/block.json
 #: inc/vk-blocks/build/blocks/_pro/fixed-display/block.json
@@ -4080,6 +4253,10 @@ msgstr "レスポンシブスペーサー"
 msgid "Return to Required Plugins Installer"
 msgstr "必須プラグインのインストール画面に戻る"
 
+#: src/blocks/button/edit.js:627
+msgid "Returned to the preset size."
+msgstr ""
+
 #: src/extensions/core/columns/style.js:45
 msgid "Reverse"
 msgstr "逆"
@@ -4090,7 +4267,8 @@ msgstr "Ridge"
 
 #: src/blocks/_pro/fixed-display/edit.js:214 src/blocks/_pro/outer/edit.js:1087
 #: src/blocks/balloon/edit.js:435 src/blocks/button/edit.js:300
-#: src/blocks/pr-content/edit.js:252 src/components/display-items-control/index.js:140
+#: src/blocks/pr-content/edit.js:252
+#: src/components/display-items-control/index.js:140
 msgid "Right"
 msgstr "右"
 
@@ -4183,6 +4361,11 @@ msgstr "スクロールバートラックの色"
 msgid "Search for a block"
 msgstr "ブロックの検索"
 
+#: src/components/post-exclusion-control/index.js:120
+#. translators: search target post types
+msgid "Search target: %s"
+msgstr "検索対象: %s"
+
 #: src/blocks/button/edit.js:503 src/blocks/pr-content/edit.js:167
 msgid "Secondary"
 msgstr "Secondary"
@@ -4220,13 +4403,16 @@ msgstr "ページを選択"
 msgid "Select Taxonomy"
 msgstr "タクソノミーを選択"
 
+#: src/blocks/page-content/edit.js:80
+msgid "Select a page first to edit this area"
+msgstr "このエリアを編集するにはまずページを選択してください"
+
 #: src/blocks/_pro/outer/edit.js:790
 msgid ""
-"Select either Focal Point to control the image’s focus, or Background Offset to "
-"shift the background position. (Only one option can be active at a time.)"
-msgstr ""
-"背景の焦点を調整したい時は「フォーカルポイント」、位置をずらしたい時は「背景オフセッ"
-"ト」を選んでください（いずれか一方のみ設定可能です）。"
+"Select either Focal Point to control the image’s focus, or Background "
+"Offset to shift the background position. (Only one option can be active at "
+"a time.)"
+msgstr "背景の焦点を調整したい時は「フォーカルポイント」、位置をずらしたい時は「背景オフセット」を選んでください（いずれか一方のみ設定可能です）。"
 
 #: src/blocks/_pro/card-item/edit.js:88 src/blocks/flow/edit.js:84
 #: src/blocks/pr-blocks/edit.js:90
@@ -4259,10 +4445,15 @@ msgid "Serrated"
 msgstr "ギザギザ"
 
 #: dist/vk-blocks-pro/inc/vk-blocks/build/blocks/_pro/step/block.json
-#: inc/vk-blocks/build/blocks/_pro/step/block.json src/blocks/_pro/step/block.json
+#: inc/vk-blocks/build/blocks/_pro/step/block.json
+#: src/blocks/_pro/step/block.json
 msgctxt "block description"
 msgid "Set and display step marks, which are useful when explaining the order."
 msgstr "順番を説明する時に便利でステップマークを設定し表示します。"
+
+#: src/blocks/button/edit.js:580
+msgid "Set custom size"
+msgstr ""
 
 #: src/blocks/_pro/accordion/edit.js:95
 msgid "Set initial state per device"
@@ -4273,9 +4464,12 @@ msgid "Set the alt text for profile image"
 msgstr "プロフィール画像の代替テキストを設定します"
 
 #: dist/vk-blocks-pro/inc/vk-blocks/build/blocks/_pro/outer/block.json
-#: inc/vk-blocks/build/blocks/_pro/outer/block.json src/blocks/_pro/outer/block.json
+#: inc/vk-blocks/build/blocks/_pro/outer/block.json
+#: src/blocks/_pro/outer/block.json
 msgctxt "block description"
-msgid "Set the background image, color, and border to show the layout and divisions."
+msgid ""
+"Set the background image, color, and border to show the layout and "
+"divisions."
 msgstr "背景の画像や色,枠線の設定しレイアウトや区切りを表示します。"
 
 #: dist/vk-blocks-pro/inc/vk-blocks/build/blocks/_pro/grid-column/block.json
@@ -4294,15 +4488,14 @@ msgid "Set the target block."
 msgstr "対象のブロックを設定してください。"
 
 #: src/blocks/_pro/fixed-display/edit.js:414
-msgid "Set the timing for display and hide. Enter 0 to disable timing for each option."
-msgstr ""
-"表示・非表示のタイミングを設定してください。それぞれのタイミングを無効にする場合は 0"
-"を入力してください。"
+msgid ""
+"Set the timing for display and hide. Enter 0 to disable timing for each "
+"option."
+msgstr "表示・非表示のタイミングを設定してください。それぞれのタイミングを無効にする場合は 0を入力してください。"
 
 #: src/blocks/_pro/post-category-badge/edit.js:286
 msgid "Set to 0 for all terms, 1 for single display, 2 or more for multiple display"
-msgstr ""
-"すべての分類の場合は 0、一つだけ表示の場合は 1、複数表示の場合は 2 以上に設定します"
+msgstr "すべての分類の場合は 0、一つだけ表示の場合は 1、複数表示の場合は 2 以上に設定します"
 
 #: src/blocks/_pro/post-category-badge/edit.js:277
 #: dist/vk-blocks-pro/inc/vk-blocks/admin/admin.php:135
@@ -4371,6 +4564,10 @@ msgstr "閉じるボタンを表示"
 msgid "Show hierarchy"
 msgstr "階層を表示"
 
+#: src/extensions/core/navigation/style.js:51
+msgid "Show menu item description"
+msgstr "メニュー項目の説明を表示"
+
 #: src/blocks/_pro/fixed-display/edit.js:195
 msgid "Show on Scroll"
 msgstr "スクロールしたら表示"
@@ -4383,12 +4580,20 @@ msgstr "トップレベルのみ表示"
 msgid "Show post counts"
 msgstr "投稿件数を表示"
 
+#: src/extensions/core/query/style.js:308
+msgid "Show related posts"
+msgstr "関連記事を表示"
+
 #: dist/vk-blocks-pro/inc/vk-blocks/build/blocks/_pro/blog-card-excerpt/block.json
 #: inc/vk-blocks/build/blocks/_pro/blog-card-excerpt/block.json
 #: src/blocks/_pro/blog-card-excerpt/block.json
 msgctxt "block description"
 msgid "Shows an excerpt retrieved from a URL."
 msgstr "URLから取得した抜粋を表示します。"
+
+#: src/extensions/core/site-logo/style.js
+msgid "Site Logo Tag Setting"
+msgstr "サイトロゴタグ設定"
 
 #: src/blocks/_pro/tab-item/edit.js:315 src/blocks/button/edit.js:611
 #: src/blocks/icon-outer/edit.js:90 src/blocks/icon/edit.js:87
@@ -4430,7 +4635,8 @@ msgid "Slider"
 msgstr "スライダー"
 
 #: dist/vk-blocks-pro/inc/vk-blocks/build/blocks/slider-item/block.json
-#: inc/vk-blocks/build/blocks/slider-item/block.json src/blocks/slider-item/block.json
+#: inc/vk-blocks/build/blocks/slider-item/block.json
+#: src/blocks/slider-item/block.json
 msgctxt "block title"
 msgid "Slider Item"
 msgstr "スライダーアイテム"
@@ -4451,7 +4657,8 @@ msgstr "スライダーアイテムリンク"
 msgid "Slow"
 msgstr "遅い"
 
-#: src/blocks/button/edit.js:274 src/extensions/common/inline-font-size/inline.js:23
+#: src/blocks/button/edit.js:274
+#: src/extensions/common/inline-font-size/inline.js:23
 #: dist/vk-blocks-pro/inc/vk-blocks/class-vk-blocks-global-settings.php:517
 #: inc/vk-blocks/class-vk-blocks-global-settings.php:517
 msgid "Small"
@@ -4462,9 +4669,9 @@ msgstr "小"
 msgid "Smile"
 msgstr "笑顔"
 
-#: src/blocks/_pro/gridcolcard/edit-common.js:69 src/blocks/_pro/outer/edit.js:1457
-#: src/blocks/_pro/step-item/edit.js:119 src/blocks/_pro/timeline-item/edit.js:89
-#: src/blocks/pr-content/edit.js:145
+#: src/blocks/_pro/gridcolcard/edit-common.js:69
+#: src/blocks/_pro/outer/edit.js:1457 src/blocks/_pro/step-item/edit.js:119
+#: src/blocks/_pro/timeline-item/edit.js:89 src/blocks/pr-content/edit.js:145
 #: dist/vk-blocks-pro/inc/vk-blocks/class-vk-blocks-global-settings.php:448
 #: inc/vk-blocks/class-vk-blocks-global-settings.php:448
 msgid "Solid"
@@ -4520,31 +4727,40 @@ msgstr "ベタ塗り"
 msgid "Something went wrong with the plugin API."
 msgstr "プラグイン API で問題が発生しました。"
 
-#. translators: %s = plugin name.
 #: dist/vk-blocks-pro/inc/tgm-plugin-activation/tgm-config.php:126
 #: inc/tgm-plugin-activation/tgm-config.php:126
+#. translators: %s = plugin name.
 #, php-format
-msgid "Sorry, but you do not have the correct permissions to activate the %1$s plugin."
+msgid ""
+"Sorry, but you do not have the correct permissions to activate the %1$s "
+"plugin."
 msgid_plural ""
-"Sorry, but you do not have the correct permissions to activate the %1$s plugins."
+"Sorry, but you do not have the correct permissions to activate the %1$s "
+"plugins."
 msgstr[0] "%1$sプラグインを有効化するための適切な権限がありません。"
 
-#. translators: %s = plugin name.
 #: dist/vk-blocks-pro/inc/tgm-plugin-activation/tgm-config.php:90
 #: inc/tgm-plugin-activation/tgm-config.php:90
+#. translators: %s = plugin name.
 #, php-format
-msgid "Sorry, but you do not have the correct permissions to install the %1$s plugin."
+msgid ""
+"Sorry, but you do not have the correct permissions to install the %1$s "
+"plugin."
 msgid_plural ""
-"Sorry, but you do not have the correct permissions to install the %1$s plugins."
+"Sorry, but you do not have the correct permissions to install the %1$s "
+"plugins."
 msgstr[0] "%1$sプラグインをインストールするための適切な権限がありません。"
 
-#. translators: %s = plugin name.
 #: dist/vk-blocks-pro/inc/tgm-plugin-activation/tgm-config.php:108
 #: inc/tgm-plugin-activation/tgm-config.php:108
+#. translators: %s = plugin name.
 #, php-format
-msgid "Sorry, but you do not have the correct permissions to update the %1$s plugin."
+msgid ""
+"Sorry, but you do not have the correct permissions to update the %1$s "
+"plugin."
 msgid_plural ""
-"Sorry, but you do not have the correct permissions to update the %1$s plugins."
+"Sorry, but you do not have the correct permissions to update the %1$s "
+"plugins."
 msgstr[0] "%1$sプラグインを更新するための適切な権限がありません。"
 
 #: src/blocks/_pro/blog-card/edit/url-placeholder.js:121
@@ -4564,11 +4780,18 @@ msgstr "余白の設定"
 #: inc/vk-blocks/build/blocks/_pro/taxonomy/index.php:246
 #: src/blocks/_pro/taxonomy/index.php:246
 msgid ""
-"Specified taxonomy does not exist. Please check your taxonomy settings to display or "
-"remove this block."
+"Specified taxonomy does not exist. Please check your taxonomy settings to "
+"display or remove this block."
+msgstr "指定されたタクソノミーが存在しません。このブロックを表示または削除するために、タクソノミー設定を確認してください。"
+
+#: src/blocks/_pro/outer/edit.js
+msgid ""
+"Specifies the left/right inner padding of the container. When \"Fit to the "
+"Content area\" is selected, entering 0 keeps the theme's default padding. "
+"To remove the padding completely, deselect \"Fit to the Content area\"."
 msgstr ""
-"指定されたタクソノミーが存在しません。このブロックを表示または削除するために、タクソ"
-"ノミー設定を確認してください。"
+"コンテナ内側の左右余白を指定します。「コンテンツエリアに合わせる」を選択している場合、0 "
+"を指定するとテーマ標準の余白がそのまま適用されます。余白を完全に取り除きたい場合は「コンテンツエリアに合わせる」を解除してください。"
 
 #: src/components/link-toolbar/index.js:327
 msgid "Specify URL"
@@ -4601,7 +4824,8 @@ msgid "Staff name"
 msgstr "名前"
 
 #: dist/vk-blocks-pro/inc/vk-blocks/build/blocks/_pro/step/block.json
-#: inc/vk-blocks/build/blocks/_pro/step/block.json src/blocks/_pro/step/block.json
+#: inc/vk-blocks/build/blocks/_pro/step/block.json
+#: src/blocks/_pro/step/block.json
 msgctxt "block title"
 msgid "Step"
 msgstr "ステップ"
@@ -4677,6 +4901,10 @@ msgstr "接尾辞"
 msgid "Supported direct blocks:"
 msgstr "対応する直下ブロック:"
 
+#: src/extensions/core/query/style.js:327
+msgid "Switch to editing a post that has tags to use this feature."
+msgstr "この機能を使うには、タグが設定された投稿の編集画面に切り替えてください。"
+
 #: src/blocks/_pro/tab/index.js:18
 msgid "Tab"
 msgstr "タブ"
@@ -4725,8 +4953,20 @@ msgstr "タブアイコン設定"
 msgid "Tab Item"
 msgstr "タブアイテム"
 
-#. %s is the tab number
+#: src/blocks/_pro/tab/edit.js:1235
+msgid "Tab Label Border Radius"
+msgstr "タブラベルの角丸"
+
+#: src/blocks/_pro/tab/edit.js:1205
+msgid "Tab Label Design"
+msgstr "タブラベルのデザイン"
+
+#: src/blocks/_pro/tab/edit.js:1210
+msgid "Tab Label Padding"
+msgstr "タブラベルの余白"
+
 #: src/blocks/_pro/tab/edit.js:871
+#. %s is the tab number
 msgid "Tab Label [ %s ]"
 msgstr "タブラベル [ %s ]"
 
@@ -4840,7 +5080,8 @@ msgstr "テキスト"
 msgid "Text 1 Column"
 msgstr "テキスト 1 カラム"
 
-#: src/admin/custom-format/index.js:208 src/blocks/_pro/fixed-display/edit.js:324
+#: src/admin/custom-format/index.js:208
+#: src/blocks/_pro/fixed-display/edit.js:324
 #: src/blocks/_pro/grid-column-item/edit.js:115
 #: src/blocks/_pro/gridcolcard/edit-common.js:177 src/blocks/button/edit.js:564
 #: src/blocks/heading/edit.js:325
@@ -4863,63 +5104,58 @@ msgstr "文字サイズ"
 msgid "Text size (rem)"
 msgstr "文字サイズ (rem)"
 
-#. translators: 1: opening a tag, 2: closing a tag
 #: dist/vk-blocks-pro/inc/admin-notices.php:35 inc/admin-notices.php:35
+#. translators: 1: opening a tag, 2: closing a tag
 #, php-format
 msgid ""
-"Thank you for using VK Blocks. We've released VK Blocks Pro. It has more custom "
-"blocks to build web site more easily. If you are interested in VK Blocks Pro, Please "
-"read %1$s this post %2$s for more details."
+"Thank you for using VK Blocks. We've released VK Blocks Pro. It has more "
+"custom blocks to build web site more easily. If you are interested in VK "
+"Blocks Pro, Please read %1$s this post %2$s for more details."
 msgstr ""
-"いつもVK Blocksをご利用いただきありがとうございます。この度、VK Blocks Proをリリース"
-"しました。より簡単にWebサイトを構築するためのカスタムブロックが追加されています。VK "
-"Blocks Proに興味がある方は、詳しくは%1$sこの記事%2$sを読んでみてください。"
+"いつもVK Blocksをご利用いただきありがとうございます。この度、VK Blocks "
+"Proをリリースしました。より簡単にWebサイトを構築するためのカスタムブロックが追加されています。VK Blocks "
+"Proに興味がある方は、詳しくは%1$sこの記事%2$sを読んでみてください。"
 
 #: dist/vk-blocks-pro/inc/vk-blocks/build/blocks/page-content/index.php:55
 #: inc/vk-blocks/build/blocks/page-content/index.php:55
 #: src/blocks/page-content/index.php:55
 msgid ""
-"The Page Content block from VK Blocks version 1.95.0 onwards, non-public or password "
-"protected page's content can no longer be displayed."
-msgstr ""
-"固定ページ本文ブロックは VK Blocks 1.95.0 以降は非公開あるいはパスワード保護のコンテ"
-"ンツは表示されなくなりました。"
+"The Page Content block from VK Blocks version 1.95.0 onwards, non-public or "
+"password protected page's content can no longer be displayed."
+msgstr "固定ページ本文ブロックは VK Blocks 1.95.0 以降は非公開あるいはパスワード保護のコンテンツは表示されなくなりました。"
 
 #: dist/vk-blocks-pro/vk-blocks.php:329 vk-blocks.php:329
 msgid "The VK Blocks Pro license is invalid."
 msgstr "VK Blocks Pro のライセンスが無効です。"
 
+#: src/blocks/_pro/outer/edit.js:723 src/blocks/slider-item/edit.js:271
+msgid ""
+"The color will cover the background image. To display the image, set the "
+"opacity to 0."
+msgstr "色を指定すると画像よりも優先されます。画像を表示したい場合は、不透明度を0に設定します。"
+
 #: src/blocks/_pro/post-list-slider/multi-item-setting.js:36
 #: src/blocks/slider/edit-multiItem.js:42
 msgid ""
-"The decimal point can be set for the display number only when the display is "
-"switched one by one."
+"The decimal point can be set for the display number only when the display "
+"is switched one by one."
 msgstr "表示番号に小数点を設定できるのは、表示を 1 つずつ切り替える場合のみです。"
-
-#: src/blocks/_pro/fixed-display/edit.js:179
-msgid ""
-"The fixed position of the fixed position block will not change on the edit screen. "
-"Please check on the front screen."
-msgstr ""
-"編集画面では固定位置ブロックの固定位置は変わりません。フロント画面でご確認ください。"
 
 #: src/admin/import-export/import-form.js:414
 msgid "The following data will not be imported because the identifiers are covered."
 msgstr "次のデータは識別子が重複しているため、インポートされません。"
 
-#. translators: %s = plugin name.
 #: dist/vk-blocks-pro/inc/tgm-plugin-activation/tgm-config.php:96
 #: inc/tgm-plugin-activation/tgm-config.php:96
+#. translators: %s = plugin name.
 #, php-format
 msgid ""
-"The following plugin needs to be updated to its latest version to ensure maximum "
-"compatibility with this plugin: %1$s."
+"The following plugin needs to be updated to its latest version to ensure "
+"maximum compatibility with this plugin: %1$s."
 msgid_plural ""
-"The following plugins need to be updated to their latest version to ensure maximum "
-"compatibility with this plugin: %1$s."
-msgstr[0] ""
-"このプラグインとの最大の互換性を確保するには、次のプラグインを最新バージョンに更新す"
-"る必要があります： %1$s。"
+"The following plugins need to be updated to their latest version to ensure "
+"maximum compatibility with this plugin: %1$s."
+msgstr[0] "このプラグインとの最大の互換性を確保するには、次のプラグインを最新バージョンに更新する必要があります： %1$s。"
 
 #: dist/vk-blocks-pro/inc/tgm-plugin-activation/tgm-config.php:149
 #: inc/tgm-plugin-activation/tgm-config.php:149
@@ -4930,20 +5166,19 @@ msgstr "次のプラグインを有効化しました:"
 #: inc/vk-blocks/build/blocks/page-content/class-vk-blocks-check-using-vk-page-content-block.php:131
 #: src/blocks/page-content/class-vk-blocks-check-using-vk-page-content-block.php:131
 msgid "The following posts contain Page Content Blocks referencing non-public pages"
-msgstr ""
-"以下のページは非公開のページを参照している固定ページ本文ブロックを使用しています"
+msgstr "以下のページは非公開のページを参照している固定ページ本文ブロックを使用しています"
 
-#. translators: %s = plugin name.
 #: dist/vk-blocks-pro/inc/tgm-plugin-activation/tgm-config.php:120
 #: inc/tgm-plugin-activation/tgm-config.php:120
+#. translators: %s = plugin name.
 #, php-format
 msgid "The following recommended plugin is currently inactive: %1$s."
 msgid_plural "The following recommended plugins are currently inactive: %1$s."
 msgstr[0] "推奨プラグインが現在有効化されていません： %1$s。"
 
-#. translators: %s = plugin name.
 #: dist/vk-blocks-pro/inc/tgm-plugin-activation/tgm-config.php:114
 #: inc/tgm-plugin-activation/tgm-config.php:114
+#. translators: %s = plugin name.
 #, php-format
 msgid "The following required plugin is currently inactive: %1$s."
 msgid_plural "The following required plugins are currently inactive: %1$s."
@@ -4951,37 +5186,55 @@ msgstr[0] "必須プラグインが現在有効化されていません： %1$s�
 
 #: src/admin/custom-block-style/add-button/set-property-name.js:84
 msgid ""
-"The identifier of the style used to compute a CSS class. (Required/Unchangeable)"
+"The identifier of the style used to compute a CSS class. "
+"(Required/Unchangeable)"
 msgstr "CSSクラスの算出に使用されるスタイルの識別子 (必須/変更不可)"
+
+#: src/components/link-toolbar/index.js:398
+msgid "The link points to the URL stored in this custom field of each post."
+msgstr ""
+
+#: src/extensions/core/query/style.js:203
+msgid ""
+"The list may be empty on pages or other post types, or until a new post is "
+"saved."
+msgstr ""
+"固定ページなど投稿以外のタイプでは表示されないことがあります。また、新規投"
+"稿を保存するまでは表示されない場合があります。"
 
 #: src/blocks/border-box/edit.js:224
 msgid ""
-"The margin-top of the first element and the margin-bottom of the last element in the "
-"border block will be automatically set to 0.If you want to add margins at the "
-"beginning and end, use a spacer block to specify height instead of margin."
+"The margin-top of the first element and the margin-bottom of the last "
+"element in the border block will be automatically set to 0.If you want to "
+"add margins at the beginning and end, use a spacer block to specify height "
+"instead of margin."
 msgstr ""
-"枠線ブロック内の最初の要素の margin-top と 最後の要素の margin-bottom は自動的に0にな"
-"ります。最初と最後に余白をつけたい場合はスペーサーブロックなどで margin指定ではなく"
-"height指定でご利用ください。"
+"枠線ブロック内の最初の要素の margin-top と 最後の要素の margin-bottom "
+"は自動的に0になります。最初と最後に余白をつけたい場合はスペーサーブロックなどで margin指定ではなくheight指定でご利用ください。"
+
+#: src/blocks/button/edit.js:65
+msgid "The numeric font size takes priority."
+msgstr ""
+
+#: src/blocks/_pro/fixed-display/edit.js:179
+msgid ""
+"The position of this block will not change on the edit screen. Please check "
+"on the front end."
+msgstr "編集画面では固定位置ブロックの固定位置は変わりません。フロント画面でご確認ください。"
 
 #: src/blocks/visual-embed/edit.js:220
 msgid "The provided URL is not allowed. Please use an approved embed source."
-msgstr ""
-"指定された URL は許可されていません。承認された埋め込みソースを使用してください。"
+msgstr "指定された URL は許可されていません。承認された埋め込みソースを使用してください。"
 
 #: src/utils/horizontal-scroll-controls.js:236
 msgid ""
-"The scrollbar is hidden on the front end. Users can still scroll by touch or mouse "
-"drag."
-msgstr ""
-"フロントエンドではスクロールバーが非表示になります。タッチやマウスドラッグによるスク"
-"ロールは引き続き可能です。"
+"The scrollbar is hidden on the front end. Users can still scroll by touch "
+"or mouse drag."
+msgstr "フロントエンドではスクロールバーが非表示になります。タッチやマウスドラッグによるスクロールは引き続き可能です。"
 
 #: src/blocks/_pro/tab/edit.js:1281
 msgid "The scrollbar is hidden. Users can still scroll by touch or mouse drag."
-msgstr ""
-"スクロールバーが非表示になります。タッチやマウスドラッグによるスクロールは引き続き可"
-"能です。"
+msgstr "スクロールバーが非表示になります。タッチやマウスドラッグによるスクロールは引き続き可能です。"
 
 #: src/blocks/_pro/tab/edit.js:1285 src/utils/horizontal-scroll-controls.js:240
 msgid "The scrollbar is visible."
@@ -4995,9 +5248,9 @@ msgstr "テーマ"
 msgid "Theoretical Physicist"
 msgstr "理論物理学者"
 
-#. translators: %s: 投稿タイプ名
 #: dist/vk-blocks-pro/inc/vk-blocks/view/class-vk-blocks-postlist.php:325
 #: inc/vk-blocks/view/class-vk-blocks-postlist.php:325
+#. translators: %s: 投稿タイプ名
 #, php-format
 msgid "There are no %s."
 msgstr "該当の%sはありません。"
@@ -5014,22 +5267,22 @@ msgstr "変更は保存されていません。続けますか？"
 msgid "There is an error with your CSS structure."
 msgstr "CSS 構造にエラーがあります。"
 
-#. translators: %s = plugin name.
 #: dist/vk-blocks-pro/inc/tgm-plugin-activation/tgm-config.php:102
 #: inc/tgm-plugin-activation/tgm-config.php:102
+#. translators: %s = plugin name.
 #, php-format
 msgid "There is an update available for: %1$s."
 msgid_plural "There are updates available for the following plugins: %1$s."
 msgstr[0] "次のプラグインの更新が利用可能です：%1$s。"
 
 #: dist/vk-blocks-pro/inc/vk-blocks/build/blocks/_pro/tab/block.json
-#: inc/vk-blocks/build/blocks/_pro/tab/block.json src/blocks/_pro/tab/block.json
+#: inc/vk-blocks/build/blocks/_pro/tab/block.json
+#: src/blocks/_pro/tab/block.json
 msgctxt "block description"
 msgid ""
-"These are tabs where you can place various items. Click on the tab label to switch "
-"between them."
-msgstr ""
-"様々なアイテムを配置できるタブです。タブラベルをクリックして切り替えてください。"
+"These are tabs where you can place various items. Click on the tab label to "
+"switch between them."
+msgstr "様々なアイテムを配置できるタブです。タブラベルをクリックして切り替えてください。"
 
 #: dist/vk-blocks-pro/inc/vk-blocks/build/blocks/balloon/block.json
 #: inc/vk-blocks/build/blocks/balloon/block.json src/blocks/balloon/block.json
@@ -5043,11 +5296,9 @@ msgstr "もくもく"
 
 #: src/extensions/core/group/style.js:564
 msgid ""
-"This Group is inside a parent Group with horizontal scroll enabled. The parent "
-"scroll setting takes precedence."
-msgstr ""
-"このグループは、水平スクロールが有効になっている親グループ内にあります。親グループの"
-"スクロール設定が優先されます。"
+"This Group is inside a parent Group with horizontal scroll enabled. The "
+"parent scroll setting takes precedence."
+msgstr "このグループは、水平スクロールが有効になっている親グループ内にあります。親グループのスクロール設定が優先されます。"
 
 #: src/blocks/_pro/blog-card/edit/url-placeholder.js:54
 msgid "This URL contains HTML tags and cannot be used."
@@ -5082,24 +5333,21 @@ msgstr "この分類にはタームがないため、このブロックは表示
 
 #: src/blocks/_pro/dynamic-text/edit.js:467
 msgid ""
-"This block will not display on pages other than pages that have a parent hierarchy."
+"This block will not display on pages other than pages that have a parent "
+"hierarchy."
 msgstr "このブロックは親階層を持つ固定ページ以外のページには表示されません。"
 
 #: src/blocks/_pro/fixed-display/edit.js:325 src/blocks/button/edit.js:550
 msgid ""
-"This color palette overrides the default color. If you want to use the default "
-"color, click the clear button."
-msgstr ""
-"このカラーパレットの色は標準色を上書きします。 デフォルトの色を使用したい場合は、クリ"
-"アボタンをクリックしてください。"
+"This color palette overrides the default color. If you want to use the "
+"default color, click the clear button."
+msgstr "このカラーパレットの色は標準色を上書きします。 デフォルトの色を使用したい場合は、クリアボタンをクリックしてください。"
 
 #: src/blocks/_pro/dynamic-text/edit.js:527
 msgid ""
-"This custom field may not be displayed if the field is not available or has no value "
-"in the content."
-msgstr ""
-"このカスタムフィールドが利用できないか、コンテンツに値がない場合、このカスタム フィー"
-"ルドは表示されません。"
+"This custom field may not be displayed if the field is not available or has "
+"no value in the content."
+msgstr "このカスタムフィールドが利用できないか、コンテンツに値がない場合、このカスタム フィールドは表示されません。"
 
 #: dist/vk-blocks-pro/inc/vk-blocks/build/blocks/_pro/step-item/block.json
 #: inc/vk-blocks/build/blocks/_pro/step-item/block.json
@@ -5116,25 +5364,29 @@ msgid "This element sets the label, color, and style of the timeline."
 msgstr "タイムラインのラベル、色、スタイルを設定する要素です。"
 
 #: dist/vk-blocks-pro/inc/vk-blocks/build/blocks/pr-content/block.json
-#: inc/vk-blocks/build/blocks/pr-content/block.json src/blocks/pr-content/block.json
+#: inc/vk-blocks/build/blocks/pr-content/block.json
+#: src/blocks/pr-content/block.json
 msgctxt "block description"
 msgid "This is PR content where you can place images, headlines, text, and buttons."
 msgstr "画像,見出し,テキスト,ボタンが配置できるPRコンテンツです。"
 
 #: dist/vk-blocks-pro/inc/vk-blocks/build/blocks/pr-blocks/block.json
-#: inc/vk-blocks/build/blocks/pr-blocks/block.json src/blocks/pr-blocks/block.json
+#: inc/vk-blocks/build/blocks/pr-blocks/block.json
+#: src/blocks/pr-blocks/block.json
 msgctxt "block description"
 msgid ""
-"This is a PR block where you can place images and icon. But currently, it is "
-"possible to create the same layout by combining Column Block and Icon Block, so this "
-"block is not recommended. Please check Columns category of Block Patterns."
+"This is a PR block where you can place images and icon. But currently, it "
+"is possible to create the same layout by combining Column Block and Icon "
+"Block, so this block is not recommended. Please check Columns category of "
+"Block Patterns."
 msgstr ""
-"画像やアイコンを配置できるPRブロックです。 ただし、現在、列ブロックとアイコンブロック"
-"を組み合わせて同じレイアウトを作成できるため、このブロックはお勧めしません。 ブロック"
-"パターンの「カラム（Column）」のカテゴリを確認してください。"
+"画像やアイコンを配置できるPRブロックです。 "
+"ただし、現在、列ブロックとアイコンブロックを組み合わせて同じレイアウトを作成できるため、このブロックはお勧めしません。 "
+"ブロックパターンの「カラム（Column）」のカテゴリを確認してください。"
 
 #: dist/vk-blocks-pro/inc/vk-blocks/build/blocks/border-box/block.json
-#: inc/vk-blocks/build/blocks/border-box/block.json src/blocks/border-box/block.json
+#: inc/vk-blocks/build/blocks/border-box/block.json
+#: src/blocks/border-box/block.json
 msgctxt "block description"
 msgid "This is a border box where you can place headings to attract attention."
 msgstr "見出しを配置でき注目されやすい枠線ボックスです。"
@@ -5146,15 +5398,17 @@ msgstr "This is a danger alert."
 #: dist/vk-blocks-pro/inc/vk-blocks/build/blocks/heading/block.json
 #: inc/vk-blocks/build/blocks/heading/block.json src/blocks/heading/block.json
 msgctxt "block description"
-msgid "This is a heading that allows you to set text size, subtext, icon, and margin."
+msgid ""
+"This is a heading that allows you to set text size, subtext, icon, and "
+"margin."
 msgstr "文字サイズ,サブテキスト,アイコン,余白が設定できる見出しです。"
 
 #: src/blocks/alert/variations.js:41
 msgid "This is a information alert."
 msgstr "This is a information alert."
 
-#. Description of the plugin
 #: vk-blocks.php
+#. Description of the plugin
 msgid "This is a plugin that extends Block Editor."
 msgstr "ブロックエディタを拡張するプラグインです。"
 
@@ -5167,8 +5421,8 @@ msgstr "This is a success alert."
 #: src/blocks/_pro/table-of-contents-new/block.json
 msgctxt "block description"
 msgid ""
-"This is a table of contents that is automatically generated according to the "
-"headings when added."
+"This is a table of contents that is automatically generated according to "
+"the headings when added."
 msgstr "追加すると見出しに合わせて自動で生成される目次です。"
 
 #: src/blocks/alert/variations.js:63
@@ -5183,7 +5437,8 @@ msgid "This is one item in an icon card."
 msgstr "アイコンカード内の１つのアイテムです。"
 
 #: dist/vk-blocks-pro/inc/vk-blocks/build/blocks/slider-item/block.json
-#: inc/vk-blocks/build/blocks/slider-item/block.json src/blocks/slider-item/block.json
+#: inc/vk-blocks/build/blocks/slider-item/block.json
+#: src/blocks/slider-item/block.json
 msgctxt "block description"
 msgid "This is one item in the slider."
 msgstr "スライダー内の１つのアイテムです。"
@@ -5204,11 +5459,12 @@ msgstr "自由にブロックを追加できるタイトルエリアです。"
 
 #: src/admin/margin.js:122
 msgid ""
-"This item is mainly intended for inputting CSS variables for the margins specified "
-"by the theme. Thereby you can apply to the same margin size to the VK Blocks."
+"This item is mainly intended for inputting CSS variables for the margins "
+"specified by the theme. Thereby you can apply to the same margin size to "
+"the VK Blocks."
 msgstr ""
-"この項目は主に、テーマで指定された余白のCSS変数を入力することを想定しており、それに"
-"よって VK Blocks に同じ余白サイズを適用する事ができます。"
+"この項目は主に、テーマで指定された余白のCSS変数を入力することを想定しており、それによって VK Blocks "
+"に同じ余白サイズを適用する事ができます。"
 
 #: dist/vk-blocks-pro/inc/vk-blocks/build/blocks/ancestor-page-list/index.php:91
 #: inc/vk-blocks/build/blocks/ancestor-page-list/index.php:91
@@ -5218,41 +5474,39 @@ msgstr "このメッセージは編集画面でのみ表示されます。"
 
 #: src/extensions/core/group/style.js:644
 msgid ""
-"This option is disabled when Table Mode is enabled or when using Grid/Flex layouts."
-msgstr ""
-"テーブルモードが有効になっている場合、またはグリッド/フレックス レイアウトを使用して"
-"いる場合、このオプションは無効になります。"
+"This option is disabled when Table Mode is enabled or when using Grid/Flex "
+"layouts."
+msgstr "テーブルモードが有効になっている場合、またはグリッド/フレックス レイアウトを使用している場合、このオプションは無効になります。"
 
 #: src/extensions/core/group/style.js:675
 msgid "This option is only available when there are multiple core Column blocks."
 msgstr "このオプションは、コアのカラムブロックが複数ある場合にのみ使用できます。"
 
-#. translators: %s = plugin name.
 #: dist/vk-blocks-pro/inc/tgm-plugin-activation/tgm-config.php:84
 #: inc/tgm-plugin-activation/tgm-config.php:84
+#. translators: %s = plugin name.
 #, php-format
 msgid ""
-"This plugin recommends the following plugin: %1$s.<br>Many additional functions are "
-"available for free."
+"This plugin recommends the following plugin: %1$s.<br>Many additional "
+"functions are available for free."
 msgid_plural ""
-"This plugin recommends the following plugins: %1$s.<br>Many additional functions are "
-"available for free."
-msgstr[0] ""
-"このプラグインは次のプラグインと一緒に利用するのがオススメです：%1$s。<br>これらのプ"
-"ラグインは無償で利用可能です。"
+"This plugin recommends the following plugins: %1$s.<br>Many additional "
+"functions are available for free."
+msgstr[0] "このプラグインは次のプラグインと一緒に利用するのがオススメです：%1$s。<br>これらのプラグインは無償で利用可能です。"
 
-#. translators:
 #: dist/vk-blocks-pro/inc/tgm-plugin-activation/tgm-config.php:78
 #: inc/tgm-plugin-activation/tgm-config.php:78
+#. translators:
 #, php-format
 msgid "This plugin requires the following plugin: %1$s."
 msgid_plural "This plugin requires the following plugins: %1$s."
 msgstr[0] "このプラグインは下記プラグインを必要としています：%1$s。"
 
 #: src/extensions/core/group/style.js:573
-msgid "This setting applies only when all direct child blocks are the following block."
-msgstr ""
-"この設定は直下のインナーブロック全てが以下のブロックに該当する場合のみ有効です。"
+msgid ""
+"This setting applies only when all direct child blocks are the following "
+"block."
+msgstr "この設定は直下のインナーブロック全てが以下のブロックに該当する場合のみ有効です。"
 
 #: src/extensions/core/query/style.js:56
 msgid "This setting will override the standard order setting."
@@ -5262,10 +5516,9 @@ msgstr "この設定をすると標準の並び順設定は上書きされます
 #: inc/vk-blocks/build/blocks/slider/block.json src/blocks/slider/block.json
 msgctxt "block description"
 msgid ""
-"This slider allows you to place various items.Slider is do not move in edit screen."
-msgstr ""
-"様々なアイテムを配置できるスライダーです。編集画面では動かないので公開画面でプレ"
-"ビューしてください。"
+"This slider allows you to place various items.Slider is do not move in edit "
+"screen."
+msgstr "様々なアイテムを配置できるスライダーです。編集画面では動かないので公開画面でプレビューしてください。"
 
 #: src/admin/custom-block-style/add-button/set-property-name.js:88
 msgid "This will be the CSS class name following is-style-."
@@ -5302,7 +5555,8 @@ msgid "Timing to display"
 msgstr "表示するタイミング"
 
 #: src/blocks/_pro/card-item/edit.js:182 src/blocks/_pro/card/edit.js:134
-#: src/blocks/_pro/icon-card/edit.js:75 src/components/display-condition/index.js:396
+#: src/blocks/_pro/icon-card/edit.js:75
+#: src/components/display-condition/index.js:396
 msgid "Title"
 msgstr "タイトル"
 
@@ -5364,6 +5618,18 @@ msgstr "上 XXL"
 msgid "Top XXS"
 msgstr "上 XXS"
 
+#: src/blocks/_pro/tab/edit.js:1213
+msgid "Top and bottom"
+msgstr "上下"
+
+#: src/blocks/_pro/tab/edit.js:1238
+msgid "Top left"
+msgstr "左上"
+
+#: src/blocks/_pro/tab/edit.js:1248
+msgid "Top right"
+msgstr "右上"
+
 #: src/blocks/_pro/fixed-display/edit.js:237
 msgid "Top section"
 msgstr "上部"
@@ -5403,7 +5669,8 @@ msgstr "再試行"
 msgid "Type"
 msgstr "タイプ"
 
-#: src/blocks/_pro/card-item/edit.js:217 src/blocks/_pro/dynamic-text/edit.js:554
+#: src/blocks/_pro/card-item/edit.js:217
+#: src/blocks/_pro/dynamic-text/edit.js:554
 msgid "URL"
 msgstr "URL"
 
@@ -5416,7 +5683,9 @@ msgid "Unified to max width"
 msgstr "最大幅に統一"
 
 #: src/extensions/core/group/style.js:671
-msgid "Unifies column widths across multiple rows. Only works with core Column blocks."
+msgid ""
+"Unifies column widths across multiple rows. Only works with core Column "
+"blocks."
 msgstr "複数行の列幅を統一します。コアのカラムブロックでのみ機能します。"
 
 #: src/admin/margin.js:81 src/blocks/_pro/grid-column-item/edit.js:186
@@ -5455,6 +5724,10 @@ msgstr "画像をアップロード"
 msgid "Upper Divider Level"
 msgstr "上部区切りレベル"
 
+#: src/extensions/core/site-logo/style.js
+msgid "Use <h1> tag on the front page"
+msgstr "フロントページで h1 として出力"
+
 #: src/blocks/faq2/edit.js:38
 msgid "Use common settings"
 msgstr "共通設定を使用"
@@ -5481,15 +5754,24 @@ msgctxt "block description"
 msgid "Use responsive spacers to get the margins right."
 msgstr "レスポンシブに対応したスペーサーで余白を適切に取ります。"
 
+#: src/blocks/button/edit.js:579
+msgid "Use size preset"
+msgstr ""
+
 #: src/extensions/core/query/style.js:92
 msgid "Use standard options"
 msgstr "標準の設定を使用"
+
+#: src/extensions/core/query/style.js:349
+msgid "Use the \"Items per page\" setting to change how many related posts appear."
+msgstr "表示する関連記事の件数を変更するには「ページあたりの項目数」の設定を使用してください。"
 
 #: dist/vk-blocks-pro/inc/vk-blocks/build/blocks/staff/block.json
 #: inc/vk-blocks/build/blocks/staff/block.json src/blocks/staff/block.json
 msgctxt "block description"
 msgid ""
-"Used for staff introduction, company introduction, school introduction, menu, etc."
+"Used for staff introduction, company introduction, school introduction, "
+"menu, etc."
 msgstr "スタッフ紹介,会社紹介,スクール紹介,メニューなどで利用します。"
 
 #: src/blocks/_pro/table-of-contents-new/edit.js:416
@@ -5505,10 +5787,14 @@ msgstr "このブロックには全体設定の見出しレベルを使用中。
 msgid "VK Blocks "
 msgstr "VK Blocks"
 
-#. Plugin Name of the plugin
 #: vk-blocks.php
+#. Plugin Name of the plugin
 msgid "VK Blocks Pro"
 msgstr "VK Blocks Pro"
+
+#: inc/vk-blocks-pro/extensions/core/query.php:353
+msgid "VK Blocks Pro query type for Query Loop related posts."
+msgstr "クエリーループの関連記事表示用の VK Blocks Pro クエリータイプ。"
 
 #: src/blocks/_pro/table-of-contents-new/edit.js:397
 msgid "VK Blocks Setting"
@@ -5529,8 +5815,8 @@ msgstr "VK タクソノミーブロック"
 msgid "Variation settings"
 msgstr "バリエーション設定"
 
-#. Author of the plugin
 #: vk-blocks.php
+#. Author of the plugin
 msgid "Vektor,Inc."
 msgstr "Vektor,Inc."
 
@@ -5598,20 +5884,31 @@ msgstr "流体シェイプ4"
 
 #: src/blocks/slider/edit.js:724
 msgid ""
-"We recommend using the Fade effect together with Background image Zoom Animation."
-msgstr ""
-"背景画像のズームアニメーションを使う場合はスライド設定のエフェクトはフェードを利用が"
-"推奨です。"
+"We recommend using the Fade effect together with Background image Zoom "
+"Animation."
+msgstr "背景画像のズームアニメーションを使う場合はスライド設定のエフェクトはフェードを利用が推奨です。"
 
 #: dist/vk-blocks-pro/inc/admin-notices.php:28 inc/admin-notices.php:28
 msgid "We've released VK Blocks Pro!"
 msgstr "VK Blocks Pro を公開しました!"
 
+#: src/blocks/slider/edit-multiItem.js:155
+msgid ""
+"When \"Centering the active slide\" is enabled and the number of items to "
+"display is even, it is automatically treated as the next odd number "
+"internally. This may increase the minimum number of slides required for "
+"loop mode."
+msgstr ""
+"「アクティブスライドを中央にする」が有効かつ表示枚数が偶数の場合、内部的に自動で奇数に切り上げられます。そのため、ループモードに必要な最小スライド数が増"
+"える場合があります。"
+
 #: dist/vk-blocks-pro/inc/vk-blocks/build/blocks/_pro/child-page/block.json
 #: inc/vk-blocks/build/blocks/_pro/child-page/block.json
 #: src/blocks/_pro/child-page/block.json
 msgctxt "block description"
-msgid "When a parent page is specified, a list of its child pages will be displayed."
+msgid ""
+"When a parent page is specified, a list of its child pages will be "
+"displayed."
 msgstr "親となる固定ページを指定するとその子ページの一覧を表示します。"
 
 #: src/blocks/icon/edit.js:328
@@ -5620,71 +5917,85 @@ msgstr "チェックを入れるとアイコンの色が親要素から継承さ
 
 #: src/blocks/_pro/fixed-display/edit.js:302
 msgid ""
-"When enabled, a close button will be displayed that allows users to hide the fixed "
-"display."
+"When enabled, a close button will be displayed that allows users to hide "
+"the fixed display."
 msgstr "有効にすると固定表示を非表示にできる「閉じる」ボタンが表示されます。"
 
-#: src/blocks/_pro/animation/edit.js:166
+#: src/blocks/_pro/animation/edit.js:175
 msgid ""
-"When enabled, animation will not run on viewports 767.98px wide or less. Content "
-"will still appear."
-msgstr ""
-"有効にすると、幅767.98px以下の画面ではアニメーションが実行されません。コンテンツは引"
-"き続き表示されます。"
+"When enabled, animation will not run on viewports narrower than 768px. "
+"Content will still appear."
+msgstr "有効にすると、幅768px未満の画面ではアニメーションが実行されません。コンテンツは引き続き表示されます。"
 
 #: src/admin/toc.js:131
 msgid ""
-"When enabled, headings within Border Box blocks will be included in the Table of "
-"Contents."
-msgstr "目次に含める見出しレベルを設定します。"
+"When enabled, headings within Border Box blocks will be included in the "
+"Table of Contents."
+msgstr "有効にすると、枠線ボックスブロック内の見出しが目次に含まれます。"
+
+#: src/extensions/core/navigation/style.js:59
+msgid ""
+"When enabled, the description set for each menu item is displayed. "
+"Depending on your theme, the description may be shown regardless of this "
+"setting."
+msgstr "有効にすると、各メニュー項目に設定した説明文が表示されます。ご利用のテーマによっては、この設定に関わらず説明文が表示される場合があります。"
 
 #: src/blocks/_pro/fixed-display/edit.js:498
 msgid ""
-"When enabled, the same content will not be shown again until the visitor closes "
-"their browser."
+"When enabled, the same content will not be shown again until the visitor "
+"closes their browser."
 msgstr "有効にすると、同じコンテンツは訪問者がブラウザを閉じるまで再表示されません。"
 
 #: src/blocks/_pro/fixed-display/edit.js:289
 msgid ""
-"When enabled, this block will be hidden when the Navigation block's modal menu is "
-"opened."
-msgstr ""
-"有効にするとナビゲーションブロックのモーダルメニューが開かれた時にこのブロックが非表"
-"示になります。"
+"When enabled, this block will be hidden when the Navigation block's modal "
+"menu is opened."
+msgstr "有効にするとナビゲーションブロックのモーダルメニューが開かれた時にこのブロックが非表示になります。"
+
+#: src/extensions/core/site-logo/style.js
+msgid ""
+"When enabled, this site logo is output as <h1> only on the front page. On "
+"other pages it is output as <div>."
+msgstr "有効にすると、このサイトロゴはフロントページのみ <h1> として出力されます。他のページでは <div> として出力されます。"
 
 #: src/blocks/slider/edit.js:705
 msgid ""
-"When multiple items are set in \"Multi-item Display Setting\", zoom settings here "
-"will be disabled. Please set all to \"1\"."
-msgstr ""
-"「複数表示設定」で複数のアイテムを設定した場合、ここでのズーム設定は無効になります。"
-"全て「1」に設定してください。"
+"When multiple items are set in \"Multi-item Display Setting\", zoom "
+"settings here will be disabled. Please set all to \"1\"."
+msgstr "「複数表示設定」で複数のアイテムを設定した場合、ここでのズーム設定は無効になります。全て「1」に設定してください。"
 
 #: src/extensions/common/content-width-half/index.js:149
 msgid ""
-"When the screen size is 782px or more, the maximum width of the inner block is half "
-"of the content width. Below 782px, the horizontal padding is removed."
+"When the screen size is 782px or more, the maximum width of the inner block "
+"is half of the content width. Below 782px, the horizontal padding is "
+"removed."
+msgstr "画面サイズが782px以上の場合、インナーブロックの最大幅はコンテント幅の半分になります。782px未満の場合は、水平方向のパディングは削除されます。"
+
+#: src/blocks/_pro/post-list-slider/edit.js:254
+#: src/blocks/slider/edit.js:601
+msgid ""
+"When this is off, autoplay keeps running even for visitors whose device "
+"requests reduced motion, since there is no button to pause it."
 msgstr ""
-"画面サイズが782px以上の場合、インナーブロックの最大幅はコンテント幅の半分になります。"
-"782px未満の場合は、水平方向のパディングは削除されます。"
+"オフの場合、reduced "
+"motion（動きを減らす設定）をリクエストしている端末の閲覧者に対しても自動再生は止まらず、一時停止するボタンもありません。"
 
 #: src/extensions/core/list/style.js:166
 msgid ""
-"When this style is selected for ordered lists, the \"List Style\", \"Initial "
-"Value\", and \"Reverse Order\" features cannot be used."
-msgstr ""
-"順序付きリストにこのスタイルを選択した場合、「リスト スタイル」、「初期値」、および"
-"「逆順序」機能は使用できません。"
+"When this style is selected for ordered lists, the \"List Style\", "
+"\"Initial Value\", and \"Reverse Order\" features cannot be used."
+msgstr "順序付きリストにこのスタイルを選択した場合、「リスト スタイル」、「初期値」、および「逆順序」機能は使用できません。"
 
 #: src/blocks/_pro/outer/edit.js:1005
-msgid "When using Background Offset, Border and Divider will be temporarily disabled."
-msgstr ""
-"オフセットを使用すると、ボーダーおよびディバイダーの設定は一時的に無効になります。"
+msgid ""
+"When using Background Offset, Border and Divider will be temporarily "
+"disabled."
+msgstr "オフセットを使用すると、ボーダーおよびディバイダーの設定は一時的に無効になります。"
 
 #: src/utils/font-awesome-new.js:476
 msgid ""
-"When you click save button, the window will be reloaded and this setting will be "
-"applied."
+"When you click save button, the window will be reloaded and this setting "
+"will be applied."
 msgstr "保存ボタンをクリックすると、ウィンドウが再読み込みされて、変更が適用されます。"
 
 #: src/blocks/pr-blocks/edit.js:151
@@ -5716,10 +6027,10 @@ msgstr "幅"
 msgid "Within a year"
 msgstr "1年以内"
 
-#. Would you like to delete %s
 #: src/admin/balloon/delete-button.js:46
 #: src/admin/custom-block-style/item/title-area/delete-button/index.js:46
 #: src/admin/custom-format/delete-item-button.js:46
+#. Would you like to delete %s
 msgid "Would you like to delete %s?"
 msgstr "%sを削除しますか？"
 
@@ -5755,6 +6066,10 @@ msgstr "ブロックツールバーのよく使う書式設定を登録するこ
 msgid "You can be collapsing this block at VK Blocks Pro"
 msgstr "Pro版は回答部分を開閉式にできます"
 
+#: src/blocks/spacer/edit.js:127
+msgid "You can change each common margin size from <Link>Setting > VK Blocks</Link>"
+msgstr "* 共通の余白サイズは管理画面の <Link>設定 > VK Blocks</Link> から変更する事ができます。"
+
 #: src/blocks/spacer/edit.js:125
 msgid "You can change each common margin size from Setting > VK Blocks"
 msgstr "* 共通の余白サイズは管理画面の 設定 > VK Blocks から変更する事ができます。"
@@ -5765,11 +6080,9 @@ msgstr "グリッドカラムカードブロックでは柔軟なレイアウト
 
 #: src/blocks/_pro/tab/edit.js:1027
 msgid ""
-"You can link directly to specific tabs using anchor links. Click the copy button to "
-"copy the anchor link for each tab."
-msgstr ""
-"アンカーリンクを使用して特定のタブに直接リンクできます。コピーボタンをクリックする"
-"と、各タブのアンカーリンクがコピーされます。"
+"You can link directly to specific tabs using anchor links. Click the copy "
+"button to copy the anchor link for each tab."
+msgstr "アンカーリンクを使用して特定のタブに直接リンクできます。コピーボタンをクリックすると、各タブのアンカーリンクがコピーされます。"
 
 #: src/admin/custom-block-style/index.js:79
 msgid "You can register block styles."
@@ -5797,11 +6110,13 @@ msgstr "スクロールできます"
 #: src/extensions/common/custom-block-variation/block-variation-list/item/body-area/index.js:84
 #: src/extensions/common/custom-block-variation/create-variation/block-variation-form/index.js:106
 msgid ""
-"You can set where registered variations are displayed. You can call it from the "
-"displayed location."
-msgstr ""
-"登録されたバリエーションが表示される対象を設定できます。対象のブロックから呼び出すこ"
-"とができます。"
+"You can set where registered variations are displayed. You can call it from "
+"the displayed location."
+msgstr "登録されたバリエーションが表示される対象を設定できます。対象のブロックから呼び出すことができます。"
+
+#: src/blocks/visual-embed/edit.js:301
+msgid "YouTube video preview"
+msgstr "YouTube動画のプレビュー"
 
 #: src/blocks/staff/edit.js:285
 msgid "Your Name"
@@ -5819,9 +6134,9 @@ msgstr "div (標準)"
 msgid "dvh"
 msgstr "dvh"
 
-#: src/blocks/_pro/grid-column-item/edit.js:200 src/blocks/_pro/grid-column/edit.js:100
-#: src/blocks/icon-outer/edit.js:188 src/blocks/icon/edit.js:181
-#: src/utils/unit-options.js:10
+#: src/blocks/_pro/grid-column-item/edit.js:200
+#: src/blocks/_pro/grid-column/edit.js:100 src/blocks/icon-outer/edit.js:188
+#: src/blocks/icon/edit.js:181 src/utils/unit-options.js:10
 msgid "em"
 msgstr "em"
 
@@ -5837,23 +6152,28 @@ msgstr "例）"
 msgid "h1"
 msgstr "h1"
 
-#: src/blocks/_pro/dynamic-text/edit.js:50 src/blocks/ancestor-page-list/edit.js:85
+#: src/blocks/_pro/dynamic-text/edit.js:50
+#: src/blocks/ancestor-page-list/edit.js:85
 msgid "h2"
 msgstr "h2"
 
-#: src/blocks/_pro/dynamic-text/edit.js:54 src/blocks/ancestor-page-list/edit.js:89
+#: src/blocks/_pro/dynamic-text/edit.js:54
+#: src/blocks/ancestor-page-list/edit.js:89
 msgid "h3"
 msgstr "h3"
 
-#: src/blocks/_pro/dynamic-text/edit.js:58 src/blocks/ancestor-page-list/edit.js:93
+#: src/blocks/_pro/dynamic-text/edit.js:58
+#: src/blocks/ancestor-page-list/edit.js:93
 msgid "h4"
 msgstr "h4"
 
-#: src/blocks/_pro/dynamic-text/edit.js:62 src/blocks/ancestor-page-list/edit.js:97
+#: src/blocks/_pro/dynamic-text/edit.js:62
+#: src/blocks/ancestor-page-list/edit.js:97
 msgid "h5"
 msgstr "h5"
 
-#: src/blocks/_pro/dynamic-text/edit.js:66 src/blocks/ancestor-page-list/edit.js:101
+#: src/blocks/_pro/dynamic-text/edit.js:66
+#: src/blocks/ancestor-page-list/edit.js:101
 msgid "h6"
 msgstr "h6"
 
@@ -5864,31 +6184,33 @@ msgstr "height"
 #: src/blocks/_pro/blog-card/edit/index.js:173
 #: src/extensions/common/custom-block-variation/create-variation/block-variation-form/index.js:54
 msgid ""
-"https://developer.wordpress.org/block-editor/reference-guides/block-api/block-"
-"variations/"
+"https://developer.wordpress.org/block-editor/reference-guides/block-api/"
+"block-variations/"
 msgstr ""
-"https://developer.wordpress.org/block-editor/reference-guides/block-api/block-"
-"variations/"
+"https://developer.wordpress.org/block-editor/reference-guides/block-api/"
+"block-variations/"
 
 #: src/blocks/_pro/card-item/edit.js:222
 msgid "https://example.com"
 msgstr "https://example.com"
 
-#. Plugin URI of the plugin
 #: vk-blocks.php
+#. Plugin URI of the plugin
 msgid "https://github.com/vektor-inc/vk-blocks"
 msgstr "https://github.com/vektor-inc/vk-blocks"
 
-#. Author URI of the plugin
 #: vk-blocks.php
+#. Author URI of the plugin
 msgid "https://vektor-inc.co.jp"
 msgstr "https://vektor-inc.co.jp"
 
 #: src/extensions/common/custom-block-variation/utils.js:20
 msgid ""
-"https://wordpress.org/documentation/article/adding-a-new-block/#what-is-the-inserter"
+"https://wordpress.org/documentation/article/adding-a-new-block/#what-is-the-"
+"inserter"
 msgstr ""
-"https://wordpress.org/documentation/article/adding-a-new-block/#what-is-the-inserter"
+"https://wordpress.org/documentation/article/adding-a-new-block/#what-is-the-"
+"inserter"
 
 #: dist/vk-blocks-pro/inc/admin-notices.php:39
 #: dist/vk-blocks-pro/inc/admin-notices.php:45 inc/admin-notices.php:39
@@ -5936,15 +6258,15 @@ msgstr "オフセット数"
 msgid "p"
 msgstr "p"
 
-#: src/blocks/_pro/grid-column-item/edit.js:199 src/blocks/_pro/grid-column/edit.js:96
-#: src/blocks/icon-outer/edit.js:184 src/blocks/icon/edit.js:177
-#: src/utils/unit-options.js:6
+#: src/blocks/_pro/grid-column-item/edit.js:199
+#: src/blocks/_pro/grid-column/edit.js:96 src/blocks/icon-outer/edit.js:184
+#: src/blocks/icon/edit.js:177 src/utils/unit-options.js:6
 msgid "px"
 msgstr "px"
 
-#: src/blocks/_pro/grid-column-item/edit.js:201 src/blocks/_pro/grid-column/edit.js:104
-#: src/blocks/icon-outer/edit.js:192 src/blocks/icon/edit.js:185
-#: src/utils/unit-options.js:14
+#: src/blocks/_pro/grid-column-item/edit.js:201
+#: src/blocks/_pro/grid-column/edit.js:104 src/blocks/icon-outer/edit.js:192
+#: src/blocks/icon/edit.js:185 src/utils/unit-options.js:14
 msgid "rem"
 msgstr "rem"
 
@@ -5982,9 +6304,9 @@ msgstr "タイトルは必須です"
 msgid "vh"
 msgstr "vh"
 
-#: src/blocks/_pro/grid-column-item/edit.js:202 src/blocks/_pro/grid-column/edit.js:108
-#: src/blocks/icon-outer/edit.js:196 src/blocks/icon/edit.js:189
-#: src/utils/unit-options.js:18
+#: src/blocks/_pro/grid-column-item/edit.js:202
+#: src/blocks/_pro/grid-column/edit.js:108 src/blocks/icon-outer/edit.js:196
+#: src/blocks/icon/edit.js:189 src/utils/unit-options.js:18
 msgid "vw"
 msgstr "vw"
 
@@ -6001,20 +6323,3 @@ msgstr "wysiwyg"
 #: src/admin/custom-format/index.js:96
 msgid "※ Required If no title is entered, it will not appear on the toolbar."
 msgstr "※ タイトルが入力されていない場合、ツールバーには表示されません。"
-
-#. %d: minimum number of slides required for loop mode
-#: src/blocks/slider/edit-multiItem.js:76
-msgid "Loop mode requires at least %d slides with the current slider settings. Please add more slides or disable loop."
-msgstr "現在のスライダー設定ではループモードに最低 %d 枚のスライドが必要です。スライドを追加するか、ループを無効にしてください。"
-
-#: src/extensions/core/site-logo/style.js
-msgid "Site Logo Tag Setting"
-msgstr "サイトロゴタグ設定"
-
-#: src/extensions/core/site-logo/style.js
-msgid "Use <h1> tag on the front page"
-msgstr "フロントページで h1 として出力"
-
-#: src/extensions/core/site-logo/style.js
-msgid "When enabled, this site logo is output as <h1> only on the front page. On other pages it is output as <div>."
-msgstr "有効にすると、このサイトロゴはフロントページのみ <h1> として出力されます。他のページでは <div> として出力されます。"

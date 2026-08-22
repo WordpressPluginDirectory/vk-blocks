@@ -1,9 +1,5 @@
-/*
-このファイルの元ファイルは
-https://github.com/vektor-inc/vektor-wp-libraries
-にあります。修正の際は上記リポジトリのデータを修正してください。
-*/
 @use "variables";
+
 .vk_posts-layout-postListText {
 	margin-bottom: 0.8rem;
 }
@@ -15,12 +11,11 @@ https://github.com/vektor-inc/vektor-wp-libraries
 	overflow: hidden;
 	width: 100%;
 	&_date {
-		font-size: 1rem;
 		white-space: nowrap;
 		font-size: 14px;
 		display: block;
 		float: left;
-		min-width: 115px;
+		min-width: 135px;
 		margin-right: 1em;
 	}
 	&_singleTermLabel {
@@ -48,7 +43,7 @@ https://github.com/vektor-inc/vektor-wp-libraries
 		margin: 0;
 		padding-top: 0.2rem;
 		clear: both;
-		@media (min-width: variables.$lg-min) {
+		@media (variables.$md-max < width) {
 			padding-top: 0;
 			clear: none;
 		}
@@ -66,7 +61,7 @@ https://github.com/vektor-inc/vektor-wp-libraries
 }
 
 .mainSection .postListText.vk_post-col-sm-12 {
-	@media (min-width: variables.$sm-min) {
+	@media (variables.$xs-max < width) {
 		.vk_post_title {
 			font-size: 16px;
 			font-weight: normal;
@@ -86,7 +81,7 @@ https://github.com/vektor-inc/vektor-wp-libraries
 	}
 	// }
 	// .mainSection .postListText.vk_post-col-md-12 {
-	// 	@media (min-width: variables.$md-min) {
+	// 	@media (variables.$sm-max < width) {
 	// 		.vk_post_title {
 	// 			font-size: 18px;
 	// 		}
@@ -96,7 +91,7 @@ https://github.com/vektor-inc/vektor-wp-libraries
 	// 	}
 	// }
 	// .mainSection .postListText.vk_post-col-lg-12 {
-	// 	@media (min-width: variables.$lg-min) {
+	// 	@media (variables.$md-max < width) {
 	// 		.vk_post_title {
 	// 			font-size: 18px;
 	// 		}
@@ -112,7 +107,7 @@ https://github.com/vektor-inc/vektor-wp-libraries
 	// 	}
 	// }
 	// .mainSection .postListText.vk_post-col-xl-12 {
-	// 	@media (min-width: variables.$xl-min) {
+	// 	@media (variables.$lg-max < width) {
 	// 		.vk_post_title {
 	// 			font-size: 21px;
 	// 		}
@@ -121,7 +116,7 @@ https://github.com/vektor-inc/vektor-wp-libraries
 	// 		}
     // 	}
     	// .mainSection .postListText.vk_post-col-xxl-12 {
-	// 	@media (min-width: variables.$xxl-min) {
+	// 	@media (variables.$xl-max < width) {
 	// 		.vk_post_title {
 	// 			font-size: 21px;
 	// 		}

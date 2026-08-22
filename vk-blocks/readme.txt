@@ -2,9 +2,9 @@
 Contributors: vektor-inc,kurudrive,naoki0h,nc30,una9,kaorock72,rickaddison7634,mimitips,mthaichi,shimotomoki,sysbird,chiakikouno,doshimaf,mtdkei
 Donate link:
 Tags: Gutenberg,FAQ,alert
-Requires at least: 6.5
-Tested up to: 6.9
-Stable tag: 1.119.2
+Requires at least: 6.6
+Tested up to: 7.0
+Stable tag: 1.126.0
 Requires PHP: 7.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -108,6 +108,88 @@ e.g.
 
 == Changelog ==
 
+= 1.126.0 =
+[ New Feature ][ Button Block ] Added an option to use a custom field's URL as the button link. When the Button block is placed inside a Query Loop, each post's button can link to the URL stored in that post's custom field.
+[ New Feature ][ Button Block ] Added options to specify the button border color and a different border color on hover.
+[ New Feature ][ Query Loop Block ] Added a VK Blocks Pro-only toggle to show related posts ranked by shared tag relevance.
+[ Spec Change ] Update vektor-inc/vk-component from 1.7.1 to 1.7.2. The breakpoints of the VK post list components are now whole numbers (576px / 768px / 992px / 1200px / 1400px), so at exactly those widths the layout for the narrower screen size is applied.
+[ Spec Change ] Changed how the plugin's own breakpoints (576px / 768px / 992px / 1200px / 1400px) are written in media queries, switching to the CSS range syntax. This raises the minimum supported browser to Safari 16.4+ (iOS 16.4+); Chrome, Edge, and Firefox have supported it for years already.
+[ Bug Fix ][ Grid Column Block (Pro) / Post List Block (Pro) / Hidden Settings ] Fixed an issue where, at a browser width between 1200px and 1399px, the block editor preview did not match the published page's layout. The front-end (published page) appearance is unchanged.
+[ Design Bug Fix ] Fixed the Font Awesome icon list button in the icon picker so its label stays readable on WordPress 7.1, where ExternalLink styling made the text the same color as the primary button background.
+
+= 1.125.0 =
+[ New Feature ][ Slider Block ][ Post List Slider Block (Pro) ] Added the --vk-slider-edge-offset CSS custom property (default 10px) for how far the navigation arrows and the pause/play button sit from the edge of the slider. On the Post List Slider, bottom arrows keep their own mobile position, so only the horizontal offset follows there.
+[ New Feature ][ Slider Block ] Raising --vk-slider-edge-offset also moves the pagination away from the bottom edge and widens the space it leaves for bottom arrows. Lowering it below the default moves only the arrows and the pause/play button; the pagination never sits closer to the bottom edge than its default, and a negative value is treated as 0.
+[ Spec Change ][ Slider Block ][ Post List Slider Block (Pro) ] Update Swiper from 11.2.10 to 14.0.6 on the front end (vektor-inc/vk-swiper 0.3.6 to 0.4.0) and from 12.2.0 to 14.0.6 in the block editor. Swiper v14 requires Chrome / Edge 110+, Safari 16.4+ (iOS 16.4+) or Firefox 110+, so sliders no longer work on older browsers; sites that still need them have to stay on VK Blocks 1.124.x.
+[ Spec Change ][ Slider Block ] Removed the legacy "swiper-container" class from the saved markup, since Swiper renamed it to "swiper" in v8. Custom CSS targeting .swiper-container needs to be changed to .swiper.
+[ Spec Change ][ Slider Block ][ Post List Slider Block (Pro) ] Enlarged the pointer target of the navigation arrows and the pause/play button to 44px without changing their painted size, and gave the Slider Block pagination bullets a 24px tall target. On the Post List Slider the enlarged arrow target covers the leftmost few pixels of the first pagination bullet on mobile.
+[ Spec Change ][ Outer (Pro) / Slider Item ] Moved background image attachment ID resolution into AdvancedMediaUpload with a bounded filename search, and stopped using an invalid per_page:-1 full attachment query in the parent blocks.
+[ Design Bug Fix ][ Slider Block ] Fixed styles that relied on class names Swiper removed, so the pagination keeps its intended left and right padding when the arrows sit at the bottom, with slightly smaller bullets on mobile so the number that fits on one line is not reduced. On Firefox 120 and below the pagination keeps the layout it had before this change.
+[ Design Bug Fix ][ Slider Block ][ Post List Slider Block (Pro) ] Fixed the navigation arrows so they keep their intended size and stay centered in the button now that Swiper draws them as an SVG instead of an icon font.
+[ Design Bug Fix ][ Slider Block ] Fixed the zoom animation jumping straight to the final scale instead of gradually enlarging, including during loop playback, and the background not being drawn on the slides either side of the active one.
+[ Design Bug Fix ][ Slider Block ][ Post List Slider Block (Pro) ] Fixed the pagination bullets, navigation arrows and pause/play button showing no focus indicator when reached with the keyboard.
+[ Design Bug Fix ][ Post List Slider Block (Pro) ] Fixed the navigation arrows set to "Bottom on all devices" sitting 10px above the bottom edge on mobile instead of lining up with the "Bottom on mobile" position.
+[ Security Fix ][ Dynamic Text (Pro) ][ Blog Card Featured Image (Pro) ][ Page Content ] Fixed an issue where unescaped attribute values were concatenated directly into HTML tags, inline styles, and class attributes in render_callback output, which could allow arbitrary HTML/attribute injection.
+[ Security Fix ][ Post List Slider Block (Pro) ] Fixed an issue where the navigation position and pagination type attribute values were concatenated directly into HTML class attributes in render_callback output without escaping, which could allow arbitrary HTML/attribute injection.
+[ Other ][ Animation (Pro) / Card (Pro) / Fixed Display (Pro) / Outer (Pro) / Slider Item ] Reworded help texts in the block editor whose English was grammatically incorrect or inconsistent with the wording used elsewhere. The Japanese translations are unchanged.
+
+= 1.124.0 =
+[ New Feature ][ Tab (Pro) ] Added sidebar controls to adjust the tab label's padding (top / bottom and left / right) and top corner radius (top left / top right).
+[ New Feature ][ Slider Block ][ Post List Slider Block (Pro) ] Added a "Bottom on all devices" option for the arrow navigation position so it stays fixed at the bottom on PC and tablet as well as mobile.
+[ Spec Change ] Update vektor-inc/font-awesome-versions from 0.7.4 to 0.7.5
+[ Spec Change ] Update vektor-inc/vk-component from 1.7.0 to 1.7.1
+[ Bug Fix ][ Button Block ] Fixed an issue where HTML tags entered in the Sub Caption field were displayed as literal text on the front end instead of being rendered as HTML.
+[ Bug Fix ][ PR Blocks (not recommended) ] Fixed an issue where opening certain legacy posts with no icon set in the PR Blocks block caused a crash in the block editor.
+[ Bug Fix ][ Slider Block ] Fixed an issue where the height setting was not applied in the block editor, causing slides to overlap as thin bands even though the front end displayed correctly.
+[ Bug Fix ][ Page Content ] Fixed an issue where the editor preview's "Edit this area" link could not be clicked to open the referenced page's edit screen. The edit link is now available from the block toolbar and sidebar.
+
+= 1.123.0 =
+[ New Feature ][ Post List Block (Pro) / Post List Slider Block (Pro) / Select Post List Block (Pro) / Child Page List Block (Pro) ] Added a setting to show or hide the modified date.
+[ Spec Change ][ Outer ( Pro ) ][ Heading (not recommended) ][ Responsive Spacer ][ New FAQ ][ Border Box ][ Button Block ] Added JSON Schema enum definitions to block.json attributes so AI and external tools can read the allowed values for each setting.
+[ Spec Change ] Update vektor-inc/font-awesome-versions from 0.7.2 to 0.7.4
+[ Spec Change ][ Accordion ( Pro ) ][ New FAQ ][ Classic FAQ ] Added keyboard navigation (Enter / Space) and ARIA attributes (aria-expanded, aria-controls) for screen reader support
+[ Bug Fix ][ Category Badge Block (Pro) ] Fixed an issue where a PHP warning could be logged when the block was placed outside of a post context such as a Query Loop.
+[ Bug Fix ][ Slider Block ][ Post List Slider Block (Pro) ] Fixed an issue where autoplay never started on devices that request reduced motion (prefers-reduced-motion), making the slider appear broken with no way to resume it. Autoplay is now suppressed only when the pause / play button is enabled so visitors can resume it.
+[ Bug Fix ][ Outer ( Pro ) and other blocks ] Fixed an issue where opening a post containing blocks such as Outer marked the post as changed without any edit, causing an "unsaved changes" warning when leaving the screen, because the block ID was regenerated on every load. The block ID is now kept and only regenerated on actual duplication.
+
+= 1.122.0 =
+[ New Feature ][ Post List Block (Pro) / Post List Slider Block (Pro) ] Added exclusion settings that let you exclude specific posts by post ID and by taxonomy term.
+[ New Feature ][ Outer ( Pro ) ][ Slider ] Added a background image button to the block toolbar, allowing the responsive background images (PC / Tablet / Mobile) to be changed without opening the sidebar.
+[ New Feature ][ Button Block ] Added hover background color and hover text color settings.
+[ New Feature ][ Button Block ] Added support for adjusting the button's inner padding via the standard spacing controls.
+[ New Feature ][ Slider Block ][ Post List Slider Block (Pro) ] Added a pause / play button that lets visitors stop and resume the autoplay.
+[ New Feature ][ Step Block / Timeline Block ] Added an option to customize the border radius of the dot in the Style panel.
+[ New Feature ][ Navigation Block ] Added an option to display the description set for each menu item.
+[ New Feature ][ Button Block ] Expanded button size presets to five steps (XL / L / M / S / XS) and added an option to set an exact font size in px.
+[ Spec Change ][ Responsive Spacer ] Changed the "Setting > VK Blocks" text in the sidebar description to a link that opens the Common Margin Setting section of the setting page in a new tab.
+[ Spec Change ][ Table of Contents ( Pro ) ] Replaced the checkbox-based open/close toggle with an aria-expanded button so screen readers announce the open/closed state (WCAG 4.1.2). Existing posts keep working.
+[ Spec Change ][ Slider Block ][ Post List Slider Block (Pro) ] Autoplay no longer starts when the visitor's device requests reduced motion (prefers-reduced-motion).
+[ Spec Change ][ Slider Block ][ Post List Slider Block (Pro) ] Changed the default value of "Stop AutoPlay when swipe" to enabled for newly added blocks.
+[ Bug Fix ][ Setting Page ] Fixed an issue where the appearance or behavior of the setting page could fail to update after an update because the admin styles and scripts were served from the cache.
+[ Bug Fix ][ Setting Page ] Fixed an issue where the left side navigation on the setting page could be cut off while a notice was displayed.
+[ Bug Fix ][ Table of Contents (Pro) ] Fixed an incorrect Japanese translation for the setting description "When enabled, headings within Border Box blocks will be included in the Table of Contents."
+[ Bug Fix ][ Table of Contents ] Fixed an issue where duplicating a heading produced a shared ID, causing table of contents links to always jump to the first heading.
+[ Bug Fix ][ Visual Embed ] Fixed an error displayed in the editor when a YouTube embed code was inserted.
+[ Bug Fix ][ Button Block ] Fixed an issue where the Sub Caption could not be edited when a button was inserted from a block pattern in WordPress 7.0. The Sub Caption can now also be edited directly inside the block, in addition to the existing setting in the sidebar.
+[ Bug Fix ][ Inline Font Size ] Fixed an issue where the unit (such as rem or em) appeared to revert to px in the toolbar when reopening the inline font size setting, even though the saved value was unchanged.
+[ Design Bug Fix ][ Icon Block ] Fixed an issue where an unintended underline appeared on the icon when a link was set.
+[ Other ][ Timeline Block ] Internal refactor: cleaned up a duplicate "color" key in the deprecated attributes definition. No changes to plugin functionality.
+
+= 1.121.1 =
+[ Bug Fix ][ List Block ] Added missing Japanese translation for the "Cross" mark style label.
+[ Bug Fix ][ Blog Card (Pro) ] Added missing Japanese translation for the "Invalid URL." error message returned by the REST API.
+
+= 1.121.0 =
+[ Design Bug Fix ][ Balloon ] Fixed design issue where arrow and bubble decorations overflowed when balloon content was empty.
+[ New Feature ][ List Block ] Added "Circle" and "Cross" block styles.
+[ Bug fix ][ Link toolbar ] Fixed relative URLs (/foo) and in-page anchors (#anchor) not opening in a new tab from the link preview in the editor (fixed malformed link preview href values such as http:///foo).
+[ Design Bug Fix ][ List Block ] Fixed an issue where style variation rules were also applied to ul / ol elements outside of the List block.
+[ Spec Change ][ Table of Contents ] Improved the open / close animation to feel smoother. Also respects the user's "Reduce motion" OS setting (WCAG 2.3.3) to skip the animation when enabled.
+
+= 1.120.0 =
+[ Spec Change ][ Various Blocks ] Made content attributes (text, URL, image, button link, etc.) editable when blocks are inserted from patterns in WordPress 7.0. Design settings remain locked to respect the pattern creator's intent.
+[ Other ] Documented the release skill's auto-transition from Phase 2 to Phase 3. No changes to plugin functionality.
+
 = 1.119.2 =
 [ Bug Fix ][ Breadcrumb (Pro) ] Fixed an issue where clicking a breadcrumb link in the block editor unexpectedly navigated away from the post edit screen. Links are now disabled in the editor, matching the behavior of the post list block.
 
@@ -136,6 +218,7 @@ e.g.
 [ Bug fix ][ Outer ( Pro ) ] Fixed an issue where "Fit to the Content area" did not constrain content width on classic themes without contentSize (e.g. Lightning Pro G2).
 [ Bug fix ][ Highlighter ] Fixed an issue where the highlighter color was removed when a post was saved by a user without the `unfiltered_html` capability (e.g. Author role, or any user on multisite).
 [ Other ][ Blog Card ( Pro ) / Visual Embed ] Compatible for WordPress 7.0 Real-Time Collaboration.
+[ Other ][ All Blocks ] Made content settings (text, URL, image, post type, category, count, custom field name, etc.) editable when blocks are inserted from patterns in WordPress 7.0. Design settings remain locked to respect the pattern creator's intent.
 
 = 1.118.4 =
 [ Bug fix ][ Grid Column / Grid Column Card ( Pro ) ] Fixed an issue where the block editor crashed with "This block has encountered an error" when certain third-party plugins were active.

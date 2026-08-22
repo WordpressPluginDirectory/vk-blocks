@@ -16,6 +16,7 @@ require_once __DIR__ . '/extensions/core/heading.php';
 require_once __DIR__ . '/extensions/core/image.php';
 require_once __DIR__ . '/extensions/core/list.php';
 require_once __DIR__ . '/extensions/core/site-logo.php';
+require_once __DIR__ . '/extensions/core/navigation.php';
 require_once __DIR__ . '/style/balloon.php';
 require_once __DIR__ . '/style/flow.php';
 require_once __DIR__ . '/style/hidden-extension.php';
@@ -26,6 +27,8 @@ require_once __DIR__ . '/view/class-vk-blocks-scrollhintrenderer.php';
 VK_Blocks_ScrollHintRenderer::init();
 require_once __DIR__ . '/view/class-vk-blocks-link-to-post.php';
 VK_Blocks_Link_To_Post::init();
+require_once __DIR__ . '/view/class-vk-blocks-link-to-custom-field.php';
+VK_Blocks_Link_To_Custom_Field::init();
 
 require_once __DIR__ . '/class-vk-blocks-print-css-variables.php';
 

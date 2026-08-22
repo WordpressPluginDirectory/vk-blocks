@@ -71,6 +71,7 @@
     }
   },
   "supports": {
+    "contentRole": true,
     "html": false,
     "className": true,
     "spacing": {

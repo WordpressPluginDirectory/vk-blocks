@@ -21,9 +21,14 @@ import {
 	ToggleControl,
 	RangeControl,
 } from '@wordpress/components';
-import { isParentReusableBlock } from '@vkblocks/utils/is-parent-reusable-block';
+import {
+	isParentReusableBlock,
+	hasBlockIdCollision,
+	shouldUpdateBlockId,
+} from '@vkblocks/utils/is-parent-reusable-block';
 import { editSliderLaunch } from './edit-slider';
 import { MultiItemSetting } from './edit-multiItem';
+import { PauseButton } from './pause-button';
 import ResponsiveSizeControl, {
 	getMaxByUnit,
 } from '@vkblocks/components/responsive-size-control';
@@ -40,6 +45,7 @@ export default function SliderEdit(props) {
 		autoPlay,
 		autoPlayStop,
 		autoPlayDelay,
+		pauseButton,
 		pagination,
 		width,
 		loop,
@@ -142,15 +148,13 @@ export default function SliderEdit(props) {
 		if (editorMode === 'slide') {
 			// requestAnimationFrame で React のレンダリングが完了するのを待ってから初期化
 			let timerId;
-			// eslint-disable-next-line no-undef
 			const rafId = requestAnimationFrame(() => {
 				timerId = setTimeout(() => {
 					editSliderLaunch();
 				}, 50);
 			});
-			// eslint-disable-next-line no-undef
+
 			return () => {
-				// eslint-disable-next-line no-undef
 				cancelAnimationFrame(rafId);
 				if (timerId) {
 					clearTimeout(timerId);
@@ -165,11 +169,14 @@ export default function SliderEdit(props) {
 			setAttributes({ clientId: undefined });
 		}
 
-		// blockID が定義されていない場合は blockID に clientID を挿入
-		// 再利用ブロックのインナーブロックではない場合 blockID を更新
+		// issue #2556: blockId を毎リロードで上書きすると dirty 化するため、
+		// 「未確定」または「再利用ブロック外での実衝突（複製）」のときだけ再採番する。
 		if (
-			blockId === undefined ||
-			isParentReusableBlock(clientId) === false
+			shouldUpdateBlockId({
+				blockId,
+				isInReusableBlock: isParentReusableBlock(clientId),
+				hasCollision: hasBlockIdCollision(clientId, blockId),
+			})
 		) {
 			setAttributes({ blockId: clientId });
 		}
@@ -243,6 +250,11 @@ export default function SliderEdit(props) {
 		// 1.49 以前では autoPlayStop が定義されていないので互換設定を追加
 		if (autoPlayStop === undefined) {
 			setAttributes({ autoPlayStop: false });
+		}
+
+		// pauseButton 追加前のブロックでは未定義なので互換設定を追加
+		if (pauseButton === undefined) {
+			setAttributes({ pauseButton: false });
 		}
 
 		// 1.49 以前では navigationPosition が定義されていないので互換設定を追加
@@ -343,6 +355,7 @@ export default function SliderEdit(props) {
 		autoPlay,
 		autoPlayStop,
 		autoPlayDelay,
+		pauseButton,
 		pagination,
 		blockId,
 		width,
@@ -386,10 +399,26 @@ export default function SliderEdit(props) {
 		);
 	}
 
+	// 停止/再生ボタンの HTML（プレビュー(slide)モードで Swiper が初期化される時のみ意味を持つため、
+	// editorMode === 'slide' かつ自動再生が有効かつ表示設定が ON の時だけ出力）
+	const pause_button_html =
+		editorMode === 'slide' && autoPlay && pauseButton ? (
+			<PauseButton />
+		) : (
+			''
+		);
+
 	const blockRef = useRef(null);
 
+	// 高さ・ズーム用の CSS は blockId をキーに生成される（index.js / save.js と共通）。
+	// issue #2556 以降 blockId は編集時に clientId と一致しなくなったため、ラッパーの
+	// クラスも blockId で揃えないと編集画面だけ CSS が当たらず表示が崩れる。
+	// The height/zoom CSS is keyed on blockId (shared with index.js / save.js).
+	// Since issue #2556, blockId no longer equals clientId in the editor, so the
+	// wrapper class must also use blockId; otherwise the CSS misses only in the
+	// editor and the slider renders broken.
 	const blockProps = useBlockProps({
-		className: `vk_slider vk_swiper vk_slider_editorMode--${editorMode} vk_slider_${clientId}${alignClass}`,
+		className: `vk_slider vk_swiper vk_slider_editorMode--${editorMode} vk_slider_${blockId}${alignClass}`,
 		ref: blockRef,
 	});
 
@@ -549,6 +578,34 @@ export default function SliderEdit(props) {
 							{...props}
 						/>
 					</BaseControl>
+					{/* 停止/再生ボタンは自動再生が有効な時のみ意味を持つため、autoPlay が ON の時だけ表示 */}
+					{autoPlay && (
+						<BaseControl
+							label={__(
+								'Display pause / play button',
+								'vk-blocks'
+							)}
+							id={`vk_slider-pauseButton`}
+							help={
+								<>
+									{__(
+										'Displays a button on the front end that lets visitors pause and resume the autoplay.',
+										'vk-blocks'
+									)}{' '}
+									{__(
+										'When this is off, autoplay keeps running even for visitors whose device requests reduced motion, since there is no button to pause it.',
+										'vk-blocks'
+									)}
+								</>
+							}
+						>
+							<AdvancedToggleControl
+								initialFixedTable={pauseButton}
+								schema={'pauseButton'}
+								{...props}
+							/>
+						</BaseControl>
+					)}
 					<BaseControl
 						label={__('Display Time', 'vk-blocks')}
 						id={`vk_slider-autoPlay`}
@@ -646,6 +703,13 @@ export default function SliderEdit(props) {
 										'vk-blocks'
 									),
 									value: 'mobile-bottom',
+								},
+								{
+									label: __(
+										'Bottom on all devices',
+										'vk-blocks'
+									),
+									value: 'always-bottom',
 								},
 							]}
 							onChange={(value) =>
@@ -769,6 +833,7 @@ export default function SliderEdit(props) {
 				{navigation_next_html}
 				{navigation_prev_html}
 				{pagination_html}
+				{pause_button_html}
 			</div>
 		</>
 	);

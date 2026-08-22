@@ -15,6 +15,7 @@ export const DisplayItemsControl = (props) => {
 		display_excerpt, //eslint-disable-line camelcase
 		display_author, //eslint-disable-line camelcase
 		display_date, //eslint-disable-line camelcase
+		display_modified, //eslint-disable-line camelcase
 		display_new, //eslint-disable-line camelcase
 		display_taxonomies, //eslint-disable-line camelcase
 		display_btn, //eslint-disable-line camelcase
@@ -66,6 +67,13 @@ export const DisplayItemsControl = (props) => {
 				onChange={(checked) => setAttributes({ display_date: checked })}
 			/>
 			<CheckboxControl
+				label={__('Modified date', 'vk-blocks')}
+				checked={display_modified} //eslint-disable-line camelcase
+				onChange={(checked) =>
+					setAttributes({ display_modified: checked })
+				}
+			/>
+			<CheckboxControl
 				label={__('New mark', 'vk-blocks')}
 				checked={display_new} //eslint-disable-line camelcase
 				onChange={(checked) => setAttributes({ display_new: checked })}
@@ -107,7 +115,7 @@ export const DisplayItemsControl = (props) => {
 			</h4>
 			<p>
 				{__(
-					'Click each card block to set the target url. You can find the url form at its sidebar.',
+					'Click each card block to set the target URL. You can find the URL field in the sidebar.',
 					'vk-blocks'
 				)}
 			</p>

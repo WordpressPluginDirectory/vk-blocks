@@ -16,6 +16,9 @@ export class VKBButton extends Component {
 		const buttonTarget = this.props.lbTarget;
 		const relAttribute = this.props.lbRelAttribute;
 		const linkToPost = this.props.lbLinkToPost;
+		const linkToCustomField = this.props.lbLinkToCustomField;
+		// 投稿リンク or カスタムフィールドURL のいずれかなら、href はサーバー側で差し替える動的リンク。
+		const isDynamicLink = linkToPost || linkToCustomField;
 		let fontAwesomeIconBefore = this.props.lbFontAwesomeIconBefore;
 		let fontAwesomeIconAfter = this.props.lbFontAwesomeIconAfter;
 		if (fontAwesomeIconBefore) {
@@ -28,8 +31,14 @@ export class VKBButton extends Component {
 		const iconSizeAfter = this.props.lbIconSizeAfter;
 		const richText = this.props.lbRichtext;
 		const subCaption = this.props.lbsubCaption;
+		const lbsubCaptionRichText = this.props.lbsubCaptionRichText;
 		const inlineStyle = this.props.inlineStyle;
 		const borderRadius = this.props.borderRadius;
+		// 任意指定の文字サイズ（単位込み CSS 値。例: 18px / 1.2em / 1rem）。
+		// 値があるときはサイズプリセット(btn-*)を付けず、インライン font-size で指定する。
+		// Optional font size as a CSS value with unit (e.g. 18px / 1.2em / 1rem).
+		// When set, the size preset (btn-*) is omitted and the font size is applied inline instead.
+		const fontSizeValue = this.props.lbFontSizeValue;
 		let aClass = '';
 		let iconBefore = '';
 		let iconAfter = '';
@@ -100,7 +109,17 @@ export class VKBButton extends Component {
 		}
 		*/
 
-		aClass = `${aClass} btn-${buttonSize}`;
+		// 任意の文字サイズ(fontSizeValue)が指定されている時は、サイズプリセット(btn-*)を
+		// 付与しない（プリセットと数値指定を出力レベルで排他にする）。
+		// 未指定（＝既存データを含む大多数）の時は従来どおり btn-{buttonSize} を付与するため、
+		// 既存の保存済み HTML はバイト単位で不変になる。
+		// When a font size value is set, do not add the size preset (btn-*) so the preset
+		// and the numeric size are mutually exclusive at output level. When it is unset
+		// (including existing data), btn-{buttonSize} is added as before, keeping the
+		// saved HTML byte-identical for legacy blocks.
+		if (!fontSizeValue) {
+			aClass = `${aClass} btn-${buttonSize}`;
+		}
 
 		if (buttonAlign === 'block') {
 			aClass = `${aClass} btn-block`;
@@ -116,7 +135,7 @@ export class VKBButton extends Component {
 
 		if (fontAwesomeIconBefore) {
 			let fontAwesomeIconBeforeClassName =
-				fontAwesomeIconBefore.match(/class="(.*?)"/)[1];
+				fontAwesomeIconBefore.match(/class="(.*?)"/)?.[1] ?? '';
 			fontAwesomeIconBeforeClassName += ` vk_button_link_before`;
 			const styleBefore = iconSizeBefore
 				? ` style='font-size: ${iconSizeBefore}'`
@@ -125,7 +144,7 @@ export class VKBButton extends Component {
 		}
 		if (fontAwesomeIconAfter) {
 			let fontAwesomeIconAfterClassName =
-				fontAwesomeIconAfter.match(/class="(.*?)"/)[1];
+				fontAwesomeIconAfter.match(/class="(.*?)"/)?.[1] ?? '';
 			fontAwesomeIconAfterClassName += ` vk_button_link_after`;
 			const styleAfter = iconSizeAfter
 				? ` style='font-size: ${iconSizeAfter}'`
@@ -133,10 +152,17 @@ export class VKBButton extends Component {
 			iconAfter = `<i class="${fontAwesomeIconAfterClassName}"${styleAfter}></i>`;
 		}
 
-		// inlineStyleからborderRadiusを含む新しいスタイルオブジェクトを構築
+		// inlineStyleからborderRadius・任意文字サイズを含む新しいスタイルオブジェクトを構築
 		const btnInlineStyle = { ...inlineStyle };
 		if (borderRadius) {
 			btnInlineStyle.borderRadius = borderRadius;
+		}
+		// 任意の文字サイズが指定されている時だけインライン font-size を出力する。
+		// 未指定の時は何も足さないので既存の保存済み HTML は不変。
+		// Output an inline font-size only when a font size value is set; nothing is added
+		// otherwise so the saved HTML stays unchanged for legacy blocks.
+		if (fontSizeValue) {
+			btnInlineStyle.fontSize = fontSizeValue;
 		}
 
 		// rel属性の設定
@@ -149,9 +175,9 @@ export class VKBButton extends Component {
 
 		return (
 			/* eslint react/jsx-no-target-blank: 0 */
-			/* eslint-disable-next-line jsx-a11y/anchor-is-valid -- linkToPost: href replaced server-side with permalink */
+			/* eslint-disable-next-line jsx-a11y/anchor-is-valid -- linkToPost / linkToCustomField: href replaced server-side (permalink or custom field URL) */
 			<a
-				href={linkToPost ? '#' : buttonUrl}
+				href={isDynamicLink ? '#' : buttonUrl}
 				style={btnInlineStyle}
 				className={aClass}
 				role={'button'}
@@ -159,6 +185,9 @@ export class VKBButton extends Component {
 				target={buttonTarget ? '_blank' : null}
 				rel={relValue}
 				{...(linkToPost ? { 'data-vk-link-to-post': '1' } : {})}
+				{...(linkToCustomField && !linkToPost
+					? { 'data-vk-link-to-custom-field-url': '1' }
+					: {})}
 			>
 				<div className={'vk_button_link_caption'}>
 					{parse(iconBefore)}
@@ -166,8 +195,23 @@ export class VKBButton extends Component {
 					{parse(iconAfter)}
 				</div>
 				{/*サブキャプションが入力された時のみ表示*/}
-				{subCaption && (
-					<p className={'vk_button_link_subCaption'}>{subCaption}</p>
+				{lbsubCaptionRichText ? (
+					<p className={'vk_button_link_subCaption'}>
+						{lbsubCaptionRichText}
+					</p>
+				) : (
+					subCaption && (
+						<p
+							className={'vk_button_link_subCaption'}
+							dangerouslySetInnerHTML={{
+								__html: subCaption
+									.replace(/&/g, '&amp;')
+									.replace(/</g, '&lt;')
+									.replace(/>/g, '&gt;')
+									.replace(/&lt;br\s*\/?&gt;/gi, '<br>'),
+							}}
+						/>
+					)
 				)}
 			</a>
 		);

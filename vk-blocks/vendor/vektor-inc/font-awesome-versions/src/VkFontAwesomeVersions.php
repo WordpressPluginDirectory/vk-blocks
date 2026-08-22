@@ -5,7 +5,7 @@
  * @package vektor-inc/font-awesome-versions
  * @license GPL-2.0+
  *
- * @version 0.7.0
+ * @version 0.7.5
  */
 
 namespace VektorInc\VK_Font_Awesome_Versions;
@@ -210,7 +210,7 @@ class VkFontAwesomeVersions {
 		$versions = array(
 			'7_WebFonts_CSS' => array(
 				'label'                => '7 Web Fonts with CSS',
-				'version'              => '7.1.0',
+				'version'              => '7.3.0',
 				'type'                 => 'web-fonts-with-css',
 				'url_css'              => $font_awesome_directory_uri . 'css/all.min.css',
 				'url_js'               => '',
@@ -222,7 +222,7 @@ class VkFontAwesomeVersions {
 			),
 			'7_SVG_JS'       => array(
 				'label'                => '7 SVG with JS ( ' . __( 'Not recommended', 'font-awesome-versions' ) . ' )',
-				'version'              => '7.1.0',
+				'version'              => '7.3.0',
 				'type'                 => 'svg-with-js',
 				/* [ Notice ] use editor css*/
 				'url_css'              => $font_awesome_directory_uri . 'css/all.min.css',
@@ -263,14 +263,36 @@ class VkFontAwesomeVersions {
 	 */
 	public static function get_option_fa() {
 
+		// 既定値は複数の分岐で使うため、一度だけ算出して使い回す（get_option_default() は apply_filters 経由のため）。
+		$default = self::get_option_default();
+
 		// 基本の保存値（実際に読み込むアセットのバージョン）
 		$version = get_option( 'vk_font_awesome_version' );
-		$options = get_option( 'vk_font_awesome_options', self::get_option_default() );
+		$options = get_option( 'vk_font_awesome_options', $default );
 
-		// 古い保存値が残っている場合のマイグレーション対応
-		if ( ! empty( $version ) && empty( $options['version'] ) ) {
-			$options['version'] = $version;
+		// 保存値が配列でない壊れた状態でも、後続の添字アクセスや書き込みで警告や Fatal を起こさないよう、
+		// マイグレーション処理より前に配列であることを保証する。
+		if ( ! is_array( $options ) ) {
+			$options = $default;
+		}
+
+		// 古い保存値（旧 vk_font_awesome_version オプション）が残っている場合のマイグレーション対応。
+		// 値は vk_font_awesome_options へ一本化するため、現在の version が空のときのみ引き継ぎ、
+		// 引き継ぎの有無にかかわらず旧オプションは常に削除して DB にスタール値を残さない。
+		if ( ! empty( $version ) ) {
+			if ( empty( $options['version'] ) ) {
+				$options['version'] = $version;
+			}
 			delete_option( 'vk_font_awesome_version' );
+		}
+
+		// version キーが無い／文字列でない・compatibility が不正など、壊れた保存値でも
+		// 後続の比較や添字アクセスで警告や Fatal を起こさないよう正規化する。
+		if ( empty( $options['version'] ) || ! is_string( $options['version'] ) ) {
+			$options['version'] = $default['version'];
+		}
+		if ( ! isset( $options['compatibility'] ) || ! is_array( $options['compatibility'] ) ) {
+			$options['compatibility'] = array();
 		}
 
 		// 4系は7系へ移行しつつ4系互換モードを有効化
@@ -295,6 +317,14 @@ class VkFontAwesomeVersions {
 			$options['version'] = '7_SVG_JS';
 		}
 
+		// ここまでの移行処理でも versions() に存在しないキー（不正な文字列など）が残っている場合はデフォルトへフォールバックする。
+		// get_option_fa() が常に有効なバージョンキーを返すようにし、=== 比較のみを行う呼び出し元
+		// （ex_and_link() / print_fa() / dynamic_css() / class_switch() / old_notice() 等）での未定義参照を防ぐ。
+		$valid_versions = self::versions();
+		if ( empty( $valid_versions[ $options['version'] ] ) ) {
+			$options['version'] = $default['version'];
+		}
+
 		// 保存値が存在しない場合はデフォルトをセット
 		update_option( 'vk_font_awesome_options', $options );
 
@@ -309,21 +339,23 @@ class VkFontAwesomeVersions {
 	public static function current_info() {
 		// アセット読み込み用の実バージョンを算出
 		$versions = self::versions();
-		$option   = get_option( 'vk_font_awesome_options', self::get_option_default() );
 
-		if ( '7_WebFonts_CSS' === $option['version'] ) {
-			$option = '7_WebFonts_CSS';
-		} elseif ( '7_SVG_JS' === $option['version'] ) {
-			$option = '7_SVG_JS';
+		// 実際に使用するバージョンは get_option_fa() の正規化結果を唯一の基準にする。
+		// これによりレガシー値（4/5/6 系）も 7 系（SVG / CSS の別を保持）へ正しく解決され、
+		// 呼び出し箇所（フロント / 管理画面 / エディタ）による差異が出ない。
+		$option = self::get_option_fa();
+
+		// 保存値は array( 'version' => ... ) 想定だが、古い保存値や誤った値が入っている場合に備えて
+		// バージョンキー（文字列）を安全に取り出す。配列のまま添字アクセスすると PHP 8 で Fatal になるため。
+		$version = is_array( $option ) && isset( $option['version'] ) ? $option['version'] : $option;
+
+		// フィルタ等で $versions に存在しないキーが返っても未定義参照にならないよう、
+		// 確実に存在する 7 系 CSS を最終フォールバックにする（$versions は 7 系のキーのみ持つ）。
+		if ( ! is_string( $version ) || empty( $versions[ $version ] ) ) {
+			$version = '7_WebFonts_CSS';
 		}
 
-		// 存在しないキーが指定されても7系CSSにフォールバック
-		if ( empty( $versions[ $option ] ) ) {
-			$options = self::get_option_default();
-			$option  = $options['version'];
-		}
-
-		return $versions[ $option ];
+		return $versions[ $version ];
 	}
 
 	/**

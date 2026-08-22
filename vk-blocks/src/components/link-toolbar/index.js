@@ -12,6 +12,8 @@ import { URLInput } from '@wordpress/block-editor';
 import { __, sprintf } from '@wordpress/i18n';
 import { link, linkOff, keyboardReturn, globe, copy } from '@wordpress/icons';
 
+import { formatLinkUrl } from './format-link-url';
+
 // コアの LinkControl と同じ __preview 系クラス・構造に合わせる（WP仕様に準拠）
 const LinkPreview = ({
 	linkUrl,
@@ -23,13 +25,9 @@ const LinkPreview = ({
 	relAttribute,
 	linkDescription,
 }) => {
-	const displayURL =
-		linkUrl.startsWith('http://') ||
-		linkUrl.startsWith('https://') ||
-		linkUrl.startsWith('tel:') ||
-		linkUrl.startsWith('mailto:')
-			? linkUrl
-			: 'http://' + linkUrl;
+	// LinkToolbar 側の formatUrl と同じ判定で URL を整形する。
+	// （`/foo` や `#section` などの相対パス・アンカーをそのまま素通しする）
+	const displayURL = formatLinkUrl(linkUrl);
 	const isUrlTitle = linkTitle === linkUrl;
 
 	return (
@@ -105,6 +103,11 @@ const LinkToolbar = (props) => {
 		isDescendentOfQueryLoop,
 		linkToPost,
 		setLinkToPost,
+		// クエリループ内での「カスタムフィールドURL」用（任意・button のみが渡す）
+		linkToCustomField,
+		setLinkToCustomField,
+		customFieldName,
+		setCustomFieldName,
 	} = props;
 	const [isOpen, setIsOpen] = useState(false);
 	const [linkTitle, setLinkTitle] = useState('');
@@ -115,7 +118,7 @@ const LinkToolbar = (props) => {
 
 	useEffect(() => {
 		if (linkUrl) {
-			const formattedUrl = formatUrl(linkUrl);
+			const formattedUrl = formatLinkUrl(linkUrl);
 			const isExternalLink =
 				!formattedUrl.startsWith(window.location.origin) &&
 				!formattedUrl.startsWith('#'); // 外部リンクかどうか判定
@@ -182,34 +185,80 @@ const LinkToolbar = (props) => {
 		if (typeof setLinkToPost === 'function') {
 			setLinkToPost(false);
 		}
+		if (typeof setLinkToCustomField === 'function') {
+			setLinkToCustomField(false);
+		}
 		setIsOpen(false);
 	};
 
-	// クエリループ内で「投稿へのリンク」か「URLを指定」のどちらか（2択）
-	const showLinkDestinationChoice =
+	// クエリループ内で「投稿へのリンク」を出せるか（既存）
+	const showLinkToPostChoice =
 		isDescendentOfQueryLoop &&
 		linkToPost !== undefined &&
 		typeof setLinkToPost === 'function';
+	// button だけが渡す「カスタムフィールドURL」を出せるか。
+	// MVP は linkToPost と同じくクエリループ内に限定する。他ブロックは prop 未指定で false。
+	const showCustomFieldChoice =
+		isDescendentOfQueryLoop &&
+		linkToCustomField !== undefined &&
+		typeof setLinkToCustomField === 'function';
+	// 「リンク先の選択」ラジオ自体を出すか（post か customField のどちらかが出せるなら出す）。
+	const showLinkDestinationChoice =
+		showLinkToPostChoice || showCustomFieldChoice;
 	const isLinkToPostMode = !!linkToPost;
+	const isCustomFieldMode = !!linkToCustomField;
+	// 動的リンク（投稿リンク or カスタムフィールドURL）モードでは生URL入力・プレビューを出さない。
+	const isDynamicMode = isLinkToPostMode || isCustomFieldMode;
+	// ラジオの現在値（排他）。customField を最優先で判定する。
+	let currentDestination = 'url';
+	if (isCustomFieldMode) {
+		currentDestination = 'customField';
+	} else if (isLinkToPostMode) {
+		currentDestination = 'post';
+	}
+
+	// リンク先を排他的に切り替える。2つの排他 bool が同時に true にならないよう、
+	// 常に「選ばれたモードだけ true・他は false」で両方の setter を呼ぶ。
+	const applyLinkDestination = (value) => {
+		if (typeof setLinkToPost === 'function') {
+			setLinkToPost(value === 'post');
+		}
+		if (typeof setLinkToCustomField === 'function') {
+			setLinkToCustomField(value === 'customField');
+		}
+	};
 
 	// ブロックがクエリループ外に移ったら「投稿へのリンク」を解除する
 	useEffect(() => {
 		if (
-			!showLinkDestinationChoice &&
+			!showLinkToPostChoice &&
 			linkToPost &&
 			typeof setLinkToPost === 'function'
 		) {
 			setLinkToPost(false);
 		}
-	}, [showLinkDestinationChoice, linkToPost, setLinkToPost]);
+	}, [showLinkToPostChoice, linkToPost, setLinkToPost]);
+
+	// ブロックがクエリループ外に移ったら「カスタムフィールドURL」を解除する
+	useEffect(() => {
+		if (
+			!showCustomFieldChoice &&
+			linkToCustomField &&
+			typeof setLinkToCustomField === 'function'
+		) {
+			setLinkToCustomField(false);
+		}
+	}, [showCustomFieldChoice, linkToCustomField, setLinkToCustomField]);
 
 	// リンクが設定されているか（ツールバーアイコンの反転・is-pressed に使用）
 	const hasLink =
 		!!linkToPost ||
+		!!linkToCustomField ||
 		!!(linkUrl && typeof linkUrl === 'string' && linkUrl.trim() !== '');
 
 	const handleCopy = function (url) {
-		const formattedUrl = url.startsWith('#') ? url : formatUrl(url);
+		// `#` や `/` などの素通し条件は formatLinkUrl 内で一元管理する
+		const formattedUrl = formatLinkUrl(url);
 		if (typeof window !== 'undefined' && window.navigator.clipboard) {
 			window.navigator.clipboard
 				.writeText(formattedUrl)
@@ -238,27 +287,9 @@ const LinkToolbar = (props) => {
 		}
 	};
 
-	// URLのフォーマット関数を更新
-	const formatUrl = (url) => {
-		// 絶対パス・相対パス・アンカーリンクであればそのまま返す
-		if (
-			url.startsWith('http://') ||
-			url.startsWith('https://') ||
-			url.startsWith('/') ||
-			url.startsWith('#') ||
-			url.startsWith('tel:') ||
-			url.startsWith('mailto:') ||
-			url === ''
-		) {
-			return url;
-		}
-		// その他のリンクは http:// を付加する
-		return 'http://' + url;
-	};
-
 	const handleSubmit = () => {
 		if (linkUrl) {
-			setLinkUrl(formatUrl(linkUrl));
+			setLinkUrl(formatLinkUrl(linkUrl));
 		}
 	};
 
@@ -311,15 +342,30 @@ const LinkToolbar = (props) => {
 							<div className="vk-block-editor-link-destination-choice">
 								<RadioControl
 									label={__('Link destination', 'vk-blocks')}
-									selected={isLinkToPostMode ? 'post' : 'url'}
+									selected={currentDestination}
 									options={[
-										{
-											label: __(
-												'Link to post',
-												'vk-blocks'
-											),
-											value: 'post',
-										},
+										...(showLinkToPostChoice
+											? [
+													{
+														label: __(
+															'Link to post',
+															'vk-blocks'
+														),
+														value: 'post',
+													},
+												]
+											: []),
+										...(showCustomFieldChoice
+											? [
+													{
+														label: __(
+															'Custom field URL',
+															'vk-blocks'
+														),
+														value: 'customField',
+													},
+												]
+											: []),
 										{
 											label: __(
 												'Specify URL',
@@ -329,14 +375,35 @@ const LinkToolbar = (props) => {
 										},
 									]}
 									onChange={(value) =>
-										setLinkToPost(value === 'post')
+										applyLinkDestination(value)
 									}
 								/>
 							</div>
 						)}
-						{!isLinkToPostMode && linkUrl && (
+						{isCustomFieldMode &&
+							typeof setCustomFieldName === 'function' && (
+								<div className="vk-block-editor-link-destination-custom-field">
+									<TextControl
+										label={__(
+											'Custom Field Name',
+											'vk-blocks'
+										)}
+										value={customFieldName || ''}
+										onChange={(value) =>
+											setCustomFieldName(value)
+										}
+										help={__(
+											'The link points to the URL stored in this custom field of each post.',
+											'vk-blocks'
+										)}
+									/>
+								</div>
+							)}
+						{!isDynamicMode && linkUrl && (
+							// LinkPreview には生の linkUrl を渡し、表示用 URL の整形は LinkPreview 内部の formatLinkUrl に一任する
+							// （二重呼び出しを避け、プレゼンテーション層に責務を統一する）
 							<LinkPreview
-								linkUrl={formatUrl(linkUrl)}
+								linkUrl={linkUrl}
 								linkTitle={linkTitle}
 								icon={icon}
 								linkTarget={linkTarget}
@@ -352,8 +419,7 @@ const LinkToolbar = (props) => {
 								onClose();
 							}}
 						>
-							{(!showLinkDestinationChoice ||
-								!isLinkToPostMode) && (
+							{(!showLinkDestinationChoice || !isDynamicMode) && (
 								<div className="vk-block-editor-link-toolbar-section vk-block-editor-link-toolbar-section-url">
 									<div className="vk-block-editor-url-input-wrapper">
 										<URLInput
@@ -420,7 +486,7 @@ const LinkToolbar = (props) => {
 										</>
 									)}
 							</div>
-							{!isLinkToPostMode &&
+							{!isDynamicMode &&
 								linkDescription !== undefined &&
 								typeof setLinkDescription === 'function' && (
 									<div className="vk-block-editor-link-toolbar-section vk-block-editor-link-toolbar-section-description">

@@ -5,14 +5,14 @@
  * @package vektor-inc/vk-admin
  * @license GPL-2.0+
  *
- * @version 0.5.0
+ * @version 0.8.1
  */
 
 namespace VektorInc\VK_Admin;
 
 class VkAdmin {
 
-	public static $version = '0.5.0';
+	public static $version = '0.8.1';
 
 	public static function init() {
 		$locale = ( is_admin() && function_exists( 'get_user_locale' ) ) ? get_user_locale() : get_locale();
@@ -20,26 +20,63 @@ class VkAdmin {
 		add_action( 'admin_enqueue_scripts', array( __CLASS__, 'admin_common_css' ) );
 		add_action( 'customize_register', array( __CLASS__, 'admin_common_css' ) );
 		add_action( 'wp_dashboard_setup', array( __CLASS__, 'dashboard_widget' ), 1 );
-		add_action( 'enqueue_block_editor_assets', array( __CLASS__, 'add_widget_screen_css' ) );
+		add_action( 'enqueue_block_assets', array( __CLASS__, 'add_widget_screen_css' ) );
+	}
+
+	/**
+	 * 現在のディレクトリ（__DIR__）に対応する URL を返す
+	 * WordPress を専用ディレクトリに置く構成（site_url と home_url が異なる）や
+	 * wp-content の場所をカスタマイズしている環境でも正しく動作するよう、
+	 * ABSPATH ではなく WP_CONTENT_DIR / content_url() を起点に解決する。
+	 *
+	 * @return string 現在のディレクトリの URL
+	 */
+	protected static function get_current_dir_url() {
+		// 現在のディレクトリ末尾にもスラッシュを付与しておくことで、
+		// dirname() が末尾スラッシュなしを返すケースでも比較対象と桁を揃える。
+		$current_path = trailingslashit( wp_normalize_path( dirname( __FILE__ ) ) );
+
+		// WP_CONTENT_DIR が現在のパスの先頭に一致する想定。
+		// 末尾スラッシュ付きで比較・置換することで、wp-content と wp-content-other
+		// のような同一プレフィックス別ディレクトリへの誤マッチを防ぐ。
+		// content_url() を基準に置換することで site_url と home_url が異なる
+		// 構成でも正しい URL を組み立てられる。
+		$content_path = trailingslashit( wp_normalize_path( WP_CONTENT_DIR ) );
+		if ( 0 === strpos( $current_path, $content_path ) ) {
+			$current_url = trailingslashit( content_url() ) . substr( $current_path, strlen( $content_path ) );
+			return untrailingslashit( $current_url );
+		}
+
+		// フォールバック: 従来通り ABSPATH ベースで解決する。
+		// こちらも末尾スラッシュ付きで比較し、誤マッチを防ぐ。
+		$abs_path = trailingslashit( wp_normalize_path( ABSPATH ) );
+		if ( 0 === strpos( $current_path, $abs_path ) ) {
+			$current_url = trailingslashit( site_url( '/' ) ) . substr( $current_path, strlen( $abs_path ) );
+			return untrailingslashit( $current_url );
+		}
+
+		// いずれにも一致しない場合でも、必ず URL を返す。
+		// str_replace では置換対象が見つからないとパスをそのまま返してしまい、
+		// 絶対パスが URL として enqueue されてしまうため、plugins_url() に委ねる。
+		// vendor 配下に置かれていても plugins_url は親プラグインの URL を解決してくれる。
+		return untrailingslashit( plugins_url( '', __FILE__ ) );
 	}
 
 	public static function add_widget_screen_css() {
-		$current_path = dirname( __FILE__ );
-		$current_url  = str_replace( ABSPATH, site_url( '/' ), $current_path );
+		if ( ! is_admin() ) {
+			return;
+		}
+		$current_url = self::get_current_dir_url();
 		wp_enqueue_style( 'vk-admin-style', $current_url . '/assets/css/customize-and-widget.css', array(), self::$version, 'all' );
 	}
 
 	public static function admin_common_css() {
-		$current_path = wp_normalize_path( dirname( __FILE__ ) );
-		$abs_path     = wp_normalize_path( ABSPATH );
-		$current_url  = str_replace( $abs_path, site_url( '/' ), $current_path );
+		$current_url = self::get_current_dir_url();
 		wp_enqueue_style( 'vk-admin-style', $current_url . '/assets/css/vk_admin.css', array(), self::$version, 'all' );
 	}
 
 	public static function admin_enqueue_scripts() {
-		$current_path = wp_normalize_path( dirname( __FILE__ ) );
-		$abs_path     = wp_normalize_path( ABSPATH );
-		$current_url  = str_replace( $abs_path, site_url( '/' ), $current_path );
+		$current_url = self::get_current_dir_url();
 		wp_enqueue_script( 'jquery' );
 		wp_enqueue_media();
 		wp_enqueue_script( 'vk-admin-js', $current_url . '/assets/js/vk_admin.js', array( 'jquery' ), self::$version );
@@ -391,19 +428,34 @@ class VkAdmin {
 			<?php if ( $get_layout == 'column_2' ) : ?>
 				<div class="pageLogo"><?php echo $get_logo_html; ?></div>
 				<?php if ( $get_page_title ) : ?>
-					<h1 class="page_title"><?php echo $get_page_title; ?></h1>
+					<h1 class="page_title"><?php echo wp_kses_post( $get_page_title ); ?></h1>
 				<?php endif; ?>
 			<?php endif; ?>
 
+			<?php
+			/*
+			 * Hidden marker for WordPress admin notices.
+			 * WordPress core (wp-admin/js/common.js) moves admin notices to just
+			 * after `.wp-header-end`. Without this marker, the column_3 layout has no
+			 * h1, so notices get inserted after the first heading inside the sidebar
+			 * (the h2.page_title), pushing the navigation off-screen. Placing this
+			 * marker above `.adminLayout` makes notices appear at the top of the page
+			 * (in the main area) for every layout, keeping the sidebar navigation
+			 * visible. For column_2 the marker sits right after the h1, so the notice
+			 * position is identical to before (no change).
+			 */
+			?>
+			<hr class="wp-header-end" />
+
 			<div class="adminLayout">
-				<div class="adminMain <?php echo $get_layout; ?>">
+				<div class="adminMain <?php echo esc_attr( $get_layout ); ?>">
 
 					<?php if ( $get_layout == 'column_3' ) : ?>
 						<div id="adminContent_sub" class="scrTracking adminMain_sub">
 							<div class="adminMain_sub_inner">
 								<div class="pageLogo"><?php echo $get_logo_html; ?></div>
 								<?php if ( $get_page_title ) : ?>
-								<h2 class="page_title"><?php echo $get_page_title; ?></h2>
+								<h2 class="page_title"><?php echo wp_kses_post( $get_page_title ); ?></h2>
 								<?php endif; ?>
 								<div class="vk_option_nav">
 									<ul>
@@ -427,4 +479,3 @@ class VkAdmin {
 		<?php
 	}
 }
-
