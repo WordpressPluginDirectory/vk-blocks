@@ -3,8 +3,8 @@ Contributors: vektor-inc,kurudrive,naoki0h,nc30,una9,kaorock72,rickaddison7634,m
 Donate link:
 Tags: Gutenberg,FAQ,alert
 Requires at least: 6.6
-Tested up to: 7.0
-Stable tag: 1.126.0
+Tested up to: 7.1
+Stable tag: 1.128.0
 Requires PHP: 7.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -107,6 +107,38 @@ e.g.
 1. VK Blocks examples.
 
 == Changelog ==
+
+= 1.128.0 =
+[ New Feature ][ Slider Block ][ Post List Slider Block (Pro) ] Added a "Show actual slide count" option for the "Number of slides" pagination. When it is off, Swiper shows the number of positions it can stop at as the total, which can look smaller than the actual number of slides when loop is off and multiple slides are shown per view; turning this on shows the real slide count and the currently visible range instead ("1–3 / 6" visually, and "Showing 1 to 3 of 6" for screen readers).
+[ New Feature ][ Icon Block ] Added "Copy styles" / "Paste styles" to the block settings menu, letting the icon type, color, size, margin and corner radius be copied to other Icon blocks.
+[ Spec Change ][ Slider Block ] Changed the editor preview so that, when "Number of items to change in a transition" is set to "Same as the number of items to display" and "Number of Items to display per view" is a decimal, the preview now advances by that number truncated to a whole number instead of one slide, matching the front end.
+[ Bug Fix ][ Slider Block ] Fixed the background zoom animation playing even on devices that request reduced motion (prefers-reduced-motion). The background now stays at its initial scale and remains visible.
+[ Design Bug Fix ] Fixed the Font Awesome icon input field having no margin below it, making it look stuck to the "Select Icon" button underneath.
+
+= 1.127.0 =
+[ New Feature ][ Outer ( Pro ) ] The divider shape can now be created by cutting out the section's own background, so it looks natural even in headers and footers without matching the adjacent color. Existing blocks keep their appearance and color settings unchanged; only newly added blocks use the new method.
+[ New Feature ][ Flow ] Added controls to delete or replace registered images directly.
+[ New Feature ][ Site Title Block ] Added an option to output the site title block as an h1 tag only on the front page.
+[ Spec Change ][ Slider Block ][ Post List Slider Block (Pro) ] The screen reader label of the pause/play button now follows the site language instead of the language of whoever edited the post.
+[ Spec Change ][ Slider Block ] Updated Swiper used in the block editor from 14.0.6 to 14.2.0.
+[ Spec Change ] Updated the WordPress packages the block editor code is built against to the latest set, including @wordpress/icons 13.2.0 to 15.5.0 which is bundled into the plugin, so a few editor icons may look slightly different.
+[ Bug Fix ][ Slider Block ] Fixed an issue where a change to the translation, or the editor's translation data failing to load, made existing posts containing a pause/play button prompt for block recovery.
+[ Bug Fix ][ Button Block ] Fixed an issue where moving or copying a button out of a row of buttons into a standalone block could leave its width and spacing appearance unexpectedly changed.
+[ Bug Fix ][ Button Block ] Cleaned up a duplicated class in the markup of filled buttons with a custom text color. There is no change in appearance and existing buttons are unaffected.
+[ Design Bug Fix ][ Outer (Pro) / Slider Item / Flow ] Standardized image action button heights and Delete button colors, and improved attachment ID resolution for large media libraries.
+
+= 1.126.4 =
+[ Bug Fix ] Fixed the free version's package including unnecessary developer files (uncompiled source, translation files) that are not needed at runtime and could interfere with wordpress.org-hosted translations.
+[ Bug Fix ] Fixed the import/export tool's "Toggle all" checkbox not reflecting the state of the items, and the Export button staying enabled when no item was selected.
+[ Design Bug Fix ] Fixed the checkboxes in the import/export tool's Export and Import panels being displayed with no vertical spacing, making it hard to tell where one item ended and the next began.
+[ Security Fix ] Added a direct file access check to internal PHP files that lacked one, and escaped an output value in a customizer control that bypassed escaping.
+
+= 1.126.2 =
+[ Security Fix ][ Icon Block / Button Block / Outer Block (Pro) / Group Block / Cover Block ] Fixed an issue where the Link to Post feature output unescaped HTML attributes, which could allow stored XSS.
+
+= 1.126.1 =
+[ Bug Fix ] Update vektor-inc/font-awesome-versions from 0.7.5 to 0.7.6, fixing an issue where Font Awesome icons did not display in some server environments (e.g. AWS Bitnami).
+[ Bug Fix ][ Slider Block ] Update vektor-inc/vk-swiper from 0.4.0 to 0.4.1, fixing an issue where the slider did not work in some server environments (e.g. AWS Bitnami).
 
 = 1.126.0 =
 [ New Feature ][ Button Block ] Added an option to use a custom field's URL as the button link. When the Button block is placed inside a Query Loop, each post's button can link to the URL stored in that post's custom field.

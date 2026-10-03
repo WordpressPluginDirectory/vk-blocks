@@ -6,5 +6,7 @@ $vendorDir = dirname(__DIR__);
 $baseDir = dirname($vendorDir);
 
 return array(
+    '1da19160abd5b3e6a79694bf03550dff' => $vendorDir . '/vektor-inc/vk-helpers/src/VK_Custom_Html_Control.php',
+    '48fd6c60a476e68f2ebcdf4041fe0de5' => $vendorDir . '/vektor-inc/vk-helpers/src/VK_Custom_Text_Control.php',
     'a5f882d89ab791a139cd2d37e50cdd80' => $vendorDir . '/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php',
 );
